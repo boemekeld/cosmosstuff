@@ -127,6 +127,8 @@ nasa style
 
 .jumbotron-nasa-card{
     margin-top: 1rem;
+    background-color: var(--dark);
+    border-radius: 1rem;
 }
 
 .jumbotron-nasa, h1, p {
