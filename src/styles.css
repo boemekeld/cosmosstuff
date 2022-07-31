@@ -2,11 +2,11 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=DotGothic16&family=Montserrat+Alternates:wght@100;400&family=Montserrat:ital,wght@0,100;1,100&family=Noto+Sans:wght@400;600&family=Space+Grotesk:wght@300;400;700&family=Trispace:wght@800&display=swap');
 
-:root{
+:root {
     --dark: #000000;
     --dark-purple: #150050;
-    --soft-purple:#3F0071;
-    --screaming-purple:#610094;
+    --soft-purple: #3F0071;
+    --screaming-purple: #610094;
 }
 
 * {
@@ -19,7 +19,7 @@
     font-family: 'Trispace', sans-serif;
 }
 
-body{
+body {
     padding: 0px;
     margin: 0px;
 }
@@ -28,7 +28,7 @@ body{
 nav style
 *****************************************************************************************************************************************/
 
-.nav-style{
+.nav-style {
     background-color: var(--dark);
     color: var(--screaming-purple);
     display: flex;
@@ -41,38 +41,39 @@ nav style
     display: flex;
 }
 
-.li-nav-submenu{
+.li-nav-submenu {
     margin-left: 1rem;
     cursor: pointer;
     margin-top: 1rem;
 }
 
-.li-nav-submenu:hover{
+.li-nav-submenu:hover {
     color: var(--soft-purple);
 }
 
-.label{
+.label {
     font-size: 200%;
 }
 
 @media screen and (max-width: 992px) {
-    .label{
+    .label {
         font-size: 100%;
         margin-left: 1rem;
     }
+
     .nav-submenu {
         flex-direction: column;
     }
-  }
+}
 
-  
+
 /**********************************************************************************************************************************************************
 nav style
 *****************************************************************************************************************************************/
 /**********************************************************************************************************************************************************
 footer style
 *****************************************************************************************************************************************/
-.footer{
+.footer {
     background-color: var(--dark);
     color: var(--screaming-purple);
     display: flex;
@@ -80,28 +81,95 @@ footer style
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+
+
+
 /**********************************************************************************************************************************************************
 footer style
 *****************************************************************************************************************************************/
 /**********************************************************************************************************************************************************
 home style
 *****************************************************************************************************************************************/
-.home{
+.home {
     background-color: var(--dark-purple);
 }
-.home-img-astronaut{
+
+.home-img-astronaut {
     width: 100%;
 }
-.home-card{
+
+.home-card {
     cursor: pointer;
-    background-color: var(--dark)!important;
+    background-color: var(--dark) !important;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
-.home-p,.home-title-card{
+.home-card:hover{
+    opacity: 0.5;
+}
+
+.home-p,
+.home-title-card {
     color: var(--screaming-purple);
 }
+
 /**********************************************************************************************************************************************************
 home style
 *****************************************************************************************************************************************/
+/**********************************************************************************************************************************************************
+nasa style
+*****************************************************************************************************************************************/
+.jumbotron-nasa{
+    background-color: var(--dark-purple);
+    margin-top: 2rem;
+}
 
+.jumbotron-nasa-card{
+    margin-top: 1rem;
+}
+
+.jumbotron-nasa, h1, p {
+    color: var(--screaming-purple) !important;
+
+}
+
+.cards-nasa {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--dark-purple);
+}
+
+.card-nasa {
+    background-color: var(--dark) !important;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+
+.card-nasa:hover {
+    opacity: 0.5;
+}
+
+.card-nasa p{
+    color: var(--screaming-purple) !important;
+}
+
+.card-nasa img {
+    height: 15rem !important;
+}
+
+@media screen and (max-width: 992px) {
+    .cards-nasa {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: var(--dark-purple);
+    }
+}
+
+/**********************************************************************************************************************************************************
+nasa style
+*****************************************************************************************************************************************/
