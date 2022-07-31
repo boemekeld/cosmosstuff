@@ -1,1 +1,107 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DotGothic16&family=Montserrat+Alternates:wght@100;400&family=Montserrat:ital,wght@0,100;1,100&family=Noto+Sans:wght@400;600&family=Space+Grotesk:wght@300;400;700&family=Trispace:wght@800&display=swap');
+
+:root{
+    --dark: #000000;
+    --dark-purple: #150050;
+    --soft-purple:#3F0071;
+    --screaming-purple:#610094;
+}
+
+* {
+    font-family: 'Anton', sans-serif;
+    font-family: 'DotGothic16', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Trispace', sans-serif;
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+/**********************************************************************************************************************************************************
+nav style
+*****************************************************************************************************************************************/
+
+.nav-style{
+    background-color: var(--dark);
+    color: var(--screaming-purple);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-submenu {
+    list-style-type: none;
+    display: flex;
+}
+
+.li-nav-submenu{
+    margin-left: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.li-nav-submenu:hover{
+    color: var(--soft-purple);
+}
+
+.label{
+    font-size: 200%;
+}
+
+@media screen and (max-width: 992px) {
+    .label{
+        font-size: 100%;
+        margin-left: 1rem;
+    }
+    .nav-submenu {
+        flex-direction: column;
+    }
+  }
+
+  
+/**********************************************************************************************************************************************************
+nav style
+*****************************************************************************************************************************************/
+/**********************************************************************************************************************************************************
+footer style
+*****************************************************************************************************************************************/
+.footer{
+    background-color: var(--dark);
+    color: var(--screaming-purple);
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+/**********************************************************************************************************************************************************
+footer style
+*****************************************************************************************************************************************/
+/**********************************************************************************************************************************************************
+home style
+*****************************************************************************************************************************************/
+.home{
+    background-color: var(--dark-purple);
+}
+.home-img-astronaut{
+    width: 100%;
+}
+.home-card{
+    cursor: pointer;
+    background-color: var(--dark)!important;
+    margin-top: 1rem;
+}
+
+.home-p,.home-title-card{
+    color: var(--screaming-purple);
+}
+/**********************************************************************************************************************************************************
+home style
+*****************************************************************************************************************************************/
+
