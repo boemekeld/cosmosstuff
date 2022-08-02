@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ApodNasaComponent } from './nasa/apod-nasa/apod-nasa.component';
 import { NasaComponent } from './nasa/nasa.component';
+import { NeowsComponent } from './nasa/neows/neows.component';
 
 const routes: Routes = [
   //menu urls
@@ -10,6 +11,8 @@ const routes: Routes = [
   //nasa urls
   { path: 'nasa', component: NasaComponent, pathMatch: 'full' },
   { path: 'nasa/apod', component: ApodNasaComponent, pathMatch: 'full' },
+  { path: 'nasa/neows', component: NeowsComponent, pathMatch: 'full' },
+
 
 
 ];

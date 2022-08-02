@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="d-md-flex align-items-center justify-content-center apod">
+        <div *ngIf="this.apodData" class="d-md-flex align-items-center justify-content-center apod">
             <div *ngIf="this.apodData" class="col-12 col-md-6 apod-content">
                 <h1>{{this.apodData.title}}</h1>
                 <p>
@@ -9,6 +9,13 @@
             </div>
             <div class="col-12 col-md-6 text-center">
                 <img class="img-fluid apod-img" [src]="this.apodData.hdurl" alt="Apod image">
+            </div>
+        </div>
+        <div *ngIf="!this.apodData" class="d-md-flex align-items-center justify-content-center apod min-vh-100">
+            <div class="col-12  text-center">
+                <h1>We are getting the data for you!!</h1>
+                <p>If you get no result reload the page</p>
+                <img class="img-fluid apod-img" src="../../../assets/svg/loading.svg" alt="Apod image">
             </div>
         </div>
     </div>
