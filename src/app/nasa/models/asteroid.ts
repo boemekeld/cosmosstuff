@@ -1,0 +1,24 @@
+export class asteroid{
+    date?:string;
+    absoluteMagnitudeH?:string;
+    closeApproachDate?:string;
+    astronomicalDistance?:string;
+    kilometersDistance?:string;
+    lunarDistance?:string;
+    milesDistance?:string;
+    kilometersPerHour?:string;
+    kilometersPerSecond?:string;
+    milesPerHour?:string;
+    estimatedDiameterMaxFeet?:string;
+    estimatedDiameterMinFeet?:string;
+    estimatedDiameterMaxKm?:string;
+    estimatedDiameterMinKm?:string;
+    estimatedDiameterMaxMeters?:string;
+    estimatedDiameterMinMeters?:string;
+    estimatedDiameterMaxMiles?:string;
+    estimatedDiameterMinMiles?:string;
+    isPotentiallyHazardousAsteroid?:string;
+    nasaLink?:string;
+    name?:string;
+    neoIf?:string;
+}

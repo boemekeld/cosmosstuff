@@ -10,6 +10,7 @@ import { ApodNasaComponent } from './nasa/apod-nasa/apod-nasa.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NeowsComponent } from './nasa/neows/neows.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { credentials } from './services/nasa/credentials';
 
 
 
@@ -29,7 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [credentials],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
