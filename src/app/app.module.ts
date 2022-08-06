@@ -11,6 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NeowsComponent } from './nasa/neows/neows.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { credentials } from './services/nasa/credentials';
+import { exportToExcel } from './core/exportExcel';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { modals } from './core/modals';
 
 
 
@@ -28,9 +31,10 @@ import { credentials } from './services/nasa/credentials';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SweetAlert2Module.forRoot()
   ],
-  providers: [credentials],
+  providers: [credentials,exportToExcel,modals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

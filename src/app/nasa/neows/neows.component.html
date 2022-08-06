@@ -1,17 +1,77 @@
 <div class="container-fluid">
     <div class="row">
-        <div  class="d-md-flex justify-content-center neows min-vh-100">
+        <div class="d-md-flex justify-content-center neows min-vh-100">
 
-            <div class="col-12 col-md-6 apod-content">
-                <img src="../../../assets/svg/nasa-apod.svg" alt="">
+            <div *ngIf="this.asteroidArray.length == 0 && this.isLoading == false" class="col-12 col-md-6 apod-content">
+                <img src="../../../assets/svg/nasa-apod.svg" alt="apod nasa image">
             </div>
 
-            <form [formGroup]="newosForm" class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
+            <form *ngIf="this.asteroidArray.length == 0 && this.isLoading == false" [formGroup]="newosForm"
+                class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
                 <label>Start Date</label>
-                <input formControlName="startDate" placeholder="start date" type="date" >
+                <input formControlName="startDate" placeholder="start date" type="date">
                 <label>End Date</label>
-                <input formControlName="endDate" placeholder="end date" type="date" >
+                <input formControlName="endDate" placeholder="end date" type="date">
                 <button (click)="search()" class="p-2 mt-3">Search</button>
             </form>
+
+            <div *ngIf="this.isLoading" class="d-flex justify-content-center align-items-center  col-12 col-md-6 apod-content text-center">
+                <img  src="../../../assets/svg/loading.svg" alt="">
+            </div>
+            
+
+            <div *ngIf="this.asteroidArray.length > 0"
+                class="d-flex flex-column  col-12 col-md-12 apod-content text-center p-5 table-responsive">
+                <div class="d-flex flex-column col-12 col-md-3">
+                    <button (click)="changeFlag()">Back</button>
+                    <button (click)="exportToExcel()" class="mt-2">Export to Excel</button>
+                </div>
+                <table id="excel-table" class="table neows-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Nasa Link</th>
+                            <th scope="col">Absolute Magnitude</th>
+                            <th scope="col">Astronomical Distance</th>
+                            <th scope="col">Is Potential Hazardous</th>
+                            <th scope="col">Estimated Diameter Max in Feet</th>
+                            <th scope="col">Estimated Diameter Min in Feet</th>
+                            <th scope="col">Estimated Diameter Max in Km</th>
+                            <th scope="col">Estimated Diameter Min in Km</th>
+                            <th scope="col">Estimated Diameter Max in Meters</th>
+                            <th scope="col">Estimated Diameter Min in Meters</th>
+                            <th scope="col">Estimated Diameter Max in Miles</th>
+                            <th scope="col">Estimated Diameter Min in Miles</th>
+                            <th scope="col">Kilometers Distance</th>
+                            <th scope="col">Lunar Distance</th>
+                            <th scope="col">Miles Distance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let asteroid of this.asteroidArray; let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{this.asteroid.name}}</td>
+                            <td>{{this.asteroid.date}}</td>
+                            <td>{{this.asteroid.nasaLink}}</td>
+                            <td>{{this.asteroid.absoluteMagnitudeH}}</td>
+                            <td>{{this.asteroid.astronomicalDistance}}</td>
+                            <td>{{this.asteroid.isPotentiallyHazardousAsteroid}}</td>
+                            <td>{{this.asteroid.estimatedDiameterMaxFeet}}</td>
+                            <td>{{this.asteroid.estimatedDiameterMinFeet}}</td>
+                            <td>{{this.asteroid.estimatedDiameterMaxKm}}</td>
+                            <td>{{this.asteroid.estimatedDiameterMinKm}}</td>
+                            <td>{{this.asteroid.estimatedDiameterMaxMeters}}</td>
+                            <td>{{this.asteroid.estimatedDiameterMinMeters}}</td>
+                            <td>{{this.asteroid.estimatedDiameterMaxMiles}}</td>
+                            <td>{{this.asteroid.estimatedDiameterMinMiles}}</td>
+                            <td>{{this.asteroid.kilometersDistance}}</td>
+                            <td>{{this.asteroid.lunarDistance}}</td>
+                            <td>{{this.asteroid.milesDistance}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-</div>
