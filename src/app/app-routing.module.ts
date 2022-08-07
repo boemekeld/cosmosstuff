@@ -5,6 +5,7 @@ import { ApodNasaComponent } from './nasa/apod-nasa/apod-nasa.component';
 import { MarsRoversComponent } from './nasa/mars-rovers/mars-rovers.component';
 import { NasaComponent } from './nasa/nasa.component';
 import { NeowsComponent } from './nasa/neows/neows.component';
+import { RoscosmosComponent } from './roscosmos/roscosmos.component';
 
 const routes: Routes = [
   //menu urls
@@ -14,6 +15,8 @@ const routes: Routes = [
   { path: 'nasa/apod', component: ApodNasaComponent, pathMatch: 'full' },
   { path: 'nasa/neows', component: NeowsComponent, pathMatch: 'full' },
   { path: 'nasa/mars-rovers', component: MarsRoversComponent, pathMatch: 'full' },
+  //roscosmos urls
+  { path: 'roscosmos', component: RoscosmosComponent, pathMatch: 'full' },
 
 
 
