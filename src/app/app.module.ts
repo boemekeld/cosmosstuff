@@ -9,11 +9,12 @@ import { NasaComponent } from './nasa/nasa.component';
 import { ApodNasaComponent } from './nasa/apod-nasa/apod-nasa.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NeowsComponent } from './nasa/neows/neows.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { credentials } from './services/nasa/credentials';
 import { exportToExcel } from './core/exportExcel';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { modals } from './core/modals';
+import { MarsRoversComponent } from './nasa/mars-rovers/mars-rovers.component';
 
 
 
@@ -25,12 +26,14 @@ import { modals } from './core/modals';
     HomeComponent,
     NasaComponent,
     ApodNasaComponent,
-    NeowsComponent 
+    NeowsComponent,
+    MarsRoversComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     SweetAlert2Module.forRoot()
   ],
