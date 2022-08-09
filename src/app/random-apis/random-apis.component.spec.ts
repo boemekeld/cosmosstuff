@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RoscosmosComponent } from './roscosmos.component';
+import { RandomApisComponent } from './random-apis.component';
 
-describe('RoscosmosComponent', () => {
-  let component: RoscosmosComponent;
-  let fixture: ComponentFixture<RoscosmosComponent>;
+describe('RandomApisComponent', () => {
+  let component: RandomApisComponent;
+  let fixture: ComponentFixture<RandomApisComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RoscosmosComponent ]
+      declarations: [ RandomApisComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RoscosmosComponent);
+    fixture = TestBed.createComponent(RandomApisComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

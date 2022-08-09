@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-md-flex justify-content-center neows min-vh-100">
+            <div class="col-12 col-md-6 apod-content">
+                <img src="../../../assets/svg/kepler-project.svg" alt="apod nasa image">
+            </div>
+
+            <form [formGroup]="keplerForm"
+                class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
+                <input formControlName="minKelvin" min="0" max="1000000"  placeholder="min kelvin (temperature)" type="number">
+                <input formControlName="maxKelvin" min="0" max="1000000"  placeholder="max kelvin (temperature)" type="number">
+                <input formControlName="limitResults" min="0" max="100000"  placeholder="limit results (planets limit)" type="number">
+                <button  class="p-2 mt-3">Search</button>
+            </form>
+
+        </div>
+    </div>
+</div>

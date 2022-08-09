@@ -15,7 +15,8 @@ import { exportToExcel } from './core/exportExcel';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { modals } from './core/modals';
 import { MarsRoversComponent } from './nasa/mars-rovers/mars-rovers.component';
-import { RoscosmosComponent } from './roscosmos/roscosmos.component';
+import { RandomApisComponent } from './random-apis/random-apis.component';
+import { KeplerProjectComponent } from './random-apis/kepler-project/kepler-project.component';
 
 
 
@@ -29,7 +30,8 @@ import { RoscosmosComponent } from './roscosmos/roscosmos.component';
     ApodNasaComponent,
     NeowsComponent,
     MarsRoversComponent,
-    RoscosmosComponent,
+    RandomApisComponent,
+    KeplerProjectComponent,
   ],
   imports: [
     BrowserModule,
