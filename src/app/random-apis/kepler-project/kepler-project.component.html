@@ -1,18 +1,132 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="d-md-flex justify-content-center neows min-vh-100">
-            <div class="col-12 col-md-6 apod-content">
+        <div  class="d-md-flex justify-content-center neows min-vh-100">
+            <div *ngIf="this.keplerArray.length == 0 && this.isLoading == false" class="col-12 col-md-6 apod-content">
                 <img src="../../../assets/svg/kepler-project.svg" alt="apod nasa image">
             </div>
 
-            <form [formGroup]="keplerForm"
+            <form *ngIf="this.keplerArray.length == 0 && this.isLoading == false" [formGroup]="keplerForm"
                 class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
                 <input formControlName="minKelvin" min="0" max="1000000"  placeholder="min kelvin (temperature)" type="number">
                 <input formControlName="maxKelvin" min="0" max="1000000"  placeholder="max kelvin (temperature)" type="number">
                 <input formControlName="limitResults" min="0" max="100000"  placeholder="limit results (planets limit)" type="number">
-                <button  class="p-2 mt-3">Search</button>
+                <button (click)="search()" class="p-2 mt-3">Search</button>
             </form>
 
+            <div *ngIf="this.isLoading == true" class="col-12 col-md-6 apod-content">
+                <img src="../../../assets/svg/loading.svg" alt="loading image">
+            </div>
+
+            <div *ngIf="this.keplerArray.length > 0 && this.isLoading == false" class="col-12 col-md-3 apod-content table-responsive">
+                <table class="table-kepler">
+                <label>Reference:</label>
+
+                    <tr>
+                        <td>KOI</td>
+                        <td>Object of Interest number</td>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td>Semi-major axis (AU)</td>
+                    </tr>
+                    <tr>
+                        <td>RPLANET	</td>
+                        <td>Planetary radius (Earth radii)</td>
+                    </tr>
+                    <tr>
+                        <td>RSTAR</td>
+                        <td>Stellar radius (Sol radii)</td>
+                    </tr>
+                    <tr>
+                        <td>TSTAR</td>
+                        <td>Effective temperature of host star as reported in KIC (k)</td>
+                    </tr>
+                    <tr>
+                        <td>KMAG</td>
+                        <td>Kepler magnitude (kmag)</td>
+                    </tr>
+                    <tr>
+                        <td>TPLANET</td>
+                        <td>Equilibrium temperature of planet, per Borucki et al. (k)</td>
+                    </tr>
+                    <tr>
+                        <td>T0</td>
+                        <td>Time of transit center (BJD-2454900)</td>
+                    </tr>
+                    <tr>
+                        <td>UT0</td>
+                        <td>Uncertainty in time of transit center (+-jd)</td>
+                    </tr>
+                    <tr>
+                        <td>PER</td>
+                        <td>Period (days)</td>
+                    </tr>
+                    <tr>
+                        <td>UPER</td>
+                        <td>Uncertainty in period (+-days)</td>
+                    </tr>
+                    <tr>
+                        <td>DEC</td>
+                        <td>Declination (@J200)</td>
+                    </tr>
+                    <tr>
+                        <td>RA</td>
+                        <td>Right ascension (@J200)</td>
+                    </tr>
+                    <tr>
+                        <td>MSTAR</td>
+                        <td>Derived stellar mass (msol)</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div *ngIf="this.keplerArray.length > 0 && this.isLoading == false" class="col-12 col-md-9 apod-content table-responsive">
+                <div class="d-flex flex-column col-12 col-md-3 mt-2">
+                    <button (click)="changeFlag()">Back</button>
+                    <button (click)="exportToExcel()" class="mt-2">Export to Excel</button>
+                </div>
+                <table id="excel-table" class="table neows-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">KOI</th>
+                            <th scope="col">A</th>
+                            <th scope="col">RPLANET</th>
+                            <th scope="col">RSTAR</th>
+                            <th scope="col">TSTAR</th>
+                            <th scope="col">KMAG</th>
+                            <th scope="col">TPLANET</th>
+                            <th scope="col">T0</th>
+                            <th scope="col">UT0</th>
+                            <th scope="col">PER</th>
+                            <th scope="col">UPER</th>
+                            <th scope="col">DEC</th>
+                            <th scope="col">RA</th>
+                            <th scope="col">MSTAR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let exo of this.keplerArray; let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{this.exo.koi}}</td>
+                            <td>{{this.exo.a}}</td>
+                            <td>{{this.exo.rPlanet}}</td>
+                            <td>{{this.exo.rStar}}</td>
+                            <td>{{this.exo.tStar}}</td>
+                            <td>{{this.exo.kmag}}</td>
+                            <td>{{this.exo.tPlanet}}</td>
+                            <td>{{this.exo.t0}}</td>
+                            <td>{{this.exo.ut0}}</td>
+                            <td>{{this.exo.per}}</td>
+                            <td>{{this.exo.uper}}</td>
+                            <td>{{this.exo.dec}}</td>
+                            <td>{{this.exo.ra}}</td>
+                            <td>{{this.exo.mstar}}</td>
+ 
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

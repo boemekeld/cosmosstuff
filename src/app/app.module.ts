@@ -10,7 +10,7 @@ import { ApodNasaComponent } from './nasa/apod-nasa/apod-nasa.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NeowsComponent } from './nasa/neows/neows.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { credentials } from './services/nasa/credentials';
+import { credentials } from './services/credentials';
 import { exportToExcel } from './core/exportExcel';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { modals } from './core/modals';

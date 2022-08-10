@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { credentials } from './credentials';
+import { credentials } from '../credentials';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,6 @@ import { credentials } from './credentials';
 export class NeowsService {
   constructor(private http:HttpClient,private credentials:credentials) { }
   getNeows(startDate:string,endDate:string){
-    return this.http.get(this.credentials.getCredentials('neows',startDate,endDate))
+    return this.http.get(this.credentials.getNasaCredentials('neows',startDate,endDate))
   }
 }
