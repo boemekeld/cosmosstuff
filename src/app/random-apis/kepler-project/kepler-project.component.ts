@@ -104,4 +104,7 @@ export class KeplerProjectComponent implements OnInit {
     this.keplerArray = []
   }
 
+  info(){
+    this.modal.referenceExoplanets()
+  }
 }

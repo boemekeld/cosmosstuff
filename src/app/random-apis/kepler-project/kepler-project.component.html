@@ -7,9 +7,9 @@
 
             <form *ngIf="this.keplerArray.length == 0 && this.isLoading == false" [formGroup]="keplerForm"
                 class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
-                <input formControlName="minKelvin" min="0" max="1000000"  placeholder="min kelvin (temperature)" type="number">
-                <input formControlName="maxKelvin" min="0" max="1000000"  placeholder="max kelvin (temperature)" type="number">
-                <input formControlName="limitResults" min="0" max="100000"  placeholder="limit results (planets limit)" type="number">
+                <input formControlName="minKelvin" min="0" max="1000"  placeholder="min kelvin (temperature)" type="number">
+                <input formControlName="maxKelvin" min="0" max="1000"  placeholder="max kelvin (temperature)" type="number">
+                <input formControlName="limitResults" min="0" max="1000"  placeholder="limit results (planets limit)" type="number">
                 <button (click)="search()" class="p-2 mt-3">Search</button>
             </form>
 
@@ -17,72 +17,10 @@
                 <img src="../../../assets/svg/loading.svg" alt="loading image">
             </div>
 
-            <div *ngIf="this.keplerArray.length > 0 && this.isLoading == false" class="col-12 col-md-3 apod-content table-responsive">
-                <table class="table-kepler">
-                <label>Reference:</label>
-
-                    <tr>
-                        <td>KOI</td>
-                        <td>Object of Interest number</td>
-                    </tr>
-                    <tr>
-                        <td>A</td>
-                        <td>Semi-major axis (AU)</td>
-                    </tr>
-                    <tr>
-                        <td>RPLANET	</td>
-                        <td>Planetary radius (Earth radii)</td>
-                    </tr>
-                    <tr>
-                        <td>RSTAR</td>
-                        <td>Stellar radius (Sol radii)</td>
-                    </tr>
-                    <tr>
-                        <td>TSTAR</td>
-                        <td>Effective temperature of host star as reported in KIC (k)</td>
-                    </tr>
-                    <tr>
-                        <td>KMAG</td>
-                        <td>Kepler magnitude (kmag)</td>
-                    </tr>
-                    <tr>
-                        <td>TPLANET</td>
-                        <td>Equilibrium temperature of planet, per Borucki et al. (k)</td>
-                    </tr>
-                    <tr>
-                        <td>T0</td>
-                        <td>Time of transit center (BJD-2454900)</td>
-                    </tr>
-                    <tr>
-                        <td>UT0</td>
-                        <td>Uncertainty in time of transit center (+-jd)</td>
-                    </tr>
-                    <tr>
-                        <td>PER</td>
-                        <td>Period (days)</td>
-                    </tr>
-                    <tr>
-                        <td>UPER</td>
-                        <td>Uncertainty in period (+-days)</td>
-                    </tr>
-                    <tr>
-                        <td>DEC</td>
-                        <td>Declination (@J200)</td>
-                    </tr>
-                    <tr>
-                        <td>RA</td>
-                        <td>Right ascension (@J200)</td>
-                    </tr>
-                    <tr>
-                        <td>MSTAR</td>
-                        <td>Derived stellar mass (msol)</td>
-                    </tr>
-
-                </table>
-            </div>
-            <div *ngIf="this.keplerArray.length > 0 && this.isLoading == false" class="col-12 col-md-9 apod-content table-responsive">
-                <div class="d-flex flex-column col-12 col-md-3 mt-2">
+            <div *ngIf="this.keplerArray.length > 0 && this.isLoading == false" class="col-12 apod-content table-responsive">
+                <div class="d-flex flex-column col-8 col-md-3 m-2">
                     <button (click)="changeFlag()">Back</button>
+                    <button (click)="info()" class="mt-2">Info</button>
                     <button (click)="exportToExcel()" class="mt-2">Export to Excel</button>
                 </div>
                 <table id="excel-table" class="table neows-table">
@@ -122,7 +60,6 @@
                             <td>{{this.exo.dec}}</td>
                             <td>{{this.exo.ra}}</td>
                             <td>{{this.exo.mstar}}</td>
- 
                         </tr>
                     </tbody>
                 </table>
