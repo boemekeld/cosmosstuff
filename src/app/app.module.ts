@@ -17,6 +17,7 @@ import { modals } from './core/modals';
 import { MarsRoversComponent } from './nasa/mars-rovers/mars-rovers.component';
 import { RandomApisComponent } from './random-apis/random-apis.component';
 import { KeplerProjectComponent } from './random-apis/kepler-project/kepler-project.component';
+import { LaunchesComponent } from './random-apis/launches/launches.component';
 
 
 
@@ -32,6 +33,7 @@ import { KeplerProjectComponent } from './random-apis/kepler-project/kepler-proj
     MarsRoversComponent,
     RandomApisComponent,
     KeplerProjectComponent,
+    LaunchesComponent,
   ],
   imports: [
     BrowserModule,

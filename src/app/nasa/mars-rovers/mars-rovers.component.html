@@ -28,7 +28,7 @@
             </div>
 
             <div *ngIf="this.isLoading == false && this.roverPhotosArray.length > 0 && this.displayOption == false"
-                class="d-flex flex-column justify-content-between col-12 col-md-6 apod-content text-center p-5">
+                class="d-flex flex-column justify-content-between col-12 col-md-8 apod-content text-center p-5">
                 <div class="mars-rover-card">
                     <h5>Total Cards: {{this.roverPhotosArray.length}}</h5>
                     <button (click)="changeFlag()">Back</button>
