@@ -1,15 +1,107 @@
 <div class="container-fluid">
     <div class="row">
         <div class="d-md-flex justify-content-center neows min-vh-100">
-            <div class="col-12 col-md-6 apod-content">
+            <div *ngIf="this.launcheArr.length == 0 && this.isLoading == false" class="col-12 col-md-6 apod-content">
                 <img src="../../../assets/svg/launches.svg" alt="apod nasa image">
             </div>
 
-            <form class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
-                <input formControlName="minKelvin" min="0" max="1000" placeholder="limit" type="number">
-                <input formControlName="maxKelvin" min="0" max="1000" placeholder="offset" type="number">
-                <button class="p-2 mt-3">Search</button>
+            <form *ngIf="this.launcheArr.length == 0 && this.isLoading == false" [formGroup]="launchesForm"
+                class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
+                <label>Limit</label>
+                <input formControlName="limit" min="0" max="1000" placeholder="Between 0 and 1000" type="number">
+                <label>Offset</label>
+                <input formControlName="offset" min="0" max="1000" placeholder="Between 0 and 1000" type="number">
+                <label>Display</label>
+                <select formControlName="display" *ngIf="this.display.length > 0" class="mars-select">
+                    <option *ngFor="let obj of this.display" [value]="obj.name">{{obj.name}}</option>
+                </select>
+                <button (click)="search()" class="p-2 mt-3">Search</button>
             </form>
+
+            <div *ngIf="this.isLoading == true" class="col-12 col-md-6 apod-content">
+                <img src="../../../assets/svg/loading.svg" alt="apod nasa image">
+            </div>
+
+            <div *ngIf="this.isLoading == false && this.launcheArr.length > 0 && this.displayInput == false"
+                class="d-flex flex-column justify-content-between col-12 col-md-8 apod-content text-center p-5">
+                <div class="mars-rover-card">
+                    <h5>Total Cards: {{this.launcheArr.length}}</h5>
+                    <button (click)="changeFlag()">Back</button>
+                </div>
+                <div *ngFor="let card of this.launcheArr;let i = index">
+                    <div class="card mars-rover-card">
+                        <h5>Card:{{i+1}}</h5>
+                        <img class="card-img-top" [src]="card.pad?.location?.mapImage" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{card.name}}</h5>
+                            <ul class="ul-cards">
+                                <li>Slug: {{card.slug}}</li>
+                                <li>Window Start: {{card.windowStart}}</li>
+                                <li>Window End: {{card.windowEnd}}</li>
+                            </ul>
+                            <button (click)="openInANewTab(card.pad?.location?.mapImage)">Open in a new tab</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="this.isLoading == false && this.launcheArr.length > 0 && this.displayInput == true"
+                class="d-flex flex-column justify-content-between col-12 col-md-8 apod-content p-5">
+                <div class="mars-rover-card">
+                    <h5>Total Cards: {{this.launcheArr.length}}</h5>
+                    <button (click)="changeFlag()">Back</button>
+                </div>
+                <div *ngFor="let card of this.launcheArr;let i = index">
+                    <div class="card mars-rover-card">
+                        <h5>Card:{{i+1}}</h5>
+                        <img class="card-img-top" [src]="card.pad?.location?.mapImage" alt="Card image cap">
+                        <button (click)="openInANewTab(card.pad?.location?.mapImage)">Open in a new tab</button>
+
+                        <div class="card-body row justify-content-between">
+                            <h3 class="card-title">{{card.name}}</h3>
+                            <div class="col-4">
+                                <h5>Launch Information:</h5>
+                                <ul class="ul-cards">
+                                    <li>Slug: {{card.slug}}</li>
+                                    <li>Window Start: {{card.windowStart}}</li>
+                                    <li>Window End: {{card.windowEnd}}</li>
+                                    <li>Fail Reason: {{card.failReason == null ? 'False' : card.failReason}}</li>
+                                    <li>Hashtag: {{card.hashtag == null ? 'Null' : card.hashtag}}</li>
+                                    <li>Image: {{card.image == null ? 'Null' : card.image}}</li>
+                                    <li>Infographic: {{card.infoGraphic == null ? 'Null' : card.infoGraphic}}</li>
+                                    <li>Last Updated: {{card.lastUpdated}}</li>
+                                </ul>
+                            </div>
+                            <div class="col-4">
+                                <label>Provider:</label>
+                                <ul class="ul-cards">
+                                    <li>Name: {{card.launchServiceProvider?.name}}</li>
+                                    <li>Type: {{card.launchServiceProvider?.type}}</li>
+                                </ul>
+                            </div>
+                            <div class="col-4">
+                                <label>Mission:</label>
+                                <ul class="ul-cards">
+                                    <li>Description: {{card.mission?.description}}</li>
+                                    <li>Name: {{card.mission?.name}}</li>
+                                    <li>Launch Designator: {{card.mission?.launchDesignator}}</li>
+                                </ul>
+                            </div>
+                            <div class="col-4">
+                                <label>Mission:</label>
+                                <ul class="ul-cards">
+                                    <li>Description: {{card.mission?.description}}</li>
+                                    <li>Name: {{card.mission?.name}}</li>
+                                    <li>Launch Designator: {{card.mission?.launchDesignator}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
     </div>
 </div>

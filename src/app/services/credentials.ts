@@ -13,9 +13,12 @@ export class credentials {
         }
         return this.url + this.key;
     }
-    getRandomApisCredentials(component:string, keplerQuery:string[]){
+    getRandomApisCredentials(component:string, query:string[]){
         if(component == 'kepler-project'){
-            this.url = `http://www.asterank.com/api/kepler?query={"TPLANET":{"$lt":${keplerQuery[1]},"$gt":${keplerQuery[0]}}}&limit=${keplerQuery[2]}`
+            this.url = `http://www.asterank.com/api/kepler?query={"TPLANET":{"$lt":${query[1]},"$gt":${query[0]}}}&limit=${query[2]}`
+        }
+        if(component == 'launches'){
+            this.url = `https://ll.thespacedevs.com/2.2.0/launch/?limit=${query[0]}&offset=${query[1]}`
         }
         return this.url;
     }
