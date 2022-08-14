@@ -55,7 +55,6 @@ export class KeplerProjectComponent implements OnInit {
     this.service.getExoPlanets(keplerQuery).subscribe((response: any) => {
       let keplerResponse = response;
       if (keplerResponse.length > 0) {
-        debugger;
         this.bindObject(keplerResponse)
         this.isLoading = false;
       } else {

@@ -63,7 +63,6 @@ export class LaunchesComponent implements OnInit {
     let stringArray = [this.limitInput, this.offsetInput]
     this.launchService.getLaunches(stringArray).subscribe((response:any) => {
       let launches = response.results
-      debugger
       this.bindObjects(launches)
     }, error => {
       this.isLoading = false;
@@ -73,7 +72,6 @@ export class LaunchesComponent implements OnInit {
 
   bindObjects(launches:any){
     for(let lh of launches){
-      debugger;
       this.launchObj = new launch();
       this.launchObj = {
         id:lh?.id,

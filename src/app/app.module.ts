@@ -19,6 +19,7 @@ import { RandomApisComponent } from './random-apis/random-apis.component';
 import { KeplerProjectComponent } from './random-apis/kepler-project/kepler-project.component';
 import { LaunchesComponent } from './random-apis/launches/launches.component';
 import { SafePipe } from './core/safePipe';
+import { UfoSightingsComponent } from './random-apis/ufo-sightings/ufo-sightings.component';
 
 
 
@@ -35,7 +36,8 @@ import { SafePipe } from './core/safePipe';
     RandomApisComponent,
     KeplerProjectComponent,
     LaunchesComponent,
-    SafePipe 
+    SafePipe,
+    UfoSightingsComponent 
   ],
   imports: [
     BrowserModule,

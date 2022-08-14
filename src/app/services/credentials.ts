@@ -20,6 +20,9 @@ export class credentials {
         if(component == 'launches'){
             this.url = `https://ll.thespacedevs.com/2.2.0/launch/?limit=${query[0]}&offset=${query[1]}`
         }
+        if(component == 'ufo-sightings'){
+            this.url = `https://azure-westeurope-prod.socrata.com/resource/8s2t-pmzs.json?$limit=${query[0]}&$$app_token=KTHgvrHxa8rJbjJhcgmrO2Kyv`
+        }
         return this.url;
     }
 }

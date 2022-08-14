@@ -8,6 +8,7 @@ import { NeowsComponent } from './nasa/neows/neows.component';
 import { KeplerProjectComponent } from './random-apis/kepler-project/kepler-project.component';
 import { LaunchesComponent } from './random-apis/launches/launches.component';
 import { RandomApisComponent } from './random-apis/random-apis.component';
+import { UfoSightingsComponent } from './random-apis/ufo-sightings/ufo-sightings.component';
 
 const routes: Routes = [
   //menu urls
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'random-apis', component: RandomApisComponent, pathMatch: 'full' },
   { path: 'random-apis/kepler-project', component: KeplerProjectComponent, pathMatch: 'full' },
   { path: 'random-apis/launches', component: LaunchesComponent, pathMatch: 'full' },
+  { path: 'random-apis/ufo-sightings', component: UfoSightingsComponent, pathMatch: 'full' }
 
 
 

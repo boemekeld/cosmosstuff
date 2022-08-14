@@ -38,7 +38,6 @@ export class NeowsComponent implements OnInit {
   }
 
   verifyDateRange(): boolean {
-    debugger;
     let startDate = this.newosForm.controls['startDate'].value
     let endDate = this.newosForm.controls['endDate'].value
     const diffInDate = moment(endDate).diff(moment(startDate), 'days');
