@@ -28,18 +28,31 @@ body {
 /**********************************************************************************************************************************************************
 general style
 *****************************************************************************************************************************************/
-button{
+button {
     background-color: var(--screaming-purple);
     color: var(--dark);
     border-style: none;
 }
-button:hover{
+
+button:hover {
     background-color: var(--dark-purple);
     cursor: pointer;
 }
 
-h3{
+h3 {
     color: var(--screaming-purple);
+}
+
+iframe {
+    height: 500px;
+    width: 700px;
+}
+
+@media screen and (max-width: 992px) {
+    iframe {
+        height: 200px;
+        width: 300px;
+    }
 }
 
 /**********************************************************************************************************************************************************
@@ -127,7 +140,7 @@ home style
     margin-bottom: 1rem;
 }
 
-.home-card:hover{
+.home-card:hover {
     opacity: 0.5;
 }
 
@@ -142,12 +155,12 @@ home style
 /**********************************************************************************************************************************************************
 nasa style
 *****************************************************************************************************************************************/
-.jumbotron-nasa{
+.jumbotron-nasa {
     background-color: var(--dark-purple);
     margin-top: 2rem;
 }
 
-.jumbotron-nasa-card{
+.jumbotron-nasa-card {
     margin-top: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -155,7 +168,9 @@ nasa style
     border-radius: 1rem;
 }
 
-.jumbotron-nasa, h1, p {
+.jumbotron-nasa,
+h1,
+p {
     color: var(--screaming-purple) !important;
 
 }
@@ -178,7 +193,7 @@ nasa style
     opacity: 0.5;
 }
 
-.card-nasa p{
+.card-nasa p {
     color: var(--screaming-purple) !important;
 }
 
@@ -195,7 +210,7 @@ nasa style
         background-color: var(--dark-purple);
     }
 }
-    
+
 
 /**********************************************************************************************************************************************************
 nasa style
@@ -203,15 +218,17 @@ nasa style
 /**********************************************************************************************************************************************************
 apod nasa style
 *****************************************************************************************************************************************/
-.apod{
+.apod {
     background-color: var(--dark-purple);
 
 }
-.apod-content{
+
+.apod-content {
     background-color: var(--dark);
     margin-top: 1rem;
 }
-.apod-img{
+
+.apod-img {
     width: 80%;
 }
 
@@ -222,16 +239,17 @@ apod nasa style
 /**********************************************************************************************************************************************************
 neows nasa style
 *****************************************************************************************************************************************/
-.neows{
+.neows {
     background-color: var(--dark-purple);
 }
-.neows  label {
+
+.neows label {
     color: var(--screaming-purple);
 }
 
-.neows-table{
+.neows-table {
     background-color: var(--dark);
-    color: var(--screaming-purple)!important;
+    color: var(--screaming-purple) !important;
 }
 
 /**********************************************************************************************************************************************************
@@ -240,32 +258,32 @@ neows nasa style
 /**********************************************************************************************************************************************************
 mars-rovers nasa style
 *****************************************************************************************************************************************/
-.mars-rovers{
+.mars-rovers {
     background-color: var(--dark-purple);
 }
 
-.mars-rovers  label {
+.mars-rovers label {
     color: var(--screaming-purple);
 }
 
-.mars-select{
+.mars-select {
     height: 2rem;
 }
 
-.mars-rover-card{
-    background-color: var(--dark)!important;
+.mars-rover-card {
+    background-color: var(--dark) !important;
     margin-top: 2rem;
 }
 
-.mars-rover-card h5{
+.mars-rover-card h5 {
     color: var(--screaming-purple);
 }
 
-.mars-rover-card button{
+.mars-rover-card button {
     margin-right: 1rem;
 }
 
-.ul-cards li{
+.ul-cards li {
     color: var(--screaming-purple);
 }
 
@@ -275,14 +293,16 @@ mars-rovers nasa style
 /**********************************************************************************************************************************************************
 random-apis style
 *****************************************************************************************************************************************/
-.table-kepler tr  td {
+.table-kepler tr td {
     color: var(--screaming-purple);
     padding: 2rem;
 }
-.table-kepler label{
+
+.table-kepler label {
     color: var(--screaming-purple);
     padding: 2rem;
 }
+
 /**********************************************************************************************************************************************************
 random-apis nasa style
 *****************************************************************************************************************************************/

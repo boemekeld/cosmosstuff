@@ -7,8 +7,14 @@
                     {{this.apodData.explanation}}
                 </p>
             </div>
-            <div class="col-12 col-md-6 text-center">
-                <img class="img-fluid apod-img" [src]="this.apodData.hdurl" alt="Apod image">
+            <div *ngIf="!isVideo" class="col-12 col-md-6 text-center">
+                <img  class="img-fluid apod-img" [src]="this.apodData.url" alt="Apod image">
+            </div>
+            <div *ngIf="isVideo && this.apodData != null" class="col-12 col-md-6 text-center">
+                <iframe [src]="this.apodData.url | safe"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
         </div>
         <div *ngIf="!this.apodData" class="d-md-flex align-items-center justify-content-center apod min-vh-100">

@@ -18,6 +18,7 @@ import { MarsRoversComponent } from './nasa/mars-rovers/mars-rovers.component';
 import { RandomApisComponent } from './random-apis/random-apis.component';
 import { KeplerProjectComponent } from './random-apis/kepler-project/kepler-project.component';
 import { LaunchesComponent } from './random-apis/launches/launches.component';
+import { SafePipe } from './core/safePipe';
 
 
 
@@ -34,6 +35,7 @@ import { LaunchesComponent } from './random-apis/launches/launches.component';
     RandomApisComponent,
     KeplerProjectComponent,
     LaunchesComponent,
+    SafePipe 
   ],
   imports: [
     BrowserModule,

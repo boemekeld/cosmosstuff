@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApodService } from 'src/app/services/nasa/apod.service';
+import { Pipe, PipeTransform } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-apod-nasa',
@@ -8,13 +11,17 @@ import { ApodService } from 'src/app/services/nasa/apod.service';
 })
 export class ApodNasaComponent implements OnInit {
   apodData:any;
+  isVideo:boolean = false;
   constructor(private apod:ApodService) { }
 
   ngOnInit(): void {
     this.getApod()
   }
   getApod(){
-    this.apod.get().subscribe(response=>{
+    this.apod.get().subscribe((response:any)=>{
+      if(response.url.includes('youtube')){
+        this.isVideo = true;
+      }
       this.apodData = response;
     },error=>{
 
