@@ -12,7 +12,7 @@ import { launch } from '../models/launch';
 export class LaunchesComponent implements OnInit {
   launchesForm = new FormGroup({
     limit: new FormControl(null, Validators.required),
-    offset: new FormControl(null, Validators.required),
+    offset: new FormControl(10, Validators.required),
     display: new FormControl(null, Validators.required)
   });
 
@@ -66,7 +66,8 @@ export class LaunchesComponent implements OnInit {
       debugger
       this.bindObjects(launches)
     }, error => {
-
+      this.isLoading = false;
+      this.modal.errorModal('The server did not answer. Try again later.')
     })
   }
 

@@ -8,9 +8,7 @@
             <form *ngIf="this.launcheArr.length == 0 && this.isLoading == false" [formGroup]="launchesForm"
                 class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
                 <label>Limit</label>
-                <input formControlName="limit" min="0" max="1000" placeholder="Between 0 and 1000" type="number">
-                <label>Offset</label>
-                <input formControlName="offset" min="0" max="1000" placeholder="Between 0 and 1000" type="number">
+                <input formControlName="limit" min="0" max="100" placeholder="Between 0 and 1000" type="number">
                 <label>Display</label>
                 <select formControlName="display" *ngIf="this.display.length > 0" class="mars-select">
                     <option *ngFor="let obj of this.display" [value]="obj.name">{{obj.name}}</option>
@@ -55,11 +53,25 @@
                     <div class="card mars-rover-card">
                         <h5>Card:{{i+1}}</h5>
                         <img class="card-img-top" [src]="card.pad?.location?.mapImage" alt="Card image cap">
-                        <button (click)="openInANewTab(card.pad?.location?.mapImage)">Open in a new tab</button>
+                        <div class="col-6 mt-2">
+                            <button (click)="openInANewTab(card.pad?.location?.mapImage)">Open in a new tab</button>
+                        </div>
 
                         <div class="card-body row justify-content-between">
-                            <h3 class="card-title">{{card.name}}</h3>
-                            <div class="col-4">
+                            <h3 class="card-title text-center">{{card.name}}</h3>
+                            <div class="col-12 col-md-4">
+                                <label>Location:</label>
+                                <ul class="ul-cards">
+                                    <li>Name: {{card?.pad?.name}}</li>
+                                    <li>Latitude: {{card?.pad?.latitude}}</li>
+                                    <li>Longitude: {{card?.pad?.longitude}}</li>
+                                    <li>Map Image: {{card?.pad?.mapImage}}</li>
+                                    <li>Map Url: {{card?.pad?.mapUrl}}</li>
+                                    <li>Total Launch: {{card?.pad?.totalLaunchCount}}</li>
+                                    <li>Wikipedia: {{card?.pad?.wikiUrl}}</li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-md-4">
                                 <h5>Launch Information:</h5>
                                 <ul class="ul-cards">
                                     <li>Slug: {{card.slug}}</li>
@@ -72,27 +84,44 @@
                                     <li>Last Updated: {{card.lastUpdated}}</li>
                                 </ul>
                             </div>
-                            <div class="col-4">
+                            <div class="col-12 col-md-4">
+                                <label>Mission:</label>
+                                <ul class="ul-cards">
+                                    <li>Description: {{card.mission?.description}}</li>
+                                    <li>Name: {{card.mission?.name}}</li>
+                                    <li>Launch Designator: {{card.mission?.launchDesignator}}</li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-md-4">
                                 <label>Provider:</label>
                                 <ul class="ul-cards">
                                     <li>Name: {{card.launchServiceProvider?.name}}</li>
                                     <li>Type: {{card.launchServiceProvider?.type}}</li>
                                 </ul>
                             </div>
-                            <div class="col-4">
-                                <label>Mission:</label>
+                            <div class="col-12 col-md-4">
+                                <label>Orbit:</label>
                                 <ul class="ul-cards">
-                                    <li>Description: {{card.mission?.description}}</li>
-                                    <li>Name: {{card.mission?.name}}</li>
-                                    <li>Launch Designator: {{card.mission?.launchDesignator}}</li>
+                                    <li>Description: {{card.mission?.orbit?.abbrev}}</li>
+                                    <li>Name: {{card.mission?.orbit?.name}}</li>
                                 </ul>
                             </div>
-                            <div class="col-4">
-                                <label>Mission:</label>
+                            
+                            <div class="col-12 col-md-4">
+                                <label>Rocket:</label>
                                 <ul class="ul-cards">
-                                    <li>Description: {{card.mission?.description}}</li>
-                                    <li>Name: {{card.mission?.name}}</li>
-                                    <li>Launch Designator: {{card.mission?.launchDesignator}}</li>
+                                    <li>Name: {{card?.rocket?.configuration?.name}}</li>
+                                    <li>Full Name: {{card?.rocket?.configuration?.fullName}}</li>
+                                    <li>Family: {{card?.rocket?.configuration?.family}}</li>
+                                    <li>Variant: {{card?.rocket?.configuration?.variant}}</li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <label>Status:</label>
+                                <ul class="ul-cards">
+                                    <li>Name: {{card?.status?.name}}</li>
+                                    <li>Abbrev: {{card?.status?.abbrev}}</li>
+                                    <li>Description: {{card?.status?.description}}</li>
                                 </ul>
                             </div>
                         </div>
