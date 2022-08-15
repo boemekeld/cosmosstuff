@@ -1,1 +1,49 @@
-<p>ufo-sightings works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-md-flex justify-content-center neows min-vh-100">
+            <div *ngIf="this.isLoading == false && this.ufoArray.length == 0" class="col-12 col-md-6 apod-content">
+                <img src="../../../assets/svg/alien.svg" alt="apod nasa image">
+            </div>
+            <form *ngIf="this.isLoading == false && this.ufoArray.length == 0" [formGroup]="ufoForm"
+                class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
+                <label>Limit Results</label>
+                <input formControlName="limit" min="0" max="200000" placeholder="Between 0 and 200,000" type="number">
+                <button (click)="search()" class="p-2 mt-3">Search</button>
+            </form>
+            <div *ngIf="this.isLoading == true" class="col-12 col-md-6 apod-content">
+                <img src="../../../assets/svg/loading.svg" alt="apod nasa image">
+            </div>
+            <div *ngIf="this.ufoArray.length > 0 && this.isLoading == false" class="col-12 apod-content table-responsive">
+                <div class="d-flex flex-column col-8 col-md-3 m-2">
+                    <button (click)="changeFlag()">Back</button>
+                    <button (click)="exportToExcel()" class="mt-2">Export to Excel</button>
+                </div>
+                <table id="excel-table" class="table neows-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Occurrence Date</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Plausibility</th>
+                            <th scope="col">Police Department</th>
+                            <th scope="col">Blood Alcohol Level</th>
+                            <th scope="col">Note</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let ufo of this.ufoArray; let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{this.ufo.incidentOccurrence}}</td>
+                            <td>{{this.ufo.incidentLocation}}</td>
+                            <td>{{this.ufo.plausability}}</td>
+                            <td>{{this.ufo.policeDepartament}}</td>
+                            <td>{{this.ufo.bloodAlcoholLevel}}</td>
+                            <td>{{this.ufo.witnessGibberish}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

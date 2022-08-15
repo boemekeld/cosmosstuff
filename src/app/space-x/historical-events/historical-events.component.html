@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-md-flex justify-content-center neows min-vh-100">
+            <div *ngIf="this.isLoading == true" class="col-12 col-md-6 apod-content">
+                <img src="../../../assets/svg/loading.svg" alt="apod nasa image">
+            </div>
+
+            <div *ngIf="this.historicalArr.length > 0"
+                class="d-flex flex-column  col-12 col-md-12 apod-content text-center p-5 table-responsive">
+                <div class="d-flex flex-column col-12 col-md-3">
+                    <button (click)="exportToExcel()" class="mt-2">Export to Excel</button>
+                </div>
+                <table id="excel-table" class="table neows-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Date Utc</th>
+                            <th scope="col">Details</th>
+                            <th scope="col">Flight Number</th>
+                            <th scope="col">Article</th>
+                            <th scope="col">Wikipedia</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let historical of this.historicalArr; let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{this.historical.eventDateUtc}}</td>
+                            <td>{{this.historical.details}}</td>
+                            <td>{{this.historical.flightNumber}}</td>
+                            <td>{{this.historical.article}}</td>
+                            <td>{{this.historical.wikipedia}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

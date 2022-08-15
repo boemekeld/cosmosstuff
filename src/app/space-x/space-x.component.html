@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 jumbotron-nasa">
+            <div class="jumbotron jumbotron-fluid jumbotron-nasa-card">
+                <div class="container">
+                  <h2>SpaceX Databases</h2>
+                  <p>On this menu, you can choose between three tools that allow you to retrieve Nasa's astronomy picture of the day, a list of asteroids based on the date provided, and a list of photos from Mars based on the date and rover provided. You can also export this information to excel and create beautiful charts on Power Bi, Excel, build presentations, and more.</p>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="cards-nasa">
+            <div class="col-12 col-md-4" >
+                <div class="card card-nasa" [routerLink]="['historical-events']">
+                    <img class="card-img-top" src="https://art.pixilart.com/198f6fdeecf1163.gif" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text"> One of the most popular websites at NASA is the Astronomy Picture of the Day. In fact, this website is one of the most popular websites across all federal agencies. It has the popular appeal of a Justin Bieber video. </p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-12 col-md-4" [routerLink]="['neows']">
+                <div class="card card-nasa" >
+                    <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/PIA22560-Asteroid-2017-YE5-Orbit-20180712.gif" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Retrieve a list of Asteroids based on their closest approach date to Earth. Get usefull data as asteroid's diamiter, distance from earth, max date approach and more. Check it out what's near from the planet today! </p>
+                    </div>
+                  </div>
+            </div>
+            <div [routerLink]="['mars-rovers']" class="col-12 col-md-4">
+                <div class="card card-nasa" >
+                    <img class="card-img-top" src="https://c.tenor.com/4-1ONgEFepMAAAAC/opportunity-rover.gif" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Mage data gathered by NASA's Curiosity, Opportunity, and Spirit rovers on Mars and make it more easily available to other developers, educators, and citizen scientists. Check it out real photos from Mars.</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -25,4 +25,11 @@ export class credentials {
         }
         return this.url;
     }
+
+    getSpaceXCredentials(component:string){
+        if(component == 'historical'){
+            this.url = `https://api.spacexdata.com/v3/history`
+        }
+        return this.url;
+    }
 }

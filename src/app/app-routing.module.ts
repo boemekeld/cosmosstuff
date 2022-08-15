@@ -9,6 +9,8 @@ import { KeplerProjectComponent } from './random-apis/kepler-project/kepler-proj
 import { LaunchesComponent } from './random-apis/launches/launches.component';
 import { RandomApisComponent } from './random-apis/random-apis.component';
 import { UfoSightingsComponent } from './random-apis/ufo-sightings/ufo-sightings.component';
+import { HistoricalEventsComponent } from './space-x/historical-events/historical-events.component';
+import { SpaceXComponent } from './space-x/space-x.component';
 
 const routes: Routes = [
   //menu urls
@@ -18,6 +20,9 @@ const routes: Routes = [
   { path: 'nasa/apod', component: ApodNasaComponent, pathMatch: 'full' },
   { path: 'nasa/neows', component: NeowsComponent, pathMatch: 'full' },
   { path: 'nasa/mars-rovers', component: MarsRoversComponent, pathMatch: 'full' },
+  //spaceX urls
+  { path: 'spaceX', component: SpaceXComponent, pathMatch: 'full' },
+  { path: 'spaceX/historical-events', component: HistoricalEventsComponent, pathMatch: 'full' },
   //random apis urls
   { path: 'random-apis', component: RandomApisComponent, pathMatch: 'full' },
   { path: 'random-apis/kepler-project', component: KeplerProjectComponent, pathMatch: 'full' },

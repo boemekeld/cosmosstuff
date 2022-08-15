@@ -20,6 +20,8 @@ import { KeplerProjectComponent } from './random-apis/kepler-project/kepler-proj
 import { LaunchesComponent } from './random-apis/launches/launches.component';
 import { SafePipe } from './core/safePipe';
 import { UfoSightingsComponent } from './random-apis/ufo-sightings/ufo-sightings.component';
+import { SpaceXComponent } from './space-x/space-x.component';
+import { HistoricalEventsComponent } from './space-x/historical-events/historical-events.component';
 
 
 
@@ -37,7 +39,9 @@ import { UfoSightingsComponent } from './random-apis/ufo-sightings/ufo-sightings
     KeplerProjectComponent,
     LaunchesComponent,
     SafePipe,
-    UfoSightingsComponent 
+    UfoSightingsComponent,
+    SpaceXComponent,
+    HistoricalEventsComponent 
   ],
   imports: [
     BrowserModule,
