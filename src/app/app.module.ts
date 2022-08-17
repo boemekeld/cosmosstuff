@@ -22,6 +22,7 @@ import { SafePipe } from './core/safePipe';
 import { UfoSightingsComponent } from './random-apis/ufo-sightings/ufo-sightings.component';
 import { SpaceXComponent } from './space-x/space-x.component';
 import { HistoricalEventsComponent } from './space-x/historical-events/historical-events.component';
+import { DragonsComponent } from './space-x/dragons/dragons.component';
 
 
 
@@ -41,7 +42,8 @@ import { HistoricalEventsComponent } from './space-x/historical-events/historica
     SafePipe,
     UfoSightingsComponent,
     SpaceXComponent,
-    HistoricalEventsComponent 
+    HistoricalEventsComponent,
+    DragonsComponent 
   ],
   imports: [
     BrowserModule,

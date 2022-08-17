@@ -30,6 +30,9 @@ export class credentials {
         if(component == 'historical'){
             this.url = `https://api.spacexdata.com/v3/history`
         }
+        if(component == 'dragons'){
+            this.url = `https://api.spacexdata.com/v3/dragons`
+        }
         return this.url;
     }
 }

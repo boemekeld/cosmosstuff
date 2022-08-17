@@ -9,6 +9,7 @@ import { KeplerProjectComponent } from './random-apis/kepler-project/kepler-proj
 import { LaunchesComponent } from './random-apis/launches/launches.component';
 import { RandomApisComponent } from './random-apis/random-apis.component';
 import { UfoSightingsComponent } from './random-apis/ufo-sightings/ufo-sightings.component';
+import { DragonsComponent } from './space-x/dragons/dragons.component';
 import { HistoricalEventsComponent } from './space-x/historical-events/historical-events.component';
 import { SpaceXComponent } from './space-x/space-x.component';
 
@@ -23,6 +24,8 @@ const routes: Routes = [
   //spaceX urls
   { path: 'spaceX', component: SpaceXComponent, pathMatch: 'full' },
   { path: 'spaceX/historical-events', component: HistoricalEventsComponent, pathMatch: 'full' },
+  { path: 'spaceX/dragons', component: DragonsComponent, pathMatch: 'full' },
+
   //random apis urls
   { path: 'random-apis', component: RandomApisComponent, pathMatch: 'full' },
   { path: 'random-apis/kepler-project', component: KeplerProjectComponent, pathMatch: 'full' },
