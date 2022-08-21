@@ -72,5 +72,4 @@ export class DragonsComponent implements OnInit {
       window.open(i)
     }
   }
-
 }

@@ -23,6 +23,7 @@ import { UfoSightingsComponent } from './random-apis/ufo-sightings/ufo-sightings
 import { SpaceXComponent } from './space-x/space-x.component';
 import { HistoricalEventsComponent } from './space-x/historical-events/historical-events.component';
 import { DragonsComponent } from './space-x/dragons/dragons.component';
+import { RocketsComponent } from './space-x/rockets/rockets.component';
 
 
 
@@ -43,7 +44,8 @@ import { DragonsComponent } from './space-x/dragons/dragons.component';
     UfoSightingsComponent,
     SpaceXComponent,
     HistoricalEventsComponent,
-    DragonsComponent 
+    DragonsComponent,
+    RocketsComponent 
   ],
   imports: [
     BrowserModule,

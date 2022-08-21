@@ -22,7 +22,7 @@ heatShieldMaterial?:string;
 heatShieldSizeMeters?:string;
 heatShieldTempDegress?:string;
 heatShieldDevPartner?:string;
-launchPayloadMass?:string;
+launchPayloadMass?:any;
 launchPayloadLb?:string;
 launchPayloadVolCubicMeters?:string;
 launchPayloadVolCubicFeet?:string;
