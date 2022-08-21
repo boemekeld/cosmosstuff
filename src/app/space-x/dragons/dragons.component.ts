@@ -28,7 +28,6 @@ export class DragonsComponent implements OnInit {
   bindObject(dragons:any){
     for(let dApi of dragons){
       let d:dragon = new dragon()
-      debugger;
       d.active = dApi.active
       d.crewCapacity = dApi.crew_capacity
       d.description = dApi.description
@@ -70,7 +69,6 @@ export class DragonsComponent implements OnInit {
 
   openInANewTab(imgs:any){
     for(let i of imgs){
-      debugger;
       window.open(i)
     }
   }

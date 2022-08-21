@@ -2,17 +2,18 @@ export class dragon{
 active?:string;
 crewCapacity?:string;
 description?:string;
+firstFlight?:string;
+type?:string;
 diameter?:string;
 dryMassKg?:string;
 dryMassLb?:string;
-firstFlight?:string;
 flickrImages:string[] = [];
 id?:string;
 name?:string;
+wikipedia?:string;
+
 orbitDurationYr?:string;
 sideWallAngleDeg?:string;
-type?:string;
-wikipedia?:string;
 diameterMeters?:string;
 diameterFeet?:string;
 heightWTruckMeters?:string;
@@ -35,6 +36,5 @@ trunkVolumeCubicFeet?:string;
 trunkVolumeCubicMeters?:string;
 pressurizedCapsulePayloadVolumeCubicFeet?:string;
 pressurizedCapsulePayloadVolumeCubicMeters?:string;
-
 
 }

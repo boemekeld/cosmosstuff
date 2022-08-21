@@ -12,23 +12,23 @@
                 <div *ngFor="let dragon of this.dragonArray;let i = index">
                     <div class="card mars-rover-card">
                         <h5>Card:{{i+1}}</h5>
-                        <div class="row d-flex">
-                        <img class="card-img-top col-3" [src]="dragon.flickrImages[0]" alt="Card image cap">
-                        <img class="card-img-top col-3" [src]="dragon.flickrImages[1]" alt="Card image cap">
-                        <img class="card-img-top col-3" [src]="dragon.flickrImages[2]" alt="Card image cap">
-                        <img class="card-img-top col-3" [src]="dragon.flickrImages[3]" alt="Card image cap">
+                        <div class="row d-flex justify-content-between">
+                            <div *ngFor="let imgCard of dragon.flickrImages" class="col-6 col-md-3">
+                                <img class="card-img-top " [src]="imgCard" alt="Dragon Image">
+                            </div>
                         </div>
                         <div class="card-body">
-                            <!-- <h5 class="card-title">{{card.roverName}}</h5>
-                            <ul class="ul-cards">
-                                <li>Date: {{card.date}}</li>
-                                <li>Rover Name: {{card.roverName}}</li>
-                                <li>Camera Name: {{card.fullCameraName}}</li>
-                                <li>Launch Date: {{card.launchDate}}</li>
-                                <li>Landing Date: {{card.landingDate}}</li>
-                                <li>Sol: {{card.sol}}</li>
-                            </ul> -->
                             <button (click)="openInANewTab(dragon.flickrImages)">Open in a new tab</button>
+                            <h5 class="card-title">{{dragon.name}}</h5>
+                            <ul class="ul-cards">
+                                <li>IsActive: {{dragon.active}}</li>
+                                <li>Crew Capacity: {{dragon.crewCapacity}}</li>
+                                <li>First Flight: {{dragon.firstFlight}}</li>
+                                <li>Type: {{dragon.type}}</li>
+                                <li>Wikipedia: {{dragon.wikipedia}}</li>
+                                <li>Description: {{dragon.description}}</li>
+
+                            </ul>
                         </div>
                     </div>
                 </div>
