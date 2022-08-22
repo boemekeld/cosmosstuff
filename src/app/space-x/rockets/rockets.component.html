@@ -1,1 +1,38 @@
-<p>rockets works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-md-flex justify-content-center neows min-vh-100">
+            <div *ngIf="this.isLoading == true" class="col-12 col-md-6 apod-content">
+                <img src="../../../assets/svg/loading.svg" alt="apod nasa image">
+            </div>
+
+            <div *ngIf="this.isLoading == false"
+                class="d-flex flex-column justify-content-between col-12 col-md-8 apod-content text-center p-5">
+                <div class="mars-rover-card">
+                    <h5>Total Cards: {{this.rockertObjArray.length}}</h5>
+                </div>
+                <div *ngFor="let rocket of this.rockertObjArray;let i = index">
+                    <!-- <div class="card mars-rover-card">
+                        <h5>Card:{{i+1}}</h5>
+                        <div class="row d-flex justify-content-between">
+                            <div *ngFor="let imgCard of dragon.flickrImages" class="col-6 col-md-3">
+                                <img class="card-img-top " [src]="imgCard" alt="Dragon Image">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <button (click)="openInANewTab(dragon.flickrImages)">Open in a new tab</button>
+                            <h5 class="card-title">{{dragon.name}}</h5>
+                            <ul class="ul-cards">
+                                <li> Pressurized Capsule Payload Volume Cubic Feet:
+                                    {{dragon.pressurizedCapsulePayloadVolumeCubicFeet}}</li>
+                                <li> Pressurized Capsule Payload Volume Cubic Meters:
+                                    {{dragon.pressurizedCapsulePayloadVolumeCubicMeters}}</li>
+                                <li>Description: {{dragon.description}}</li>
+                            </ul>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

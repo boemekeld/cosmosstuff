@@ -1,0 +1,24 @@
+export class rocket{
+    active?:string;
+    boosters?:string;
+    country?:string;
+    costPerLunch?:string;
+    description?:string;
+    diameter?:any;
+    engines?:any;
+    firstFlight?:string;
+    firstStage?:any;
+    thrustSeaLevel?:any;
+    flickrImages?:any;
+    height?:any;
+    mass?:any;
+    payloadWeights?:any;
+    rocketId?:string;
+    rocketName?:string;
+    rocketType?:string;
+    secondStage?:any;
+    thrust?:any;
+    stages?:string;
+    successRatePct?:string;
+    wikipedia?:string;
+}

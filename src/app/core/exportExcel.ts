@@ -1,6 +1,7 @@
 import * as XLSX from 'xlsx';
 
 export class exportToExcel {
+  
     //this function recieve an file name and creates an excel from a table
     exportToExcel(fileName:string) {
         // table id is passed over here

@@ -48,5 +48,4 @@ export class HistoricalEventsComponent implements OnInit {
   exportToExcel(){
     this.exportXlsx.exportToExcel('spaceXHistorical')
   }
-
 }
