@@ -11,25 +11,30 @@
                     <h5>Total Cards: {{this.rockertObjArray.length}}</h5>
                 </div>
                 <div *ngFor="let rocket of this.rockertObjArray;let i = index">
-                    <!-- <div class="card mars-rover-card">
+                    <div class="card mars-rover-card">
                         <h5>Card:{{i+1}}</h5>
-                        <div class="row d-flex justify-content-between">
-                            <div *ngFor="let imgCard of dragon.flickrImages" class="col-6 col-md-3">
+                        <div class="row d-flex justify-content-around">
+                            <div *ngFor="let imgCard of rocket.flickrImages" class="col-6 col-md-3">
                                 <img class="card-img-top " [src]="imgCard" alt="Dragon Image">
                             </div>
                         </div>
                         <div class="card-body">
-                            <button (click)="openInANewTab(dragon.flickrImages)">Open in a new tab</button>
-                            <h5 class="card-title">{{dragon.name}}</h5>
+                            <button (click)="openInANewTab(rocket.flickrImages)">Open in a new tab</button>
+                            <h5 class="card-title">{{rocket.rocketName}}</h5>
                             <ul class="ul-cards">
-                                <li> Pressurized Capsule Payload Volume Cubic Feet:
-                                    {{dragon.pressurizedCapsulePayloadVolumeCubicFeet}}</li>
-                                <li> Pressurized Capsule Payload Volume Cubic Meters:
-                                    {{dragon.pressurizedCapsulePayloadVolumeCubicMeters}}</li>
-                                <li>Description: {{dragon.description}}</li>
+                                <li> Rocket Type:
+                                    {{rocket.rocketType}}</li>
+                                <li> Country:
+                                    {{rocket.country}}</li>
+                                <li>Diameter: {{rocket.diameter}}</li>
+                                <li>Cost per Launch: {{rocket.costPerLunch}}</li>
+                                <li>Active: {{rocket.active}}</li>
+                                <li>Diameter: {{rocket.diameter}}</li>
+                                <li>Boosters: {{rocket.boosters}}</li>
+                                <li>Description: {{rocket.description}}</li>
                             </ul>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
 

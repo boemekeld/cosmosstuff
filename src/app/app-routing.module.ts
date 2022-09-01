@@ -33,12 +33,6 @@ const routes: Routes = [
   { path: 'random-apis/kepler-project', component: KeplerProjectComponent, pathMatch: 'full' },
   { path: 'random-apis/launches', component: LaunchesComponent, pathMatch: 'full' },
   { path: 'random-apis/ufo-sightings', component: UfoSightingsComponent, pathMatch: 'full' }
-
-
-
-
-
-
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { modals } from 'src/app/core/modals';
 import { RocketsService } from 'src/app/services/spaceX/rockets.service';
 import { rocket } from '../models/rocket';
 
@@ -8,26 +9,26 @@ import { rocket } from '../models/rocket';
   styleUrls: ['./rockets.component.css']
 })
 export class RocketsComponent implements OnInit {
-  rocketObj:rocket = new rocket();
-  rockertObjArray:rocket[] = []
-  isLoading:boolean = false;
-  constructor(private rockets:RocketsService) { }
+  rocketObj: rocket = new rocket();
+  rockertObjArray: rocket[] = []
+  isLoading: boolean = false;
+  constructor(private rockets: RocketsService, private modal: modals) { }
 
   ngOnInit(): void {
     this.callRocketsApi()
   }
 
-  callRocketsApi(){
+  callRocketsApi() {
     this.isLoading = true;
-    this.rockets.getRockets().subscribe(response=>{
+    this.rockets.getRockets().subscribe(response => {
       this.bindObject(response)
-    },error=>{
-
+    }, error => {
+      this.modal.errorModal('The server does not answer, try again later...')
     })
   }
 
-  bindObject(rockets:any){
-    for(let r of rockets){
+  bindObject(rockets: any) {
+    for (let r of rockets) {
       this.rocketObj = new rocket();
       this.rocketObj.active = r.active;
       this.rocketObj.boosters = r.boosters;
@@ -55,7 +56,10 @@ export class RocketsComponent implements OnInit {
     this.isLoading = false;
   }
 
-  openInANewTab(url:any){
-    window.open(url)
+  openInANewTab(url: any) {
+    for (let rocket of url) {
+      debugger;
+      window.open(rocket)
+    }
   }
 }
