@@ -24,6 +24,8 @@ import { SpaceXComponent } from './space-x/space-x.component';
 import { HistoricalEventsComponent } from './space-x/historical-events/historical-events.component';
 import { DragonsComponent } from './space-x/dragons/dragons.component';
 import { RocketsComponent } from './space-x/rockets/rockets.component';
+import { cssVecna } from './core/cssVecna';
+import { SettingsComponent } from './settings/settings.component';
 
 
 
@@ -45,7 +47,8 @@ import { RocketsComponent } from './space-x/rockets/rockets.component';
     SpaceXComponent,
     HistoricalEventsComponent,
     DragonsComponent,
-    RocketsComponent 
+    RocketsComponent,
+    SettingsComponent 
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,7 @@ import { RocketsComponent } from './space-x/rockets/rockets.component';
     ReactiveFormsModule,
     SweetAlert2Module.forRoot()
   ],
-  providers: [credentials,exportToExcel,modals],
+  providers: [credentials,exportToExcel,modals,cssVecna],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

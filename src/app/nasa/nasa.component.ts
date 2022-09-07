@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { cssVecna } from '../core/cssVecna';
 
 @Component({
   selector: 'app-nasa',
@@ -11,5 +12,7 @@ export class NasaComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  
 
 }

@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 jumbotron-nasa ">
+            <div class="jumbotron jumbotron-fluid jumbotron-nasa-card vh-100">
+                <div class="container ">
+                    <h2 class="text-center">Settings</h2>
+                    <form [formGroup]="paletteForm" class="col-6 d-flex flex-column">
+                        <label>Color Palette</label>
+                        <select formControlName="palette" *ngIf="this.palette.length > 0" class="mars-select">
+                            <option *ngFor="let obj of this.palette" [value]="obj.name">{{obj.name}}</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

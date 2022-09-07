@@ -9,6 +9,7 @@ import { KeplerProjectComponent } from './random-apis/kepler-project/kepler-proj
 import { LaunchesComponent } from './random-apis/launches/launches.component';
 import { RandomApisComponent } from './random-apis/random-apis.component';
 import { UfoSightingsComponent } from './random-apis/ufo-sightings/ufo-sightings.component';
+import { SettingsComponent } from './settings/settings.component';
 import { DragonsComponent } from './space-x/dragons/dragons.component';
 import { HistoricalEventsComponent } from './space-x/historical-events/historical-events.component';
 import { RocketsComponent } from './space-x/rockets/rockets.component';
@@ -17,6 +18,8 @@ import { SpaceXComponent } from './space-x/space-x.component';
 const routes: Routes = [
   //menu urls
   { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'settings', component: SettingsComponent, pathMatch: 'full' },
+
   //nasa urls
   { path: 'nasa', component: NasaComponent, pathMatch: 'full' },
   { path: 'nasa/apod', component: ApodNasaComponent, pathMatch: 'full' },
