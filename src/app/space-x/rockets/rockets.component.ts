@@ -58,7 +58,6 @@ export class RocketsComponent implements OnInit {
 
   openInANewTab(url: any) {
     for (let rocket of url) {
-      debugger;
       window.open(rocket)
     }
   }

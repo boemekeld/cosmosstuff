@@ -2,14 +2,24 @@
     <div class="row">
         <div class="col-12 jumbotron-nasa ">
             <div class="jumbotron jumbotron-fluid jumbotron-nasa-card vh-100">
-                <div class="container ">
+                <div class="container">
                     <h2 class="text-center">Settings</h2>
-                    <form [formGroup]="paletteForm" class="col-6 d-flex flex-column">
-                        <label>Color Palette</label>
-                        <select formControlName="palette" *ngIf="this.palette.length > 0" class="mars-select">
-                            <option *ngFor="let obj of this.palette" [value]="obj.name">{{obj.name}}</option>
-                        </select>
-                    </form>
+                    <div class="d-md-flex">
+                        <form [formGroup]="settingsForm" class="col-12 col-md-6 d-flex flex-column">
+                            <label>Color Palette</label>
+                            <select formControlName="palette" *ngIf="this.palette.length > 0" class="mars-select">
+                                <option *ngFor="let obj of this.palette" [value]="obj.id">{{obj.name}}</option>
+                            </select>
+
+                            <label>Play Music</label>
+                            <button (click)="musicSwitch('playMusic')" class="checkbox" type="checkbox">{{this.playMusicButton}}</button>
+                            <label>Sound Effects</label>
+                            <button (click)="musicSwitch('musicEffect')" class="checkbox" type="checkbox">{{this.soundEffectsButton}}</button>
+                        </form>
+                        <div class="col-12 col-md-6">
+                            <img src="../../assets/svg/settings.svg">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

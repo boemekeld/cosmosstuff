@@ -48,6 +48,11 @@ iframe {
     width: 700px;
 }
 
+.checkBox{
+    display: flex!important;
+    float: left!important;
+}
+
 @media screen and (max-width: 992px) {
     iframe {
         height: 200px;

@@ -1,6 +1,6 @@
 export class cssVecna{
-    changeColourPalette(dark:string,darkPurple:string,softPurple:string,screamingPurple:string){
-        debugger;
+    changeColourPalette(
+        dark:string,darkPurple:string,softPurple:string,screamingPurple:string){
         let root = document.documentElement
         root.style.setProperty('--dark',dark);
         root.style.setProperty('--dark-purple',darkPurple);
