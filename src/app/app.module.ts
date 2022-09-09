@@ -58,7 +58,7 @@ import { SettingsComponent } from './settings/settings.component';
     ReactiveFormsModule,
     SweetAlert2Module.forRoot()
   ],
-  providers: [credentials,exportToExcel,modals,cssVecna],
+  providers: [credentials,exportToExcel,modals,cssVecna,SettingsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

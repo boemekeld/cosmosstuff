@@ -12,9 +12,11 @@
                             </select>
 
                             <label>Play Music</label>
-                            <button (click)="musicSwitch('playMusic')" class="checkbox" type="checkbox">{{this.playMusicButton}}</button>
+                            <button (click)="settingsSwitch('playMusic')" class="checkbox" type="checkbox">{{playMusic}}</button>
                             <label>Sound Effects</label>
-                            <button (click)="musicSwitch('musicEffect')" class="checkbox" type="checkbox">{{this.soundEffectsButton}}</button>
+                            <button (click)="settingsSwitch('soundEffects')" class="checkbox" type="checkbox">{{soundEffects}}</button>
+                            <label>Restore Defaults</label>
+                            <button (click)="settingsSwitch('restore')" class="checkbox" type="checkbox">Restore</button>
                         </form>
                         <div class="col-12 col-md-6">
                             <img src="../../assets/svg/settings.svg">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private settings:SettingsComponent) { }
 
   ngOnInit(): void {
+    this.settings.loadPalette();
   }
 
 }

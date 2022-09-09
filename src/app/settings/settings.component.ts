@@ -11,10 +11,8 @@ import { cssVecna } from '../core/cssVecna';
 export class SettingsComponent implements OnInit, DoCheck {
   choosedPalette: number = 0;
   palette: any[] = []
-  playMusic: boolean = true;
-  playMusicButton: string = this.playMusic.toString()
-  soundEffects: boolean = true;
-  soundEffectsButton: string = this.soundEffects.toString()
+  playMusic:boolean = true;
+  soundEffects:boolean = true;
 
   settingsForm = new FormGroup({
     palette: new FormControl(this.choosedPalette, Validators.required),
@@ -26,20 +24,36 @@ export class SettingsComponent implements OnInit, DoCheck {
   ngOnInit(): void {
     this.setPalette();
     this.loadPalette();
+    this.loadSounds()
   }
 
-  musicSwitch(element: string) {
-    if (element == 'playMusic') {
+  settingsSwitch(element:any){
+    if(element == 'playMusic'){
       this.playMusic = !this.playMusic;
-      this.playMusicButton = this.playMusic.toString()
-      this.saveLocalSotrage(this.playMusic,'playMusic')
+      localStorage.setItem('playMusic',JSON.stringify(this.playMusic))
     }
-    if (element == 'musicEffect') {
+    if(element == 'soundEffects'){
       this.soundEffects = !this.soundEffects;
-      this.soundEffectsButton = this.soundEffects.toString()
-      this.saveLocalSotrage(this.soundEffects,'soundEffects')
+      localStorage.setItem('soundEffects',JSON.stringify(this.soundEffects))
+    }
+    if(element == 'restore'){
+      localStorage.clear()
+      location.reload()
     }
   }
+  
+  loadSounds(){
+     let m:any = localStorage.getItem('playMusic')
+     m =! null ? m : m = true;
+     this.playMusic = JSON.parse(m);
+     this.settingsSwitch('playMusic')
+
+     let s:any = localStorage.getItem('soundEffects')
+     s =! null ? s : s = true;
+     this.soundEffects = JSON.parse(s);
+     this.settingsSwitch('soundEffects')
+  }
+
 
   loadPalette() {
     let option: any = localStorage.getItem('palette');
@@ -61,12 +75,16 @@ export class SettingsComponent implements OnInit, DoCheck {
       { id: 3, name: 'Iron' },
       { id: 4, name: 'Vintage' },
       { id: 5, name: 'Sunset' },
-      { id: 6, name: 'Fire' },
+      { id: 6, name: 'Mercurius' },
       { id: 7, name: 'Neon' },
       { id: 8, name: 'Hacker' },
       { id: 9, name: 'Neptune' },
-      { id: 10, name: 'Sputinik' }
-
+      { id: 10, name: 'Sputinik' },
+      { id: 11, name: 'Asteroid' },
+      { id: 12, name: 'Light' },
+      { id: 13, name: 'Galaxy' },
+      { id: 14, name: 'Aqua' },
+      { id: 15, name: 'Apollo' },
     ]
   }
 
@@ -101,7 +119,22 @@ export class SettingsComponent implements OnInit, DoCheck {
       this.vecna.changeColourPalette('#002B5B', '#2B4865', '#256D85', '#8FE3CF')
     }
     if (value == 10) {
-      this.vecna.changeColourPalette('#313552', '#B8405E', '#2EB086', '#EEE6CE')
+      this.vecna.changeColourPalette('#151515', '#301B3F', '#3C415C', '#B4A5A5')
+    }
+    if (value == 11) {
+      this.vecna.changeColourPalette('#472D2D', '#553939', '#704F4F', '#A77979')
+    }
+    if (value == 12) {
+      this.vecna.changeColourPalette('#F3F1F5', '#F0D9FF', '#BFA2DB', '#7F7C82')
+    }
+    if (value == 13) {
+      this.vecna.changeColourPalette('#000000', '#5800FF', '#E900FF', '#FFC600')
+    }
+    if (value == 14) {
+      this.vecna.changeColourPalette('#5800FF', '#0096FF', '#00D7FF', '#72FFFF')
+    }
+    if (value == 15) {
+      this.vecna.changeColourPalette('#222831', '#393E46', '#EEEEEE', '#00ADB5')
     }
   }
 
