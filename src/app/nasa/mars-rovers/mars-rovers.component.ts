@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Meta, Title } from '@angular/platform-browser';
 import { exportToExcel } from 'src/app/core/exportExcel';
 import { modals } from 'src/app/core/modals';
 import { MarsRoversService } from 'src/app/services/nasa/mars-rovers.service';
@@ -22,9 +24,13 @@ export class MarsRoversComponent implements OnInit {
   roverPhotos: roverPhoto = new roverPhoto();
   roverPhotosArray: roverPhoto[] = [];
   isLoading: boolean = false;
-  constructor(private modals: modals, private roverService: MarsRoversService,private xlsx:exportToExcel) { }
+  constructor(private modals: modals, private roverService: MarsRoversService,private xlsx:exportToExcel,
+    private metaTagService: Meta, 
+    private titleService: Title, 
+    @Inject(DOCUMENT) private doc: any) { }
 
   ngOnInit(): void {
+    this.metatagsImplementation()
     this.setRovers()
     this.setDisplay()
   }
@@ -106,6 +112,40 @@ export class MarsRoversComponent implements OnInit {
   changeFlag(){
     this.roverPhotosArray = []  
     this.displayOption == false
+  }
+
+  metatagsImplementation() {
+    this.titleService.setTitle('CosmosStuff - Mars Rovers')
+    let today = this.getCurrentDate();
+    this.metaTagService.addTags([
+      {
+        name: 'keywords', content: 'nasa, spaceX, starlink, space,cosmos, mars, asteroids, picutes, curiosity, picture,""',
+      },
+      { name: 'robots', content: 'index, follow' },
+      { name: 'author', content: 'CosmosStuff' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0' },
+      { name: 'date', content: `${today}`, scheme: 'YYYY-MM-DD' },
+      { charset: 'UTF-8' },
+      { httpEquiv: 'Content-Type',content:'text/html; charset=utf-8' },
+      { name: 'description',content:`
+      Have you ever thought about visiting the red planet? Did you know that with this tool you are now able to? See as if you were on Mars the most exclusive photos from the Curiosity, Opportunity, and Spirit.` },
+      { httpEquiv: 'x-dns-prefetch-control',content:'on' },
+    ]);
+
+    let link: HTMLLinkElement = this.doc.createElement('link');
+    link.setAttribute('rel', 'canonical');
+    this.doc.head.appendChild(link);
+    link.setAttribute('href', this.doc.URL);
+  }
+
+  getCurrentDate():string {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+    let date;
+    date = mm + '/' + dd + '/' + yyyy;
+    return date.toString();
   }
 
 }
