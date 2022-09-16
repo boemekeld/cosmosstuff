@@ -26,6 +26,7 @@ import { DragonsComponent } from './space-x/dragons/dragons.component';
 import { RocketsComponent } from './space-x/rockets/rockets.component';
 import { cssVecna } from './core/cssVecna';
 import { SettingsComponent } from './settings/settings.component';
+import { metaTags } from './core/metaTags';
 
 
 
@@ -58,7 +59,7 @@ import { SettingsComponent } from './settings/settings.component';
     ReactiveFormsModule,
     SweetAlert2Module.forRoot()
   ],
-  providers: [credentials,exportToExcel,modals,cssVecna,SettingsComponent],
+  providers: [credentials,exportToExcel,modals,cssVecna,SettingsComponent,metaTags],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

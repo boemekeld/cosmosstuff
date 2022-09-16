@@ -5,8 +5,9 @@ import { NeowsService } from 'src/app/services/nasa/neows.service';
 import { asteroid } from '../models/asteroid';
 import * as moment from 'moment';
 import { modals } from 'src/app/core/modals';
-import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
+import { metaTags } from '../../core/metaTags';
+
 
 @Component({
   selector: 'app-neows',
@@ -22,13 +23,15 @@ export class NeowsComponent implements OnInit {
 
   constructor(private service: NeowsService
     , private exportXlsx: exportToExcel
-    ,private modal:modals,private metaTagService: Meta, private titleService: Title, @Inject(DOCUMENT) private doc: any) { }
+    ,private modal:modals,
+    @Inject(DOCUMENT) private doc: any,
+    private metaTags:metaTags) { }
   isLoading: boolean = false;
   asteroid!: asteroid;
   asteroidArray: asteroid[] = [];
 
   ngOnInit(): void {
-    this.metatagsImplementation();
+    this.updateMetatags();
   }
 
   search() {
@@ -111,39 +114,25 @@ export class NeowsComponent implements OnInit {
     this.modal.successModal('Your file was successfully exported')
   }
 
-  metatagsImplementation() {
-    this.titleService.setTitle('CosmosStuff - Neows')
-    let today = this.getCurrentDate();
-    this.metaTagService.addTags([
-      {
-        name: 'keywords', content: 'nasa, spaceX, starlink, space,cosmos, tech, asteroids, jamesweb',
-      },
-      { name: 'robots', content: 'index, follow' },
-      { name: 'author', content: 'CosmosStuff' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0' },
-      { name: 'date', content: `${today}`, scheme: 'YYYY-MM-DD' },
-      { charset: 'UTF-8' },
-      { httpEquiv: 'Content-Type',content:'text/html; charset=utf-8' },
-      { name: 'description',content:`Explore in detail the asteroids that have passed close to our planet and those that will pass.
-      Learn about length, distance and more in this amazing tool.` },
-      { httpEquiv: 'x-dns-prefetch-control',content:'on' },
-    ]);
+  
 
-    let link: HTMLLinkElement = this.doc.createElement('link');
-    link.setAttribute('rel', 'canonical');
-    this.doc.head.appendChild(link);
-    link.setAttribute('href', this.doc.URL);
+  updateMetatags(){
+    this.metaTags.updateMetatags('CosmosStuff - Nasa',this.doc.createElement('link'),this.createMetaTagsArray());
   }
 
-  getCurrentDate():string {
-    let today = new Date();
-    let dd = String(today.getDate()).padStart(2, '0');
-    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    let yyyy = today.getFullYear();
-    let date;
-    date = mm + '/' + dd + '/' + yyyy;
-    return date.toString();
+  createMetaTagsArray(){
+    let metaTags = [
+      {name:'keywords',content:'nasa, spaceX, starlink, space,cosmos, tech, asteroids, jamesweb'},
+      {name:'robots',content:'index, follow'},
+      {name:'author',content:'CosmosStuff'},
+      {name:'viewport',content:'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0'},
+      {name:'date',content:''},
+      {name:'description',content:`Explore in detail the asteroids that have passed close to our planet and those that will pass.
+      Learn about length, distance and more in this amazing tool.`},
+    ]
+    return metaTags;
   }
+  
 
 
 }
