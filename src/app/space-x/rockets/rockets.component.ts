@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { modals } from 'src/app/core/modals';
 import { RocketsService } from 'src/app/services/spaceX/rockets.service';
 import { rocket } from '../models/rocket';
+import { metaTags } from '../../core/metaTags';
+import { DOCUMENT } from '@angular/common';
+
 
 @Component({
   selector: 'app-rockets',
@@ -12,9 +15,10 @@ export class RocketsComponent implements OnInit {
   rocketObj: rocket = new rocket();
   rockertObjArray: rocket[] = []
   isLoading: boolean = false;
-  constructor(private rockets: RocketsService, private modal: modals) { }
+  constructor(private rockets: RocketsService, private modal: modals,private metaTags:metaTags,@Inject(DOCUMENT) private doc: any,) { }
 
   ngOnInit(): void {
+    this.updateMetatags()
     this.callRocketsApi()
   }
 
@@ -60,5 +64,21 @@ export class RocketsComponent implements OnInit {
     for (let rocket of url) {
       window.open(rocket)
     }
+  }
+
+  updateMetatags(){
+    this.metaTags.updateMetatags('CosmosStuff - Rockets',this.doc.createElement('link'),this.createMetaTagsArray());
+  }
+
+  createMetaTagsArray(){
+    let metaTags = [
+      {name:'keywords',content:'nasa, spaceX, starlink, space,cosmos, tech, asteroids, jamesweb'},
+      {name:'robots',content:'index, follow'},
+      {name:'author',content:'CosmosStuff'},
+      {name:'viewport',content:'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0'},
+      {name:'date',content:''},
+      {name:'description',content:`This tool shows the SpaceX rockets in detail, take a look at how this machine works, what are their purpose and more.`},
+    ]
+    return metaTags;
   }
 }

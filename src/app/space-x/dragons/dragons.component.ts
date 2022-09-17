@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { modals } from 'src/app/core/modals';
 import { DragonsService } from 'src/app/services/spaceX/dragons.service';
 import { dragon } from '../models/dragon';
+import { metaTags } from '../../core/metaTags';
 
 @Component({
   selector: 'app-dragons',
@@ -11,10 +13,12 @@ import { dragon } from '../models/dragon';
 export class DragonsComponent implements OnInit {
   isLoading:boolean = false;
   dragonArray:dragon[] = [];
-  constructor(private dragonsService:DragonsService,private modal:modals) { }
+  constructor(private dragonsService:DragonsService,private modal:modals,private metaTags:metaTags
+    ,@Inject(DOCUMENT) private doc: any) { }
 
   ngOnInit(): void {
-    this.callDragonsApi()
+    this.callDragonsApi();
+    this.updateMetatags();
   }
 
   callDragonsApi(){
@@ -72,4 +76,22 @@ export class DragonsComponent implements OnInit {
       window.open(i)
     }
   }
+
+  
+  updateMetatags(){
+    this.metaTags.updateMetatags('CosmosStuff - SpaceX Dragons',this.doc.createElement('link'),this.createMetaTagsArray());
+  }
+
+  createMetaTagsArray(){
+    let metaTags = [
+      {name:'keywords',content:'nasa, spaceX, starlink, space,cosmos, tech, asteroids, jamesweb'},
+      {name:'robots',content:'index, follow'},
+      {name:'author',content:'CosmosStuff'},
+      {name:'viewport',content:'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0'},
+      {name:'date',content:''},
+      {name:'description',content:`Check it out the SpaceX dragons rovers and all the information about it.`},
+    ]
+    return metaTags;
+  }
+
 }

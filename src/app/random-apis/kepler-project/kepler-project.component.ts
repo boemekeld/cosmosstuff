@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { exportToExcel } from 'src/app/core/exportExcel';
 import { modals } from 'src/app/core/modals';
 import { KeplerProjectService } from 'src/app/services/random-apis/kepler-project.service';
 import { kepler } from '../models/kepler';
+import { metaTags } from '../../core/metaTags';
 
 @Component({
   selector: 'app-kepler-project',
@@ -19,9 +21,12 @@ export class KeplerProjectComponent implements OnInit {
   });
   kepler: kepler = new kepler();
   keplerArray: kepler[] = [];
-  constructor(private modal: modals, private service: KeplerProjectService, private xlsx: exportToExcel) { }
+  constructor(private modal: modals, private service: KeplerProjectService, private xlsx: exportToExcel,
+    @Inject(DOCUMENT) private doc: any,
+  private metaTags:metaTags) { }
 
   ngOnInit(): void {
+    this.updateMetatags();
   }
 
   search() {
@@ -105,5 +110,21 @@ export class KeplerProjectComponent implements OnInit {
 
   info(){
     this.modal.referenceExoplanets()
+  }
+
+  updateMetatags(){
+    this.metaTags.updateMetatags('CosmosStuff - Exoplanets',this.doc.createElement('link'),this.createMetaTagsArray());
+  }
+
+  createMetaTagsArray(){
+    let metaTags = [
+      {name:'keywords',content:'nasa, spaceX, starlink, space,cosmos, tech, asteroids, jamesweb'},
+      {name:'robots',content:'index, follow'},
+      {name:'author',content:'CosmosStuff'},
+      {name:'viewport',content:'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0'},
+      {name:'date',content:''},
+      {name:'description',content:`Get information about more than 100 exoplanets.`},
+    ]
+    return metaTags;
   }
 }

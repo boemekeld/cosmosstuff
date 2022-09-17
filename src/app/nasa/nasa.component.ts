@@ -10,7 +10,8 @@ import { metaTags } from '../core/metaTags';
 export class NasaComponent implements OnInit {
 
   constructor(@Inject(DOCUMENT) private doc: any,
-  private metaTags:metaTags) { }
+  private metaTags:metaTags
+  ) { }
 
   ngOnInit(): void {
     this.updateMetatags();

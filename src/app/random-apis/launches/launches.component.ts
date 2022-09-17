@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { modals } from 'src/app/core/modals';
 import { LaunchesService } from 'src/app/services/random-apis/launches.service';
 import { launch } from '../models/launch';
+import { metaTags } from '../../core/metaTags';
 
 @Component({
   selector: 'app-launches',
@@ -24,10 +26,12 @@ export class LaunchesComponent implements OnInit {
   isLoading?:boolean = false;
   display:any[] = []
 
-  constructor(private modal: modals, private launchService: LaunchesService) { }
+  constructor(private modal: modals, private launchService: LaunchesService, @Inject(DOCUMENT) private doc: any,
+  private metaTags:metaTags) { }
 
   ngOnInit(): void {
     this.setDisplay();
+    this.updateMetatags();
   }
   setDisplay(){
     this.display = [{ name: 'Basic' }, { name: 'Complete' }]
@@ -150,5 +154,22 @@ export class LaunchesComponent implements OnInit {
   }
   openInANewTab(img:any){
     window.open(img)
+  }
+
+  
+  updateMetatags(){
+    this.metaTags.updateMetatags('CosmosStuff - Launches',this.doc.createElement('link'),this.createMetaTagsArray());
+  }
+
+  createMetaTagsArray(){
+    let metaTags = [
+      {name:'keywords',content:'nasa, spaceX, starlink, space,cosmos, tech, asteroids, jamesweb'},
+      {name:'robots',content:'index, follow'},
+      {name:'author',content:'CosmosStuff'},
+      {name:'viewport',content:'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0'},
+      {name:'date',content:''},
+      {name:'description',content:`Get information about the SpaceX launches.`},
+    ]
+    return metaTags;
   }
 }

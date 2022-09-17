@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { exportToExcel } from 'src/app/core/exportExcel';
 import { modals } from 'src/app/core/modals';
 import { HistoricalService } from 'src/app/services/spaceX/historical.service';
 import { historical } from '../models/historical';
+import { metaTags } from '../../core/metaTags';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-historical-events',
@@ -16,9 +18,12 @@ export class HistoricalEventsComponent implements OnInit {
   constructor(
     private exportXlsx: exportToExcel
     ,private modal:modals
-    ,private spaceXService:HistoricalService) { }
+    ,private spaceXService:HistoricalService
+    ,private metaTags:metaTags
+    ,@Inject(DOCUMENT) private doc: any) { }
 
   ngOnInit(): void {
+    this.updateMetatags()
     this.callHistoricalApi();
   }
 
@@ -47,5 +52,21 @@ export class HistoricalEventsComponent implements OnInit {
 
   exportToExcel(){
     this.exportXlsx.exportToExcel('spaceXHistorical')
+  }
+
+  updateMetatags(){
+    this.metaTags.updateMetatags('CosmosStuff - SpaceX Historical',this.doc.createElement('link'),this.createMetaTagsArray());
+  }
+
+  createMetaTagsArray(){
+    let metaTags = [
+      {name:'keywords',content:'nasa, spaceX, starlink, space,cosmos, tech, asteroids, jamesweb'},
+      {name:'robots',content:'index, follow'},
+      {name:'author',content:'CosmosStuff'},
+      {name:'viewport',content:'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0'},
+      {name:'date',content:''},
+      {name:'description',content:`Discovery the spaceX historical events.`},
+    ]
+    return metaTags;
   }
 }
