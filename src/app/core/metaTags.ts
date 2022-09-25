@@ -1,10 +1,14 @@
 import { DOCUMENT } from "@angular/common";
 import { Inject, Injectable } from "@angular/core";
 import { Meta, Title } from "@angular/platform-browser";
+import { dateTool } from "./dateTool";
 
 @Injectable()
 export class metaTags {
-    constructor(private metaTagService: Meta, private titleService: Title, @Inject(DOCUMENT) private doc: any) {
+    constructor(private metaTagService: Meta, 
+        private titleService: Title, 
+        @Inject(DOCUMENT) private doc: any,
+        private dateTool:dateTool) {
 
     }
 
@@ -17,7 +21,7 @@ export class metaTags {
         this.titleService.setTitle(title);
         for (let metatag of metaTagsArr) {
             if (metatag.name == 'date') {
-                metatag.content = this.getCurrentDate();
+                metatag.content = this.dateTool.getCurrentDate();
             }
             this.metaTagService.updateTag({ name: metatag.name, content: metatag.content })
         }
@@ -37,13 +41,4 @@ export class metaTags {
         }
     }
 
-    getCurrentDate(): string {
-        let today = new Date();
-        let dd = String(today.getDate()).padStart(2, '0');
-        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        let yyyy = today.getFullYear();
-        let date;
-        date = yyyy + '-' + mm + '-' + dd;
-        return date.toString();
-    }
 }

@@ -28,6 +28,7 @@ import { cssVecna } from './core/cssVecna';
 import { SettingsComponent } from './settings/settings.component';
 import { metaTags } from './core/metaTags';
 import { ContactComponent } from './contact/contact.component';
+import { dateTool } from './core/dateTool';
 
 
 
@@ -67,7 +68,8 @@ import { ContactComponent } from './contact/contact.component';
     modals,
     cssVecna,
     SettingsComponent,
-    metaTags
+    metaTags,
+    dateTool
   ],
   bootstrap: [AppComponent]
 })

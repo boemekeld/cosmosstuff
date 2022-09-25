@@ -14,13 +14,15 @@
             contact-form
             "
             >
+                <h1 class="text-center">Contact us</h1>
                 <label>Name</label>
                 <input name="from_name" id="name" placeholder="Type your name" type="text">
                 <label>Email</label>
                 <input name="to_email" id="email" placeholder="Type your email" type="email">
                 <label>Message</label>
-                <textarea name="message" id="message" rows="4" cols="50" placeholder="Type your message">
+                <textarea [(ngModel)]="countChar" name="message" id="message" rows="4" cols="50" placeholder="Type your message">
                 </textarea>
+                <label>total characters {{countChar.length}} | Limit 800 </label>
                 <input class="message mt-2" type="submit" value="Send">
                 <!--hidden info-->
                 <input hidden name="to_name" value="CosmosStuff" placeholder="Type your email" type="text">
