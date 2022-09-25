@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-md-flex justify-content-center mars-rovers min-vh-100">
+            <div class="col-12 col-md-6 apod-content">
+                <img src="../../assets/svg/contact.svg" alt="apod nasa image">
+            </div>
+
+            <form 
+            (submit)="sendEmail($event)"
+            class="col-12 
+            col-md-6 apod-content 
+            d-flex flex-column 
+            justify-content-center
+            contact-form
+            "
+            >
+                <label>Name</label>
+                <input name="from_name" id="name" placeholder="Type your name" type="text">
+                <label>Email</label>
+                <input name="to_email" id="email" placeholder="Type your email" type="email">
+                <label>Message</label>
+                <textarea name="message" id="message" rows="4" cols="50" placeholder="Type your message">
+                </textarea>
+                <input class="message mt-2" type="submit" value="Send">
+                <!--hidden info-->
+                <input hidden name="to_name" value="CosmosStuff" placeholder="Type your email" type="text">
+
+            </form>
+        </div>
+    </div>
+</div>

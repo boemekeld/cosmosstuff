@@ -27,6 +27,7 @@ import { RocketsComponent } from './space-x/rockets/rockets.component';
 import { cssVecna } from './core/cssVecna';
 import { SettingsComponent } from './settings/settings.component';
 import { metaTags } from './core/metaTags';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -49,7 +50,8 @@ import { metaTags } from './core/metaTags';
     HistoricalEventsComponent,
     DragonsComponent,
     RocketsComponent,
-    SettingsComponent 
+    SettingsComponent,
+    ContactComponent 
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,14 @@ import { metaTags } from './core/metaTags';
     ReactiveFormsModule,
     SweetAlert2Module.forRoot()
   ],
-  providers: [credentials,exportToExcel,modals,cssVecna,SettingsComponent,metaTags],
+  providers: [
+    credentials,
+    exportToExcel,
+    modals,
+    cssVecna,
+    SettingsComponent,
+    metaTags
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

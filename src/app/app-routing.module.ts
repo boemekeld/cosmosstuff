@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { ApodNasaComponent } from './nasa/apod-nasa/apod-nasa.component';
 import { MarsRoversComponent } from './nasa/mars-rovers/mars-rovers.component';
@@ -19,6 +20,8 @@ const routes: Routes = [
   //menu urls
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'settings', component: SettingsComponent, pathMatch: 'full' },
+  { path: 'contact', component: ContactComponent, pathMatch: 'full' },
+
 
   //nasa urls
   { path: 'nasa', component: NasaComponent, pathMatch: 'full' },
