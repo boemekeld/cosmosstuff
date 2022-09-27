@@ -19,9 +19,8 @@ export class ContactComponent implements OnInit {
 
   public sendEmail(e: Event) {
     e.preventDefault();
-    let boot = this.checkHackerBehaviour();
     let check = this.validateForm()
-    if (check && !boot){
+    if (check){
       emailjs.sendForm('service_h2gv0jl', 'template_jwpttth', e.target as HTMLFormElement, 'ZmAgMTHNU7a2RRbIQ')
         .then((result: EmailJSResponseStatus) => {
           this.modal.successModal(`Your email has been sent`)
@@ -46,21 +45,22 @@ export class ContactComponent implements OnInit {
     return false;
   }
 
-  checkHackerBehaviour(){
-    let currentDateTime = this.dateTool.getFullDateInformation();
-    let localStorageItem:any = localStorage.getItem('lastEmail')
-    let lastDate = JSON.parse(localStorageItem);
-    if(lastDate){
-        let d1 = Date.parse(lastDate)
-        let d2 = Date.parse(currentDateTime)
-        let diff = this.dateTool.getMinutesBetweenDates(d2,d1)
-        if(diff > 2){
-          return false;
-        }
-      }
-    this.saveDateTime(currentDateTime)
-    return true;
-  }
+  // checkHackerBehaviour(){
+  //   let currentDateTime = this.dateTool.getFullDateInformation();
+  //   let localStorageItem:any = localStorage.getItem('lastEmail')
+  //   let lastDate = JSON.parse(localStorageItem);
+  //   if(lastDate){
+  //       let d1 = Date.parse(lastDate)
+  //       let d2 = Date.parse(currentDateTime)
+  //       let diff = this.dateTool.getMinutesBetweenDates(currentDateTime,lastDate)
+  //       debugger;
+  //       if(diff > 2){
+  //         return false;
+  //       }
+  //     }
+  //   this.saveDateTime(currentDateTime)
+  //   return true;
+  // }
 
   saveDateTime(date:string){
     localStorage.setItem('lastEmail',JSON.stringify(date))
