@@ -29,6 +29,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { metaTags } from './core/metaTags';
 import { ContactComponent } from './contact/contact.component';
 import { dateTool } from './core/dateTool';
+import { SupportusComponent } from './supportus/supportus.component';
 
 
 
@@ -52,7 +53,8 @@ import { dateTool } from './core/dateTool';
     DragonsComponent,
     RocketsComponent,
     SettingsComponent,
-    ContactComponent 
+    ContactComponent,
+    SupportusComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +62,7 @@ import { dateTool } from './core/dateTool';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     SweetAlert2Module.forRoot()
   ],
   providers: [

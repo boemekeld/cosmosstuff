@@ -15,7 +15,6 @@ export class dateTool{
     }
 
     getMinutesBetweenDates(startDate:any, endDate:any) {
-        debugger;
         const minutes = Math.abs(endDate - startDate) / (1000 * 60) % 60;
         var diff = Math.abs(Date.parse(startDate) - Date.parse(endDate));
         return minutes;

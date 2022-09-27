@@ -174,7 +174,7 @@ nasa style
 }
 
 .jumbotron-nasa,
-h1,
+h1,h5,
 p {
     color: var(--screaming-purple) !important;
 

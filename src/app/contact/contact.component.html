@@ -20,7 +20,7 @@
                 <label>Email</label>
                 <input name="to_email" id="email" placeholder="Type your email" type="email">
                 <label>Message</label>
-                <textarea [(ngModel)]="countChar" name="message" id="message" rows="4" cols="50" placeholder="Type your message">
+                <textarea maxlength="800" [(ngModel)]="countChar" name="message" id="message" rows="4" cols="50" placeholder="Type your message">
                 </textarea>
                 <label>total characters {{countChar.length}} | Limit 800 </label>
                 <input class="message mt-2" type="submit" value="Send">

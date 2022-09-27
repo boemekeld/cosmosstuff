@@ -15,13 +15,14 @@ import { DragonsComponent } from './space-x/dragons/dragons.component';
 import { HistoricalEventsComponent } from './space-x/historical-events/historical-events.component';
 import { RocketsComponent } from './space-x/rockets/rockets.component';
 import { SpaceXComponent } from './space-x/space-x.component';
+import { SupportusComponent } from './supportus/supportus.component';
 
 const routes: Routes = [
   //menu urls
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'settings', component: SettingsComponent, pathMatch: 'full' },
   { path: 'contact', component: ContactComponent, pathMatch: 'full' },
-
+  { path: 'supportUs', component: SupportusComponent, pathMatch: 'full' },
 
   //nasa urls
   { path: 'nasa', component: NasaComponent, pathMatch: 'full' },
