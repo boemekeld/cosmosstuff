@@ -30,8 +30,10 @@ import { metaTags } from './core/metaTags';
 import { ContactComponent } from './contact/contact.component';
 import { dateTool } from './core/dateTool';
 import { SupportusComponent } from './supportus/supportus.component';
-
-
+import { RoscosmosComponent } from './roscosmos/roscosmos.component';
+import { SpaceTugsComponent } from './roscosmos/space-tugs/space-tugs.component';
+import { LaunchpadsComponent } from './roscosmos/launchpads/launchpads.component';
+import { SpaceCraftsComponent } from './roscosmos/space-crafts/space-crafts.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,10 @@ import { SupportusComponent } from './supportus/supportus.component';
     SettingsComponent,
     ContactComponent,
     SupportusComponent,
+    RoscosmosComponent,
+    SpaceTugsComponent,
+    LaunchpadsComponent,
+    SpaceCraftsComponent,
   ],
   imports: [
     BrowserModule,

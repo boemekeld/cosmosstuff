@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-md-flex justify-content-center neows min-vh-100">
+            <div *ngIf="!this.lauchPads" class="col-12 col-md-6 apod-content">
+                <img src="../../../assets/svg/loading.svg" alt="apod nasa image">
+            </div>
+            <div *ngIf="this.lauchPads"
+                class="d-flex flex-column justify-content-between col-12 col-md-8 apod-content text-center p-5">
+                <div class="mars-rover-card">
+                    <h5>Total Cards: {{this.lauchPads.length}}</h5>
+                </div>
+                <div *ngFor="let lp of this.lauchPads;let i = index">
+                    <div class="card mars-rover-card">
+                        <h5>Card:{{i+1}}</h5>
+                        <div class="row d-flex justify-content-between">
+                                <img class="card-img-top " [src]="lp.image" alt="Roscosmos Image">
+                                <label *ngIf="lp.image == null || !lp.image">No image was provide</label>
+                        </div>
+                        <div class="card-body">
+                            <button (click)="openInANewTab(lp.image)">Open in a new tab</button>
+                            <h5 class="card-title">{{lp.name}}</h5>
+                            <ul class="ul-cards">
+                                <li>Area: {{lp.area}}</li>
+                                <li>Establishment Date: {{lp.establishment_date}}</li>
+                                <li>Location: {{lp.location}}</li>
+                                <li>no Employees: {{lp.no_employees}}</li>
+                                <li>no Launches: {{lp.no_launches}}</li>
+                                <li>Rented: {{lp.rented}}</li>
+                                <li>Use Period: {{lp.use_period}}</li>
+                                <li>Used By: {{lp.used_by}}</li>
+                                <li>Description: {{lp.description}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -14,7 +14,7 @@ export class modals {
     }
     successModal(message:string){
         Swal.fire({
-            title: 'Nice Dude',
+            title: 'Success',
             text: message,
             icon: 'success',
             confirmButtonColor: '#610094',
@@ -23,7 +23,6 @@ export class modals {
             color: '#610094',
           })
     }
-
     infoModal(message:string){
         Swal.fire({
             title: 'Info',
@@ -35,7 +34,6 @@ export class modals {
             color: '#610094',
           })
     }
-
     referenceExoplanets(){
         Swal.fire({
             title: 'Exoplanets',

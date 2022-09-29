@@ -1,1 +1,40 @@
-<p>roscosmos works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 jumbotron-nasa">
+            <div class="jumbotron jumbotron-fluid jumbotron-nasa-card">
+                <div class="container">
+                  <h2>Roscosmos Data</h2>
+                  <p>Due the war in Ukraine we have few information about ROSCOSMOS databases. The information avaiable is written in Russian and came from few time before the war start. As soon as the the conflict ends we will provide more data from Roscosmos.</p>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="cards-nasa">
+            <div class="col-12 col-md-4" >
+                <div class="card card-nasa" [routerLink]="['spaceTugs']">
+                    <img class="card-img-top" src="https://www.laspace.ru/upload/medialibrary/d59/d592834e7deee47908a07aef3a835a14.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text"> One of the most popular websites at NASA is the Astronomy Picture of the Day. In fact, this website is one of the most popular websites across all federal agencies. It has the popular appeal of a Justin Bieber video. </p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-12 col-md-4" [routerLink]="['launchPads']">
+                <div class="card card-nasa" >
+                    <img class="card-img-top" src="https://s0.rbk.ru/v6_top_pics/media/img/4/66/755365687677664.jpeg" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Retrieve a list of Asteroids based on their closest approach date to Earth. Get usefull data as asteroid's diamiter, distance from earth, max date approach and more. Check it out what's near from the planet today! </p>
+                    </div>
+                  </div>
+            </div>
+            <div [routerLink]="['spaceCrafts']" class="col-12 col-md-4">
+                <div class="card card-nasa" >
+                    <img class="card-img-top" src="https://cs7.pikabu.ru/post_img/big/2019/04/15/12/1555361205124047151.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Mage data gathered by NASA's Curiosity, Opportunity, and Spirit rovers on Mars and make it more easily available to other developers, educators, and citizen scientists. Check it out real photos from Mars.</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
