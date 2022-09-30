@@ -1,48 +1,50 @@
 import Swal from "sweetalert2";
 
 export class modals {
+    root = document.documentElement
+
     errorModal(message: string) {
         Swal.fire({
             title: 'Ops',
             text: message,
             icon: 'error',
-            confirmButtonColor: '#610094',
+            confirmButtonColor: this.root.style.getPropertyValue('--screaming-purple'),
             confirmButtonText: 'Ok',
-            background:'#000000',
-            color: '#610094',
-          })
+            background: this.root.style.getPropertyValue('--dark'),
+            color: this.root.style.getPropertyValue('--screaming-purple'),
+        })
     }
-    successModal(message:string){
+    successModal(message: string) {
         Swal.fire({
             title: 'Success',
             text: message,
             icon: 'success',
-            confirmButtonColor: '#610094',
+            confirmButtonColor: this.root.style.getPropertyValue('--screaming-purple'),
             confirmButtonText: 'Ok',
-            background:'#000000',
-            color: '#610094',
-          })
+            background: this.root.style.getPropertyValue('--dark'),
+            color: this.root.style.getPropertyValue('--screaming-purple'),
+        })
     }
-    infoModal(message:string){
+    infoModal(message: string) {
         Swal.fire({
             title: 'Info',
             text: message,
             icon: 'info',
-            confirmButtonColor: '#610094',
+            confirmButtonColor: this.root.style.getPropertyValue('--screaming-purple'),
             confirmButtonText: 'Ok',
-            background:'#000000',
-            color: '#610094',
-          })
+            background: this.root.style.getPropertyValue('--dark'),
+            color: this.root.style.getPropertyValue('--screaming-purple'),
+        })
     }
-    referenceExoplanets(){
+    referenceExoplanets() {
         Swal.fire({
             title: 'Exoplanets',
             icon: 'info',
-            confirmButtonColor: '#610094',
+            confirmButtonColor: this.root.style.getPropertyValue('--screaming-purple'),
             confirmButtonText: 'Ok',
-            background:'#000000',
-            color: '#610094',
-            html:`
+            background: this.root.style.getPropertyValue('--dark'),
+            color: this.root.style.getPropertyValue('--screaming-purple'),
+            html: `
             <label>To understand this table, before you need to read this table</label>
             <table class="table-kepler">
             <tr>
@@ -104,6 +106,6 @@ export class modals {
 
         </table>
             `
-          })
+        })
     }
 }
