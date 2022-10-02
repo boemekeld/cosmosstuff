@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd} from '@angular/router';
 import { filter } from 'rxjs';
+
 declare const gtag: Function; // <------------Important: the declartion for gtag is required!
 
 @Component({
