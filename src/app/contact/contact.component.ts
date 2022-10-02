@@ -21,7 +21,6 @@ export class ContactComponent implements OnInit {
   public sendEmail(e: Event) {
     e.preventDefault();
     let check = this.validateForm()
-    debugger;
     let hacker = this.checkHackerBehaviour()
     if (check && !hacker){
       emailjs.sendForm('service_h2gv0jl', 'template_jwpttth', e.target as HTMLFormElement, 'ZmAgMTHNU7a2RRbIQ')

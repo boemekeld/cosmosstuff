@@ -255,6 +255,8 @@ neows nasa style
 .neows-table {
     background-color: var(--dark);
     color: var(--screaming-purple) !important;
+    border-radius: 1rem;
+
 }
 
 /**********************************************************************************************************************************************************
