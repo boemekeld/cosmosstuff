@@ -24,10 +24,11 @@ export class HomeComponent implements OnInit {
     private metaTags: metaTags,
     private asteroidsService: NeowsService,
     private dateService: dateTool,
-    private marsRovers:MarsRoversService
+    private marsRovers:MarsRoversService,
   ) { }
 
   ngOnInit(): void {
+    this.marsPhoto = {'img_src':undefined};
     this.settings.loadPalette();
     this.updateMetatags();
     this.getAsteroids();

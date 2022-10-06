@@ -12,6 +12,7 @@ export class FooterComponent implements OnInit,DoCheck {
   constructor() { }
 
   ngOnInit(): void {
+    debugger;
     this.getAudioSettings()
   }
 
@@ -36,14 +37,15 @@ export class FooterComponent implements OnInit,DoCheck {
 
   }
   playIt() {
+    debugger;
     this.url = this.url + `${this.randomIntFromInterval(1, 3)}.mp4`
     let player: any = document.querySelector('.music');
-    // document.body.addEventListener("mousemove", function () {
-    //   player.play();
-    // })
-    // document.body.addEventListener("scroll", function () {
-    //   player.play();
-    // })
+    document.body.addEventListener("mousemove", function () {
+      player.play();
+    })
+    document.body.addEventListener("scroll", function () {
+      player.play();
+    })
   }
 
   randomIntFromInterval(min: number, max: number) { // min and max included 

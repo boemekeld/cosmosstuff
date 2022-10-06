@@ -1,6 +1,6 @@
 <div class="container-fluid home">
     <div class="row">
-        <div class="d-md-flex">
+        <div class="d-md-flex col-12 justify-content-around">
             <div class="col-12 col-md-6">
                 <div [routerLink]="['nasa']" class="card home-card mb-3">
                     <div class="d-flex">
@@ -95,11 +95,10 @@
                 </div>
 
             </div>
-            
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-5">
                 <!--Mars Photo-->
                 <div class="col-12">
-                    <div [routerLink]="['nasa/mars-rovers']" class="card mt-3 mars-rover-card text-center home-card">
+                    <div *ngIf="this.marsPhoto.img_src" [routerLink]="['nasa/mars-rovers']" class="card mt-3 mars-rover-card text-center home-card">
                         <img class="card-img-top" [src]="this.marsPhoto.img_src" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Random Mars Photo</h5>
@@ -110,10 +109,14 @@
                         </div>
                     </div>
                 </div>
+                <div *ngIf="this.marsPhoto.length == 0" class="col-12 mt-3">
+                    <img  src="../../../assets/svg/loading.svg" alt="">
+                </div>
                 <!--Mars Photo-->
 
                 <!--closest asteroids-->
-                <div [routerLink]="['nasa/neows']" *ngIf="this.asteroidArray.length > 0" class="col-11 mt-3 table-responsive home-card">
+                <div [routerLink]="['nasa/neows']" *ngIf="this.asteroidArray.length > 0" class="col-12 mt-3 table-responsive home-card
+                    ">
                     <h5 class="text-center">Closest asteroids to earth yesterday</h5>
                     <table id="excel-table" class="table neows-table text-center">
                         <thead>
@@ -140,7 +143,7 @@
                 <!--closest asteroids-->
 
                 <!--Astronaut Photo-->
-                <div class="col-12">
+                <div style="cursor: pointer;" [routerLink]="['supportUs']" class="col-12">
                     <img class="home-img-astronaut" src="../../assets/svg/home-astronaut.svg" alt="">
                 </div>
                 <!--Astronaut Photo-->

@@ -147,6 +147,8 @@ home style
 
 .home-card:hover {
     opacity: 0.7;
+    color: var(--soft-purple);
+
 }
 
 .home-p,
@@ -196,6 +198,8 @@ p {
 
 .card-nasa:hover {
     opacity: 0.5;
+    color: var(--soft-purple)!important;
+    
 }
 
 .card-nasa p {
