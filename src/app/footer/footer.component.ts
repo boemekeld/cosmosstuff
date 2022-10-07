@@ -12,7 +12,6 @@ export class FooterComponent implements OnInit,DoCheck {
   constructor() { }
 
   ngOnInit(): void {
-    debugger;
     this.getAudioSettings()
   }
 

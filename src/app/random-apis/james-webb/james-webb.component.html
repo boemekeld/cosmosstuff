@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-md-flex justify-content-center neows min-vh-100">
+            <div class="col-12 col-md-6 apod-content">
+                <img src="../../../assets/svg/james-web.svg" alt="apod nasa image">
+            </div>
+
+            <form [formGroup]="jamesWebbForm"
+                class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
+                <input formControlName="minKelvin" [min]="1" [max]="200"  placeholder="page (max 200)" type="number">
+                <button (click)="search()" class="p-2 mt-3">Search</button>
+            </form>
+        </div>
+    </div>
+</div>

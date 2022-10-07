@@ -34,6 +34,7 @@ import { RoscosmosComponent } from './roscosmos/roscosmos.component';
 import { SpaceTugsComponent } from './roscosmos/space-tugs/space-tugs.component';
 import { LaunchpadsComponent } from './roscosmos/launchpads/launchpads.component';
 import { SpaceCraftsComponent } from './roscosmos/space-crafts/space-crafts.component';
+import { JamesWebbComponent } from './random-apis/james-webb/james-webb.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { SpaceCraftsComponent } from './roscosmos/space-crafts/space-crafts.comp
     SpaceTugsComponent,
     LaunchpadsComponent,
     SpaceCraftsComponent,
+    JamesWebbComponent,
   ],
   imports: [
     BrowserModule,

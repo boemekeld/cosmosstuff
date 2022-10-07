@@ -13,6 +13,7 @@ export class credentials {
         }
         return this.url + this.key;
     }
+
     getRandomApisCredentials(component:string, query:string[]){
         if(component == 'kepler-project'){
             this.url = `http://www.asterank.com/api/kepler?query={"TPLANET":{"$lt":${query[1]},"$gt":${query[0]}}}&limit=${query[2]}`
@@ -22,6 +23,9 @@ export class credentials {
         }
         if(component == 'ufo-sightings'){
             this.url = `https://azure-westeurope-prod.socrata.com/resource/8s2t-pmzs.json?$limit=${query[0]}&$$app_token=KTHgvrHxa8rJbjJhcgmrO2Kyv`
+        }
+        if(component == 'james-webb'){
+            this.url = ``
         }
         return this.url;
     }

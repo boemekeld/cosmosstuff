@@ -1,42 +1,67 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-12 jumbotron-nasa">
-            <div class="jumbotron jumbotron-fluid jumbotron-nasa-card">
-                <div class="container">
-                  <h2>Random Apis</h2>
-                  <p>There are a lot of good amatuer sources spread in the internet. This tool brings some of them. We will keep developing it and soon you will see 9,15,16 cards here bringing good content and interesting data. Did you have any suggest to display here? Just tell us. On the navbar you can see a link to contact our crew.</p>
-                </div>
-              </div>
+  <div class="row">
+    <div class="col-12 jumbotron-nasa">
+      <div class="jumbotron jumbotron-fluid jumbotron-nasa-card">
+        <div class="container">
+          <h2>Random Apis</h2>
+          <p>There are a lot of good amatuer sources spread in the internet. This tool brings some of them. We will keep
+            developing it and soon you will see 9,15,16 cards here bringing good content and interesting data. Did you
+            have any suggest to display here? Just tell us. On the navbar you can see a link to contact our crew.</p>
         </div>
+      </div>
     </div>
-    <div class="row">
-        <div class="cards-nasa">
-            <div class="col-12 col-md-4" >
-                <div class="card card-nasa" [routerLink]="['kepler-project']">
-                    <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/55_Cancri_e_-_PIA20068_%28animated%29.gif" alt="Card image cap">
-                    <div class="card-body">
-                      <p class="card-text"> Search over 1,000 exoplanets and unconfirmed "objects of interest. In this tool you just need to
-                        set three parameters and get the results. All the data can be exported to excel. Want to see exoplanets? Here is the place.
-                      </p>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-12 col-md-4" [routerLink]="['launches']">
-                <div class="card card-nasa" >
-                    <img class="card-img-top" src="https://i.pinimg.com/originals/8e/bc/08/8ebc08fead3be5448833244ca4ec24e2.gif" alt="Card image cap">
-                    <div class="card-body">
-                      <p class="card-text">We track all orbital launches and a number of popular suborbital launches. Generally we will track all suborbital launches which aim to reach “space” or the Karman line and are live streamed, although, we will also occasionally track others by popular demand.</p>
-                    </div>
-                  </div>
-            </div>
-            <div [routerLink]="['ufo-sightings']" class="col-12 col-md-4">
-                <div class="card card-nasa" >
-                    <img class="card-img-top" src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2021_20/3475469/210517-ufo-corbell-2x1-mn-1540.gif" alt="Card image cap">
-                    <div class="card-body">
-                      <p class="card-text">This is a funny API that brings all the UFO sights in 2001 registered. You can find out the location by searching for the latitude and longitude. This tool can display a large amount of data, just search for a high number of lines if your hardware support it.</p>
-                    </div>
-                  </div>
-            </div>
+  </div>
+  <div class="row">
+    <div class="cards-nasa">
+      <div class="col-12 col-md-3">
+        <div class="card card-nasa" [routerLink]="['kepler-project']">
+          <img class="card-img-top"
+            src="https://upload.wikimedia.org/wikipedia/commons/c/c5/55_Cancri_e_-_PIA20068_%28animated%29.gif"
+            alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text"> Search over 1,000 exoplanets and unconfirmed "objects of interest. In this tool you
+              just need to
+              set three parameters and get the results. All the data can be exported to excel. Want to see exoplanets?
+              Here is the place.
+            </p>
+          </div>
         </div>
+      </div>
+      <div [routerLink]="['james-webb']" class="col-12 col-md-3">
+        <div class="card card-nasa">
+          <img class="card-img-top" src="https://cdn.mos.cms.futurecdn.net/SbwTYuQSyZNUKAEmbP5m2D-1200-80.gif"
+            alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">This is a funny API that brings all the UFO sights in 2001 registered. You can find out
+              the location by searching for the latitude and longitude. This tool can display a large amount of data,
+              just search for a high number of lines if your hardware support it.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3" [routerLink]="['launches']">
+        <div class="card card-nasa">
+          <img class="card-img-top" src="https://i.pinimg.com/originals/8e/bc/08/8ebc08fead3be5448833244ca4ec24e2.gif"
+            alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">We track all orbital launches and a number of popular suborbital launches. Generally we
+              will track all suborbital launches which aim to reach “space” or the Karman line and are live streamed,
+              although, we will also occasionally track others by popular demand.</p>
+          </div>
+        </div>
+      </div>
+      <div [routerLink]="['ufo-sightings']" class="col-12 col-md-3">
+        <div class="card card-nasa">
+          <img class="card-img-top"
+            src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2021_20/3475469/210517-ufo-corbell-2x1-mn-1540.gif"
+            alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">This is a funny API that brings all the UFO sights in 2001 registered. You can find out
+              the location by searching for the latitude and longitude. This tool can display a large amount of data,
+              just search for a high number of lines if your hardware support it.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 </div>
