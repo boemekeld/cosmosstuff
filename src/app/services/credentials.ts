@@ -25,7 +25,7 @@ export class credentials {
             this.url = `https://azure-westeurope-prod.socrata.com/resource/8s2t-pmzs.json?$limit=${query[0]}&$$app_token=KTHgvrHxa8rJbjJhcgmrO2Kyv`
         }
         if(component == 'james-webb'){
-            this.url = ``
+            this.url = `https://api.jwstapi.com/all/type/jpg?page=${query[0]}&perPage=10`
         }
         return this.url;
     }

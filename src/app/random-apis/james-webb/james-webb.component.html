@@ -1,15 +1,90 @@
 <div class="container-fluid">
     <div class="row">
         <div class="d-md-flex justify-content-center neows min-vh-100">
-            <div class="col-12 col-md-6 apod-content">
+            <div *ngIf="this.isLoading == true" class="col-12 col-md-6 apod-content">
+                <img src="../../../assets/svg/loading.svg" alt="apod nasa image">
+            </div>
+
+            <div *ngIf="this.isLoading == false && this.jamesWebbPhotoArray.length == 0"
+                class="col-12 col-md-6 apod-content">
                 <img src="../../../assets/svg/james-web.svg" alt="apod nasa image">
             </div>
 
-            <form [formGroup]="jamesWebbForm"
+            <form *ngIf="this.isLoading == false && this.jamesWebbPhotoArray.length == 0" [formGroup]="jamesWebbForm"
                 class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
-                <input formControlName="minKelvin" [min]="1" [max]="200"  placeholder="page (max 200)" type="number">
-                <button (click)="search()" class="p-2 mt-3">Search</button>
+                <label>Page Number</label>
+                <input formControlName="page" [min]="0" [max]="10000" placeholder="Use zero to get all pages" type="number">
+                <label>Display</label>
+                <select formControlName="display" *ngIf="this.display.length > 0" class="mars-select">
+                    <option *ngFor="let obj of this.display" [value]="obj.value">{{obj.name}}</option>
+                </select>
+                <button (click)="search(null)" class="p-2 mt-3">Search</button>
             </form>
+
+            <!--table-->
+            <div *ngIf="this.isLoading == false && this.jamesWebbPhotoArray.length > 0 
+                && this.jamesWebbForm.controls['display'].value == 0"
+                class="d-flex flex-column justify-content-between col-12 apod-content text-center p-5 table-responsive">
+                <div class="d-flex flex-column col-12 col-md-3">
+                    <button (click)="changeFlag()">Back</button>
+                    <button (click)="exportToExcel()" class="mt-2">Export to Excel</button>
+                </div>
+                <table id="excel-table" class="table neows-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Program</th>
+                            <th scope="col">Mission</th>
+                            <th scope="col">Instruments</th>
+                            <th scope="col">Suffix</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">File Type</th>
+                            <th scope="col">Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let obj of this.jamesWebbPhotoArray; let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{this.obj.program}}</td>
+                            <td>{{this.obj.mission}}</td>
+                            <td>{{this.obj.instruments}}</td>
+                            <td>{{this.obj.sufix}}</td>
+                            <td>{{this.obj.description}}</td>
+                            <td>{{this.obj.fileType}}</td>
+                            <td>{{this.obj.image}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--table-->
+            <!--Cards-->
+            <div *ngIf="this.isLoading == false && this.jamesWebbPhotoArray.length > 0 && this.jamesWebbForm.controls['display'].value == 1"
+                class="d-flex flex-column justify-content-between col-12 col-md-8 apod-content text-center p-5">
+                <div class="mars-rover-card d-flex flex-column">
+                    <h5>Page: {{this.currentPage}}</h5>
+                    <button class="mt-2" (click)="changeFlag()">Back</button>
+                    <button class="mt-2" (click)="changePage('previous')">Previous Page</button>
+                    <button class="mt-2" (click)="changePage('next')">Next Page</button>
+                </div>
+                <div *ngFor="let obj of this.jamesWebbPhotoArray;let i = index">
+                    <div class="card mars-rover-card">
+                        <h5>Card:{{i+1}}</h5>
+                        <img class="card-img-top" [src]="obj.image" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{obj.program}}</h5>
+                            <ul class="ul-cards">
+                                <li>Mission: {{obj.mission}}</li>
+                                <li>Instruments: {{obj.instruments}}</li>
+                                <li>Suffix: {{obj.sufix}}</li>
+                                <li>File Type: {{obj.fileType}}</li>
+                                <li>Description: {{obj.description}}</li>
+                            </ul>
+                            <button (click)="openInANewTab(obj.image)">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Cards-->
         </div>
     </div>
 </div>
