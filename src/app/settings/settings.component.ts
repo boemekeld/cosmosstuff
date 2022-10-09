@@ -2,6 +2,7 @@ import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/c
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { of } from 'rxjs';
 import { cssVecna } from '../core/cssVecna';
+import { midiaController } from '../core/midiaController';
 
 @Component({
   selector: 'app-settings',
@@ -11,49 +12,55 @@ import { cssVecna } from '../core/cssVecna';
 export class SettingsComponent implements OnInit, DoCheck {
   choosedPalette: number = 0;
   palette: any[] = []
-  playMusic:boolean = true;
-  soundEffects:boolean = true;
+  playMusic: boolean = false;
+  soundEffects: boolean = true;
 
   settingsForm = new FormGroup({
     palette: new FormControl(this.choosedPalette, Validators.required),
     playMusic: new FormControl(this.playMusic, Validators.required),
     soundEffects: new FormControl(this.soundEffects, Validators.required),
   })
-  constructor(private vecna: cssVecna) { }
+  constructor(private vecna: cssVecna, private midiaController: midiaController) { }
 
   ngOnInit(): void {
     this.setPalette();
     this.loadPalette();
-    this.loadSounds()
+    this.getMusicStatus()
+    this.getSoundEffectStatus()
   }
 
-  settingsSwitch(element:any){
-    if(element == 'playMusic'){
+  getMusicStatus() {
+    let musicStatus = this.midiaController.getMusicFlag()
+    if (typeof musicStatus == 'boolean') {
+      this.playMusic = musicStatus
+    }
+  }
+
+  getSoundEffectStatus() {
+    let soundEffectsStatus = this.midiaController.getMusicFlag()
+    if (typeof soundEffectsStatus == 'boolean') {
+      this.soundEffects = soundEffectsStatus
+    }
+  }
+
+  settingsSwitch(element: any) {
+    if (element == 'playMusic') {
       this.playMusic = !this.playMusic;
-      localStorage.setItem('playMusic',JSON.stringify(this.playMusic))
+      this.midiaController.setMusicFlag(this.playMusic)
+      debugger;
+      if(this.playMusic ){
+        this.midiaController.playMusic();
+      }
     }
-    if(element == 'soundEffects'){
+    if (element == 'soundEffects') {
       this.soundEffects = !this.soundEffects;
-      localStorage.setItem('soundEffects',JSON.stringify(this.soundEffects))
+      this.midiaController.setSoundEffectFlag(this.soundEffects);
     }
-    if(element == 'restore'){
+    if (element == 'restore') {
       localStorage.clear()
       location.reload()
     }
   }
-  
-  loadSounds(){
-     let m:any = localStorage.getItem('playMusic')
-     m =! null ? m : m = true;
-     this.playMusic = JSON.parse(m);
-     this.settingsSwitch('playMusic')
-
-     let s:any = localStorage.getItem('soundEffects')
-     s =! null ? s : s = true;
-     this.soundEffects = JSON.parse(s);
-     this.settingsSwitch('soundEffects')
-  }
-
 
   loadPalette() {
     let option: any = localStorage.getItem('palette');
@@ -142,10 +149,10 @@ export class SettingsComponent implements OnInit, DoCheck {
     if (element == 'palette') {
       localStorage.setItem('palette', JSON.stringify(value));
     }
-    if(element == 'playMusic'){
+    if (element == 'playMusic') {
       localStorage.setItem('playMusic', JSON.stringify(value));
     }
-    if(element == 'soundEffects'){
+    if (element == 'soundEffects') {
       localStorage.setItem('soundEffects', JSON.stringify(value));
     }
   }

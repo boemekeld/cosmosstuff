@@ -35,6 +35,7 @@ import { SpaceTugsComponent } from './roscosmos/space-tugs/space-tugs.component'
 import { LaunchpadsComponent } from './roscosmos/launchpads/launchpads.component';
 import { SpaceCraftsComponent } from './roscosmos/space-crafts/space-crafts.component';
 import { JamesWebbComponent } from './random-apis/james-webb/james-webb.component';
+import { midiaController } from './core/midiaController';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { JamesWebbComponent } from './random-apis/james-webb/james-webb.componen
     cssVecna,
     SettingsComponent,
     metaTags,
-    dateTool
+    dateTool,
+    midiaController
   ],
   bootstrap: [AppComponent]
 })
