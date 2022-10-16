@@ -11,9 +11,11 @@
       </div>
     </div>
   </div>
+
+  <!--first row cards start-->
   <div class="row">
     <div class="cards-nasa">
-      <div class="col-12 col-md-3">
+      <div class="col-12 col-md-4">
         <div class="card card-nasa" [routerLink]="['kepler-project']">
           <img class="card-img-top"
             src="https://upload.wikimedia.org/wikipedia/commons/c/c5/55_Cancri_e_-_PIA20068_%28animated%29.gif"
@@ -27,18 +29,7 @@
           </div>
         </div>
       </div>
-      <div [routerLink]="['james-webb']" class="col-12 col-md-3">
-        <div class="card card-nasa">
-          <img class="card-img-top" src="https://cdn.mos.cms.futurecdn.net/SbwTYuQSyZNUKAEmbP5m2D-1200-80.gif"
-            alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">This is a funny API that brings all the UFO sights in 2001 registered. You can find out
-              the location by searching for the latitude and longitude. This tool can display a large amount of data,
-              just search for a high number of lines if your hardware support it.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3" [routerLink]="['launches']">
+      <div class="col-12 col-md-4" [routerLink]="['launches']">
         <div class="card card-nasa">
           <img class="card-img-top" src="https://i.pinimg.com/originals/8e/bc/08/8ebc08fead3be5448833244ca4ec24e2.gif"
             alt="Card image cap">
@@ -49,7 +40,7 @@
           </div>
         </div>
       </div>
-      <div [routerLink]="['ufo-sightings']" class="col-12 col-md-3">
+      <div [routerLink]="['ufo-sightings']" class="col-12 col-md-4">
         <div class="card card-nasa">
           <img class="card-img-top"
             src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2021_20/3475469/210517-ufo-corbell-2x1-mn-1540.gif"
@@ -64,4 +55,49 @@
 
     </div>
   </div>
+  <!--first row cards start-->
+
+  
+  <!--second row cards start-->
+  <div class="row">
+    <div class="cards-nasa">
+      <div [routerLink]="['james-webb']" class="col-12 col-md-4">
+        <div class="card card-nasa">
+          <img class="card-img-top" src="https://cdn.mos.cms.futurecdn.net/SbwTYuQSyZNUKAEmbP5m2D-1200-80.gif"
+            alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">This is a funny API that brings all the UFO sights in 2001 registered. You can find out
+              the location by searching for the latitude and longitude. This tool can display a large amount of data,
+              just search for a high number of lines if your hardware support it.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4" [routerLink]="['morse-code']">
+        <div class="card card-nasa">
+          <img class="card-img-top" src="https://64.media.tumblr.com/4d0bd720a8b076f99397e3c72b6dc878/tumblr_nw4l9uZ0xs1rk0k2jo1_500.gifv"
+            alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">We track all orbital launches and a number of popular suborbital launches. Generally we
+              will track all suborbital launches which aim to reach “space” or the Karman line and are live streamed,
+              although, we will also occasionally track others by popular demand.</p>
+          </div>
+        </div>
+      </div>
+      <div [routerLink]="['ufo-sightings']" class="col-12 col-md-4">
+        <div class="card card-nasa">
+          <img class="card-img-top"
+            src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2021_20/3475469/210517-ufo-corbell-2x1-mn-1540.gif"
+            alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">This is a funny API that brings all the UFO sights in 2001 registered. You can find out
+              the location by searching for the latitude and longitude. This tool can display a large amount of data,
+              just search for a high number of lines if your hardware support it.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--second row cards start-->
+
 </div>

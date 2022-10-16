@@ -66,7 +66,6 @@ export class JamesWebbComponent implements OnInit {
     let check = this.validateForm();
     if(check){
       this.jamesWebbService.getJamesWebbData(pageArray).subscribe((response: any) => {
-        debugger;
         this.bindObject(response.body)
       }, (error: any) => {
         this.isLoading = false;

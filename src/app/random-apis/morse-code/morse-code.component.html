@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-md-flex justify-content-center neows min-vh-100">
+
+            <div class="col-12 col-md-6 apod-content">
+                <img src="../../../assets/svg/mars-rover.svg" alt="apod nasa image">
+            </div>
+
+            <form [formGroup]="morseForm"
+            class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
+            <label>Text</label>
+            <input  formControlName="text" placeholder="Type your text here" type="text">
+            <label>Display</label>
+            <select formControlName="option" class="mars-select">
+                <option *ngFor="let obj of this.options" [value]="obj.value">{{obj.name}}</option>
+            </select>
+            
+            <button (click)="search()" class="p-2 mt-3">Search</button>
+        </form>
+
+
+        </div>
+    </div>
+</div>

@@ -1,9 +1,10 @@
 export class midiaController {
     isPlaying: boolean = false;
+    audio:any;
     setMusicFlag(play: boolean) {
         localStorage.setItem('playMusic', JSON.stringify(play))
         if (!play) {
-            location.reload()
+            this.stopMusic();
         }
     }
     getMusicFlag(): boolean {
@@ -30,14 +31,16 @@ export class midiaController {
         }
     }
     playMusic() {
-        debugger;
-        var audio = new Audio('../../assets/songs/bot-2.mp4');
+        let random = Math.floor(Math.random() * (4 - 1 + 1) + 1)
+        this.audio = new Audio(`../../assets/songs/bot-${random}.mp4`);
         if (this.isPlaying == false) {
             this.isPlaying = true
-            audio.play();
+            this.audio.play();
         }
     }
 
     stopMusic() {
+        this.isPlaying = false;
+        this.audio.pause()
     }
 }

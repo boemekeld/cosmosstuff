@@ -9,6 +9,7 @@ import { NeowsComponent } from './nasa/neows/neows.component';
 import { JamesWebbComponent } from './random-apis/james-webb/james-webb.component';
 import { KeplerProjectComponent } from './random-apis/kepler-project/kepler-project.component';
 import { LaunchesComponent } from './random-apis/launches/launches.component';
+import { MorseCodeComponent } from './random-apis/morse-code/morse-code.component';
 import { RandomApisComponent } from './random-apis/random-apis.component';
 import { UfoSightingsComponent } from './random-apis/ufo-sightings/ufo-sightings.component';
 import { LaunchpadsComponent } from './roscosmos/launchpads/launchpads.component';
@@ -52,7 +53,8 @@ const routes: Routes = [
   { path: 'random-apis/kepler-project', component: KeplerProjectComponent, pathMatch: 'full' },
   { path: 'random-apis/launches', component: LaunchesComponent, pathMatch: 'full' },
   { path: 'random-apis/ufo-sightings', component: UfoSightingsComponent, pathMatch: 'full' },
-  { path: 'random-apis/james-webb', component: JamesWebbComponent, pathMatch: 'full' }
+  { path: 'random-apis/james-webb', component: JamesWebbComponent, pathMatch: 'full' },
+  { path: 'random-apis/morse-code', component: MorseCodeComponent, pathMatch: 'full' }
 ];
 
 @NgModule({

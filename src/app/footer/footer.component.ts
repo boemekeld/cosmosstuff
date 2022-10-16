@@ -17,7 +17,6 @@ export class FooterComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   checkMidiaStatus() {
-    debugger;
     this.playMusic = this.midiaController.getMusicFlag();
     if (this.playMusic) {
       this.play();

@@ -36,6 +36,8 @@ import { LaunchpadsComponent } from './roscosmos/launchpads/launchpads.component
 import { SpaceCraftsComponent } from './roscosmos/space-crafts/space-crafts.component';
 import { JamesWebbComponent } from './random-apis/james-webb/james-webb.component';
 import { midiaController } from './core/midiaController';
+import { MorseCodeComponent } from './random-apis/morse-code/morse-code.component';
+import { morseCode } from './core/morseCode';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,7 @@ import { midiaController } from './core/midiaController';
     LaunchpadsComponent,
     SpaceCraftsComponent,
     JamesWebbComponent,
+    MorseCodeComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +85,8 @@ import { midiaController } from './core/midiaController';
     SettingsComponent,
     metaTags,
     dateTool,
-    midiaController
+    midiaController,
+    morseCode
   ],
   bootstrap: [AppComponent]
 })

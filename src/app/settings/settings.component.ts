@@ -45,9 +45,9 @@ export class SettingsComponent implements OnInit, DoCheck {
 
   settingsSwitch(element: any) {
     if (element == 'playMusic') {
+      debugger;
       this.playMusic = !this.playMusic;
       this.midiaController.setMusicFlag(this.playMusic)
-      debugger;
       if(this.playMusic ){
         this.midiaController.playMusic();
       }
