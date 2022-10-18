@@ -36,10 +36,18 @@ export class midiaController {
         if (this.isPlaying == false) {
             this.isPlaying = true
             this.audio.play();
+            this.audio.onended = function() {
+                this.changeMusic()
+            };
         }
     }
 
+    changeMusic(){
+        this.playMusic();
+    }
+
     stopMusic() {
+        debugger;
         this.isPlaying = false;
         this.audio.pause()
     }
