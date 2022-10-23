@@ -38,6 +38,7 @@ import { JamesWebbComponent } from './random-apis/james-webb/james-webb.componen
 import { midiaController } from './core/midiaController';
 import { MorseCodeComponent } from './random-apis/morse-code/morse-code.component';
 import { morseCode } from './core/morseCode';
+import { SunriseSunsetComponent } from './random-apis/sunrise-sunset/sunrise-sunset.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { morseCode } from './core/morseCode';
     SpaceCraftsComponent,
     JamesWebbComponent,
     MorseCodeComponent,
+    SunriseSunsetComponent,
   ],
   imports: [
     BrowserModule,

@@ -125,6 +125,7 @@ footer style
 .insta-icon{
     color: var(--screaming-purple)!important;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .insta-icon:hover{

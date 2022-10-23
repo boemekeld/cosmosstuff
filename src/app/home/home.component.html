@@ -73,15 +73,15 @@
                 <div [routerLink]="['random-apis']" class="card home-card mb-3">
                     <div class="d-flex">
                         <img class="card-img-top w-25"
-                            src="https://gist.githubusercontent.com/patevs/b007a0e98fb216438d4cbf559fac4166/raw/88f20c9d749d756be63f22b09f3c4ac570bc5101/programming.gif"
-                            alt="Card image cap">
-                        <img class="card-img-top w-25"
                             src="https://media3.giphy.com/media/V4NSR1NG2p0KeJJyr5/giphy.gif?cid=e2a3cbde0qn27rniqqiyymp4c4q8py7jl6i50lc4x8yar5kq&rid=giphy.gif&ct=g"
                             alt="Card image cap">
                         <img class="card-img-top w-25" src="https://c.tenor.com/nxE77sPPTBgAAAAC/alien-twerk.gif"
                             alt="Card image cap">
                         <img class="card-img-top w-25"
                             src="https://pa1.narvii.com/6647/5ae9ec2a267d0f9de30b2876e0123f8c9e882e3f_hq.gif"
+                            alt="Card image cap">
+                        <img class="card-img-top w-25"
+                            src="https://i.pinimg.com/originals/60/7d/d0/607dd0be8059d2b9ba05641c96b7da58.gif"
                             alt="Card image cap">
                     </div>
                     <div class="card-body">
@@ -98,7 +98,8 @@
             <div class="col-12 col-md-5">
                 <!--Mars Photo-->
                 <div class="col-12">
-                    <div *ngIf="this.marsPhoto.img_src" [routerLink]="['nasa/mars-rovers']" class="card mt-3 mars-rover-card text-center home-card">
+                    <div *ngIf="this.marsPhoto.img_src" [routerLink]="['nasa/mars-rovers']"
+                        class="card mt-3 mars-rover-card text-center home-card">
                         <img class="card-img-top" [src]="this.marsPhoto.img_src" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Random Mars Photo</h5>
@@ -110,7 +111,7 @@
                     </div>
                 </div>
                 <div *ngIf="this.marsPhoto.length == 0" class="col-12 mt-3">
-                    <img  src="../../../assets/svg/loading.svg" alt="">
+                    <img src="../../../assets/svg/loading.svg" alt="">
                 </div>
                 <!--Mars Photo-->
 
@@ -138,7 +139,7 @@
                     </table>
                 </div>
                 <div *ngIf="this.asteroidArray.length == 0" class="col-12 mt-3">
-                    <img  src="../../../assets/svg/loading.svg" alt="">
+                    <img src="../../../assets/svg/loading.svg" alt="">
                 </div>
                 <!--closest asteroids-->
 

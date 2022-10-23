@@ -27,6 +27,9 @@ export class credentials {
         if(component == 'james-webb'){
             this.url = `https://api.jwstapi.com/all/type/jpg?page=${query[0]}&perPage=10`
         }
+        if(component == 'sunset'){
+            this.url = `https://api.sunrise-sunset.org/json?lat=${query[0]}&lng=${query[1]}&date=${query[2]}`
+        }
         return this.url;
     }
 

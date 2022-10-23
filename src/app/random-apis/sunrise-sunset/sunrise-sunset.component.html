@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-md-flex justify-content-center neows min-vh-100">
+
+            <div *ngIf="this.isLoading == true" class="col-12 col-md-6 apod-content">
+                <img src="../../../assets/svg/loading.svg" alt="loading image">
+            </div>
+
+            <div *ngIf="!this.isLoading" class="col-12 col-md-6 apod-content">
+                <img src="../../../assets/svg/sun.svg" alt="apod nasa image">
+            </div>
+
+            <form *ngIf="!this.isLoading && this.sun.sunrise == null" [formGroup]="sunForm"
+                class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
+                <input formControlName="latitude"  placeholder="Latitude in decimal degrees" type="number">
+                <input formControlName="longitude"  placeholder="Longitude in decimal degrees" type="number">
+                <input formControlName="date" type="date">
+
+                <button (click)="search()" class="p-2 mt-3">Search</button>
+            </form>
+
+            <div *ngIf="this.sun.sunrise"
+                class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5 table-responsive">
+                <div class="d-flex flex-column col-12 col-md-3">
+                    <button (click)="changeFlag()">Back</button>
+                    <button (click)="exportToExcel()" class="mt-2">Export to Excel</button>
+                </div>
+                <table id="excel-table" class="table neows-table">
+                    <thead>
+                        <tr>
+                            <th scope="col"> Astronomical Twilight Begin </th>
+                            <th scope="col"> Astronomical Twilight End </th>
+                            <th scope="col"> Civil Twilight Begin </th>
+                            <th scope="col"> Civil Twilight End </th>
+                            <th scope="col"> Day Length </th>
+                            <th scope="col"> Nautical Twilight Begin </th>
+                            <th scope="col"> Nautical Twilight End </th>
+                            <th scope="col"> Solar Noon </th>
+                            <th scope="col"> Sunrise </th>
+                            <th scope="col"> Sunset </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{this.sun.astronomicalTwilightBegin != null ? this.sun.astronomicalTwilightBegin : 'Not provided'}}</td>
+                            <td>{{this.sun.astronomicalTwilightEnd != null ? this.sun.astronomicalTwilightEnd :'Not provided'}}</td>
+                            <td>{{this.sun.civilTwilightBegin != null ? this.sun.civilTwilightBegin :'Not provided'}}</td>
+                            <td>{{this.sun.civilTwilightEnd != null ? this.sun.civilTwilightEnd :'Not provided'}}</td>
+                            <td>{{this.sun.dayLength != null ? this.sun.dayLength :'Not provided'}}</td>
+                            <td>{{this.sun.nauticalTwilightBegin != null ? this.sun.nauticalTwilightBegin :'Not provided'}}</td>
+                            <td>{{this.sun.nauticalTwilightEnd != null ? this.sun.nauticalTwilightEnd :'Not provided'}}</td>
+                            <td>{{this.sun.solarNoon != null ? this.sun.solarNoon :'Not provided'}}</td>
+                            <td>{{this.sun.sunrise != null ? this.sun.sunrise :'Not provided'}}</td>
+                            <td>{{this.sun.sunset != null ? this.sun.sunset :'Not provided'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
