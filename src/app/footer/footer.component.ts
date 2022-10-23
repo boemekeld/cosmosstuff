@@ -26,4 +26,8 @@ export class FooterComponent implements OnInit {
   play() {
     this.midiaController.playMusic();
   }
+
+  openInsta(){
+    window.open('https://www.instagram.com/cosmossstuff/?igshid=YmMyMTA2M2Y%3D')
+  }
 }

@@ -92,7 +92,6 @@ export class KeplerProjectComponent implements OnInit {
       this.kepler.tStar = exoPlanet.TSTAR
       this.keplerArray.push(this.kepler)
     }
-    console.log(this.keplerArray)
   }
   noResult() {
     this.modal.infoModal('We got no results for this search')

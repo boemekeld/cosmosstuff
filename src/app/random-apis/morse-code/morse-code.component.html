@@ -6,7 +6,7 @@
                 <img src="../../../assets/svg/mars-rover.svg" alt="apod nasa image">
             </div>
 
-            <form *ngIf="morseCodeConverted == ''" [formGroup]="morseForm"
+            <form  *ngIf="morseCodeConverted == ''" [formGroup]="morseForm"
                 class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
                 <label>Text</label>
                 <input formControlName="text" placeholder="Type your text here" type="text">
@@ -16,16 +16,17 @@
                 </select>
 
                 <button (click)="search()" class="p-2 mt-3">Search</button>
+                <button (click)="info()" class="p-2 mt-3">Info</button>
+
             </form>
 
-            <div *ngIf="morseCodeConverted != ''"
+            <div id="blink-form" *ngIf="morseCodeConverted != ''"
                 class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
                 <label>Your text:</label>
                 <p>{{morseCodeConverted}}</p>
                 <button (click)="copy()" class="p-2 mt-3">Copy</button>
-                <button (click)="morseCodeConverted = ''" class="p-2 mt-3">Clear</button>
-                <button *ngIf="this.morseForm.controls['option'].value == 0" (click)="blink()"
-                    class="p-2 mt-3">Read</button>
+                <button (click)="clear()" class="p-2 mt-3">Back</button>
+                
             </div>
 
         </div>

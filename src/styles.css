@@ -122,7 +122,14 @@ footer style
     padding-bottom: 1rem;
 }
 
+.insta-icon{
+    color: var(--screaming-purple)!important;
+    cursor: pointer;
+}
 
+.insta-icon:hover{
+    color: var(--dark-purple)!important;
+}
 
 /**********************************************************************************************************************************************************
 footer style

@@ -94,7 +94,6 @@ export class MarsRoversComponent implements OnInit {
       this.roverPhotos.status = obj.rover.status;
       this.roverPhotosArray.push(this.roverPhotos);
     }
-    console.log(this.roverPhotosArray)
     this.isLoading = false;
     let display = this.roversForm.controls['display'].value
     display == 'Cards' ? this.displayOption = false : this.displayOption = true;
