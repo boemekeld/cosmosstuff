@@ -14,6 +14,6 @@ export class SupportusComponent implements OnInit {
   }
   copy(){
     navigator.clipboard.writeText(WALLET);
-    this.modal.successModal('Wallet copied')
+    this.modal.successModal('Wallet copied, this transfer code accepts only bitcoin. Go to your wallet and transfer any amout! Thanks a lot =D')
   }
 }

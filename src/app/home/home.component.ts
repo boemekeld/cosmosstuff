@@ -6,6 +6,7 @@ import { NeowsService } from '../services/nasa/neows.service';
 import { dateTool } from '../core/dateTool';
 import { asteroid } from '../nasa/models/asteroid';
 import { MarsRoversService } from '../services/nasa/mars-rovers.service';
+import { modals } from '../core/modals';
 
 
 @Component({
@@ -17,22 +18,36 @@ export class HomeComponent implements OnInit {
 
   asteroid!: asteroid;
   asteroidArray: asteroid[] = [];
-  marsPhoto:any;
-  randomDate:string = '';
+  marsPhoto: any;
+  randomDate: string = '';
   constructor(private settings: SettingsComponent,
     @Inject(DOCUMENT) private doc: any,
     private metaTags: metaTags,
     private asteroidsService: NeowsService,
     private dateService: dateTool,
-    private marsRovers:MarsRoversService,
+    private marsRovers: MarsRoversService,
+    private modal: modals
   ) { }
 
   ngOnInit(): void {
-    this.marsPhoto = {'img_src':undefined};
+    this.marsPhoto = { 'img_src': undefined };
     this.settings.loadPalette();
     this.updateMetatags();
     this.getAsteroids();
     this.getMarsPhoto();
+    this.welcomeMessage();
+  }
+
+  welcomeMessage() {
+    debugger;
+    let key: any = localStorage.getItem('firstVisit');
+    if (key) {
+      localStorage.setItem('firstVisit', JSON.stringify('false'))
+    } else {
+      this.modal.successModal('You are Welcome! We detected that it is your first visit. You can change the colors and more in settings, if you want to send any suggestion just use the contact chanel, and of course, if you liked this tool support us and help the free and oline content on the internet =D. Enjoy our tools!!')
+      localStorage.setItem('firstVisit', JSON.stringify('false'))
+    }
+
   }
 
   updateMetatags() {
@@ -99,15 +114,15 @@ export class HomeComponent implements OnInit {
       }
       this.asteroidArray.sort((a: any, b: any) => a.kilometersDistance.localeCompare(b.kilometersDistance))
       //pegando os 5 primeiros
-      this.asteroidArray = this.asteroidArray.slice(0,3); 
+      this.asteroidArray = this.asteroidArray.slice(0, 3);
     }
   }
 
-  getMarsPhoto(){
+  getMarsPhoto() {
     this.randomDate = this.dateService.getRandomDate();
-    this.marsRovers.getMarsPhotos(this.randomDate,'curiosity').subscribe((response:any)=>{
+    this.marsRovers.getMarsPhotos(this.randomDate, 'curiosity').subscribe((response: any) => {
       this.marsPhoto = response.photos.pop();
-    },error=>{
+    }, error => {
       this.getMarsPhoto();
     })
   }
