@@ -1,18 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
-
-
 export class midiaController {
     isPlaying: boolean = false;
     audio: HTMLAudioElement = new Audio('../../assets/songs/bot-1.mp4');
     audioSubscription: any
-    listen(duration:any) {
-        this.audioSubscription = interval(5000).subscribe((x => {
-            if (this.isPlaying) {
-                this.playMusic()
-            }
-        }));
-    }
+    
 
     setMusicFlag(play: boolean) {
         localStorage.setItem('playMusic', JSON.stringify(play))
@@ -49,12 +39,11 @@ export class midiaController {
         if (this.isPlaying == false) {
             this.isPlaying = true
             this.audio.play();
-            
-            this.listen(this.audio.duration);
         }
     }
 
     stopMusic() {
+        debugger;
         this.isPlaying = false;
         this.audio.pause()
     }

@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
     if (key) {
       localStorage.setItem('firstVisit', JSON.stringify('false'))
     } else {
-      this.modal.successModal('You are Welcome! We detected that it is your first visit. You can change the colors and more in settings, if you want to send any suggestion just use the contact chanel, and of course, if you liked this tool support us and help the free and oline content on the internet =D. Enjoy our tools!!')
+      this.modal.successModal('You are Welcome! We detected that it is your first visit. You can change the colors and more in settings, if you want to send any suggestion just use the contact channel, and of course, if you liked this tool support us and help the free and oline content on the internet =D. Enjoy our tools!!')
       localStorage.setItem('firstVisit', JSON.stringify('false'))
     }
 
