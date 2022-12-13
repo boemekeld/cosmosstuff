@@ -80,7 +80,6 @@ export class SunriseSunsetComponent implements OnInit {
       sunset:sun.sunset
     }
     this.isLoading = false;
-    console.log(this.sun)
   }
 
   checkForm() {

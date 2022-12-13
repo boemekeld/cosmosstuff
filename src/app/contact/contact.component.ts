@@ -51,7 +51,6 @@ export class ContactComponent implements OnInit {
   }
 
   checkHackerBehaviour() {
-    debugger;
     let currentDate = this.dateTool.getCurrentDate();
     let savedDate: any = localStorage.getItem('savedDate');
     savedDate = JSON.parse(savedDate);

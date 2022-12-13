@@ -43,7 +43,6 @@ export class midiaController {
     }
 
     stopMusic() {
-        debugger;
         this.isPlaying = false;
         this.audio.pause()
     }

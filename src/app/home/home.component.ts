@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
   }
 
   welcomeMessage() {
-    debugger;
     let key: any = localStorage.getItem('firstVisit');
     if (key) {
       localStorage.setItem('firstVisit', JSON.stringify('false'))
