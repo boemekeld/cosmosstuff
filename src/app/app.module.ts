@@ -30,10 +30,6 @@ import { metaTags } from './core/metaTags';
 import { ContactComponent } from './contact/contact.component';
 import { dateTool } from './core/dateTool';
 import { SupportusComponent } from './supportus/supportus.component';
-import { RoscosmosComponent } from './roscosmos/roscosmos.component';
-import { SpaceTugsComponent } from './roscosmos/space-tugs/space-tugs.component';
-import { LaunchpadsComponent } from './roscosmos/launchpads/launchpads.component';
-import { SpaceCraftsComponent } from './roscosmos/space-crafts/space-crafts.component';
 import { JamesWebbComponent } from './random-apis/james-webb/james-webb.component';
 import { midiaController } from './core/midiaController';
 import { MorseCodeComponent } from './random-apis/morse-code/morse-code.component';
@@ -62,10 +58,6 @@ import { SunriseSunsetComponent } from './random-apis/sunrise-sunset/sunrise-sun
     SettingsComponent,
     ContactComponent,
     SupportusComponent,
-    RoscosmosComponent,
-    SpaceTugsComponent,
-    LaunchpadsComponent,
-    SpaceCraftsComponent,
     JamesWebbComponent,
     MorseCodeComponent,
     SunriseSunsetComponent,

@@ -13,10 +13,6 @@ import { MorseCodeComponent } from './random-apis/morse-code/morse-code.componen
 import { RandomApisComponent } from './random-apis/random-apis.component';
 import { SunriseSunsetComponent } from './random-apis/sunrise-sunset/sunrise-sunset.component';
 import { UfoSightingsComponent } from './random-apis/ufo-sightings/ufo-sightings.component';
-import { LaunchpadsComponent } from './roscosmos/launchpads/launchpads.component';
-import { RoscosmosComponent } from './roscosmos/roscosmos.component';
-import { SpaceCraftsComponent } from './roscosmos/space-crafts/space-crafts.component';
-import { SpaceTugsComponent } from './roscosmos/space-tugs/space-tugs.component';
 import { SettingsComponent } from './settings/settings.component';
 import { DragonsComponent } from './space-x/dragons/dragons.component';
 import { HistoricalEventsComponent } from './space-x/historical-events/historical-events.component';
@@ -42,12 +38,6 @@ const routes: Routes = [
   { path: 'spaceX/historical-events', component: HistoricalEventsComponent, pathMatch: 'full' },
   { path: 'spaceX/dragons', component: DragonsComponent, pathMatch: 'full' },
   { path: 'spaceX/rockets', component: RocketsComponent, pathMatch: 'full' },
-
-  //roscosmos urls
-  { path: 'roscosmos', component: RoscosmosComponent, pathMatch: 'full' },
-  { path: 'roscosmos/spaceTugs', component: SpaceTugsComponent, pathMatch: 'full' },
-  { path: 'roscosmos/launchPads', component: LaunchpadsComponent, pathMatch: 'full' },
-  { path: 'roscosmos/spaceCrafts', component: SpaceCraftsComponent, pathMatch: 'full' },
 
   //random apis urls
   { path: 'random-apis', component: RandomApisComponent, pathMatch: 'full' },
