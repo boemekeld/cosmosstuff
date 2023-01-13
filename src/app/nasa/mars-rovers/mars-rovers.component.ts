@@ -68,17 +68,19 @@ export class MarsRoversComponent implements OnInit {
     this.isLoading = true;
     let date = this.roversForm.controls['date'].value
     let rover = this.roversForm.controls['rover'].value
-    this.roverService.getMarsPhotos(date, rover).subscribe((response: any) => {
-      let photosObj = response.photos;
-      if (photosObj.length > 0) {
-        this.bindObject(photosObj)
-      } else {
-        this.modals.infoModal(`This rover didn't took any photo on ${date}. You may change the date or the rover`)
-        this.isLoading = false;
-      }
-    }, error => {
-
-    })
+    if(this.roversForm.valid){
+      this.roverService.getMarsPhotos(date, rover).subscribe((response: any) => {
+        let photosObj = response.photos;
+        if (photosObj.length > 0) {
+          this.bindObject(photosObj)
+        } else {
+          this.modals.infoModal(`This rover didn't took any photo on ${date}. You may change the date or the rover`)
+          this.isLoading = false;
+        }
+      }, error => {
+  
+      })
+    }
   }
 
   bindObject(photosObj: any) {

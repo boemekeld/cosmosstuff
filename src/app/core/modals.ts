@@ -108,4 +108,14 @@ export class modals {
             `
         })
     }
+    apodModal(url: any) {
+        Swal.fire({
+            title: url.title,
+            html: `<img src="${url.url}" alt="Custom image" style="width:100%;height:100%;">`,
+            confirmButtonColor: this.root.style.getPropertyValue('--screaming-purple'),
+            confirmButtonText: 'Ok',
+            background: this.root.style.getPropertyValue('--dark'),
+            color: this.root.style.getPropertyValue('--screaming-purple'),
+          });
+    }
 }

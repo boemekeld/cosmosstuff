@@ -1,18 +1,20 @@
 <div class="container-fluid">
     <div class="row">
         <div *ngIf="this.apodData" class="d-md-flex  align-items-center justify-content-center apod min-vh-100">
-            <div *ngIf="this.apodData" class="col-12 col-md-6 apod-content">
+            
+            <div *ngIf="!isVideo" class="col-12 col-md-6 text-center">
+                <div class="p-3">
+                    <img class="img-fluid apod-img" [src]="this.apodData.url" alt="Apod image" style="border-radius: 1rem;">
+                </div>
+            </div>
+            <div *ngIf="this.apodData" class="col-12 col-md-6 apod-content p-3 mb-3" style="border-radius: 1rem;">
                 <h1>{{this.apodData.title}}</h1>
-                <p>
+                <p id="texto">
                     {{this.apodData.explanation}}
                 </p>
             </div>
-            <div *ngIf="!isVideo" class="col-12 col-md-6 text-center">
-                <img  class="img-fluid apod-img" [src]="this.apodData.url" alt="Apod image">
-            </div>
             <div *ngIf="isVideo && this.apodData != null" class="col-12 col-md-6 text-center">
-                <iframe [src]="this.apodData.url | safe"
-                    title="YouTube video player" frameborder="0"
+                <iframe [src]="this.apodData.url | safe" title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>

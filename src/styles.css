@@ -4,9 +4,9 @@
 
 :root {
     --dark: #000000;
-    --dark-purple: #150050;
-    --soft-purple: #3F0071;
-    --screaming-purple: #610094;
+    --dark-purple: #5800FF;
+    --soft-purple: #E900FF;
+    --screaming-purple: #FFC600;
 }
 
 * {
