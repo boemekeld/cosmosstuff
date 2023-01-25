@@ -183,7 +183,7 @@ nasa style
     border-radius: 1rem;
 }
 
-.jumbotron-nasa,
+.jumbotron-nasa, .li-text,
 h1,h5,
 p {
     color: var(--screaming-purple) !important;
@@ -292,6 +292,11 @@ mars-rovers nasa style
 .mars-rover-card {
     background-color: var(--dark) !important;
     margin-top: 2rem;
+}
+
+.apod-card-detail{
+    border: 0.5 rem!important;
+    border-color: var(--dark-purple)!important;
 }
 
 .mars-rover-card h5 {

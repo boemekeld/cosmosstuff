@@ -82,20 +82,20 @@ export class NeowsComponent implements OnInit {
         this.asteroid.estimatedDiameterMaxFeet = array.estimated_diameter.feet.estimated_diameter_max
         this.asteroid.estimatedDiameterMinFeet = array.estimated_diameter.feet.estimated_diameter_min
         //Km
-        this.asteroid.estimatedDiameterMaxKm = array.estimated_diameter.kilometers.estimated_diameter_max
-        this.asteroid.estimatedDiameterMinKm = array.estimated_diameter.kilometers.estimated_diameter_min
+        this.asteroid.estimatedDiameterMaxKm = array.estimated_diameter.kilometers.estimated_diameter_max.toLocaleString('en-IN', { maximumFractionDigits: 2 }) + " KM";
+        this.asteroid.estimatedDiameterMinKm = array.estimated_diameter.kilometers.estimated_diameter_min.toLocaleString('en-IN', { maximumFractionDigits: 2 }) + " KM";
         //Meters
         this.asteroid.estimatedDiameterMaxMeters = array.estimated_diameter.meters.estimated_diameter_max
         this.asteroid.estimatedDiameterMinMeters = array.estimated_diameter.meters.estimated_diameter_min
         //Miles
-        this.asteroid.estimatedDiameterMaxMiles = array.estimated_diameter.miles.estimated_diameter_max
-        this.asteroid.estimatedDiameterMinMiles = array.estimated_diameter.miles.estimated_diameter_min
+        this.asteroid.estimatedDiameterMaxMiles = array.estimated_diameter.miles.estimated_diameter_max.toLocaleString('en-IN', { maximumFractionDigits: 2 }) + " KM";
+        this.asteroid.estimatedDiameterMinMiles = array.estimated_diameter.miles.estimated_diameter_min.toLocaleString('en-IN', { maximumFractionDigits: 2 }) + " KM";
         //distance
         //astronomical
-        this.asteroid.astronomicalDistance = array.close_approach_data[0].miss_distance.astronomical
-        this.asteroid.kilometersDistance = array.close_approach_data[0].miss_distance.kilometers
-        this.asteroid.lunarDistance = array.close_approach_data[0].miss_distance.lunar
-        this.asteroid.milesDistance = array.close_approach_data[0].miss_distance.miles
+        this.asteroid.astronomicalDistance = array.close_approach_data[0].miss_distance.astronomical.toLocaleString('en-IN', { maximumFractionDigits: 2 }) + " KM";
+        this.asteroid.kilometersDistance = array.close_approach_data[0].miss_distance.kilometers.toLocaleString('en-IN', { maximumFractionDigits: 2 }) + " KM";
+        this.asteroid.lunarDistance = array.close_approach_data[0].miss_distance.lunar.toLocaleString('en-IN', { maximumFractionDigits: 2 }) + " Moon";
+        this.asteroid.milesDistance = array.close_approach_data[0].miss_distance.miles.toLocaleString('en-IN', { maximumFractionDigits: 2 }) + " Moon";
         //push asteroid to array
         this.asteroidArray.push(this.asteroid)
       }
@@ -133,6 +133,21 @@ export class NeowsComponent implements OnInit {
     return metaTags;
   }
   
+  getImage(asteroidSize:any){
+    debugger;
+    let url
+    let getPhotoPosition = Math.floor(Math.random() * 3);
+    if(asteroidSize < 1){
+      url = `../app/assets/asteroids/1.png`
+    }
+    if(asteroidSize > 1 && asteroidSize < 2){
+      url = `../app/assets/asteroids/2.png`
+    }
+    if(asteroidSize > 2){
+      url = `../app/assets/asteroids/3.png`
+    }
+    return url;
+  }
 
 
 }

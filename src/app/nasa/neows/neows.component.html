@@ -15,25 +15,25 @@
                 <button (click)="search()" class="p-2 mt-3">Search</button>
             </form>
 
-            <div *ngIf="this.isLoading" class="d-flex justify-content-center align-items-center  col-12 col-md-6 apod-content text-center">
-                <img  src="../../../assets/svg/loading.svg" alt="">
+            <div *ngIf="this.isLoading"
+                class="d-flex justify-content-center align-items-center  col-12 col-md-6 apod-content text-center">
+                <img src="../../../assets/svg/loading.svg" alt="">
             </div>
-            
+
 
             <div *ngIf="this.asteroidArray.length > 0"
-                class="d-flex flex-column  col-12 col-md-12 apod-content text-center p-5 table-responsive">
+                class="d-flex flex-column  col-12 col-md-12 apod-content text-center p-5 table-responsive mb-3">
                 <div class="d-flex flex-column col-12 col-md-3">
                     <button (click)="changeFlag()">Back</button>
                     <button (click)="exportToExcel()" class="mt-2">Export to Excel</button>
                 </div>
-                <table id="excel-table" class="table neows-table">
+                <table id="excel-table" class="table neows-table d-none">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Date</th>
                             <th scope="col">Nasa Link</th>
-                            <th scope="col">Absolute Magnitude</th>
                             <th scope="col">Astronomical Distance</th>
                             <th scope="col">Is Potential Hazardous</th>
                             <th scope="col">Estimated Diameter Max in Feet</th>
@@ -54,8 +54,7 @@
                             <th scope="row">{{i+1}}</th>
                             <td>{{this.asteroid.name}}</td>
                             <td>{{this.asteroid.date}}</td>
-                            <td>{{this.asteroid.nasaLink}}</td>
-                            <td>{{this.asteroid.absoluteMagnitudeH}}</td>
+                            <td><a [href]="this.asteroid.nasaLink">{{this.asteroid.nasaLink}}</a></td>
                             <td>{{this.asteroid.astronomicalDistance}}</td>
                             <td>{{this.asteroid.isPotentiallyHazardousAsteroid}}</td>
                             <td>{{this.asteroid.estimatedDiameterMaxFeet}}</td>
@@ -72,6 +71,24 @@
                         </tr>
                     </tbody>
                 </table>
+                <div class="row justify-content-center">
+                    <div *ngFor="let asteroid of this.asteroidArray" class="col-sm-12 col-md-3  m-2">
+                        <div class="card mars-rover-card apod-card-detail">
+                            <img class="card-img-top" [src]="getImage(this.asteroid.estimatedDiameterMaxKm)" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Name: {{this.asteroid.name}}</h5>
+                                <p>Official Nasa Documentation: 
+                                    <a [href]="this.asteroid.nasaLink">{{this.asteroid.nasaLink}}</a>
+                                </p>
+                                <ul class="ul-cards">
+                                    <li>Diameter: {{this.asteroid.estimatedDiameterMaxKm}}</li>
+                                    <li>Rover Name: Distance from Earth: {{this.asteroid.kilometersDistance}}</li>
+                                    <li>Lunar distance from Earth: {{this.asteroid.lunarDistance}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

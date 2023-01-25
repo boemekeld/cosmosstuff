@@ -4,10 +4,10 @@
     </div>
     <div>
         <ul class=" nav-submenu">
-            <li [routerLink]="['']" class="li-nav-submenu"> menu </li>
-            <li [routerLink]="['settings']" class="li-nav-submenu"> settings </li>
-            <li [routerLink]="['contact']" class="li-nav-submenu"> contact </li>
-            <li [routerLink]="['supportUs']" class="li-nav-submenu"> support us </li>
+            <li (click)="navigate(1)"  class="li-nav-submenu"> menu </li>
+            <li (click)="navigate(2)"  class="li-nav-submenu"> settings </li>
+            <li (click)="navigate(3)"  class="li-nav-submenu"> contact </li>
+            <li (click)="navigate(4)"  class="li-nav-submenu"> support us </li>
         </ul>
     </div>
 </nav>
