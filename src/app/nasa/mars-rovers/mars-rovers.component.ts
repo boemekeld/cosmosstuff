@@ -7,6 +7,9 @@ import { modals } from 'src/app/core/modals';
 import { MarsRoversService } from 'src/app/services/nasa/mars-rovers.service';
 import { roverPhoto } from '../models/roverPhoto';
 import { metaTags } from '../../core/metaTags';
+import { dateTool } from '../../core/dateTool';
+
+
 
 @Component({
   selector: 'app-mars-rovers',
@@ -15,21 +18,21 @@ import { metaTags } from '../../core/metaTags';
 })
 export class MarsRoversComponent implements OnInit {
   rovers: any[] = []
-  display:any[] = []
-  displayOption:boolean = false;
+  display: any[] = []
+  displayOption: boolean = false;
   roversForm = new FormGroup({
     date: new FormControl(null, Validators.required),
     rover: new FormControl(null, Validators.required),
     display: new FormControl(null, Validators.required)
   });
-  
+
   roverPhotos: roverPhoto = new roverPhoto();
   roverPhotosArray: roverPhoto[] = [];
   isLoading: boolean = false;
-  constructor(private metaTags:metaTags,private modals: modals, private roverService: MarsRoversService,private xlsx:exportToExcel,
-    private metaTagService: Meta, 
-    private titleService: Title, 
-    @Inject(DOCUMENT) private doc: any) { }
+  constructor(private metaTags: metaTags, private modals: modals, private roverService: MarsRoversService, private xlsx: exportToExcel,
+    private metaTagService: Meta,
+    private titleService: Title,
+    @Inject(DOCUMENT) private doc: any,private dateTool:dateTool) { }
 
   ngOnInit(): void {
     this.updateMetatags();
@@ -41,7 +44,7 @@ export class MarsRoversComponent implements OnInit {
     this.rovers = [{ name: 'Curiosity' }, { name: 'Opportunity' }, { name: 'Spirit' }]
   }
 
-  setDisplay(){
+  setDisplay() {
     this.display = [{ name: 'Cards' }, { name: 'Table' }]
   }
 
@@ -68,7 +71,7 @@ export class MarsRoversComponent implements OnInit {
     this.isLoading = true;
     let date = this.roversForm.controls['date'].value
     let rover = this.roversForm.controls['rover'].value
-    if(this.roversForm.valid){
+    if (this.roversForm.valid) {
       this.roverService.getMarsPhotos(date, rover).subscribe((response: any) => {
         let photosObj = response.photos;
         if (photosObj.length > 0) {
@@ -78,7 +81,7 @@ export class MarsRoversComponent implements OnInit {
           this.isLoading = false;
         }
       }, error => {
-  
+
       })
     }
   }
@@ -105,30 +108,30 @@ export class MarsRoversComponent implements OnInit {
     window.open(url)
   }
 
-  exportToExcel(){
+  exportToExcel() {
     let date = this.roversForm.controls['date'].value
     let rover = this.roversForm.controls['rover'].value
     this.xlsx.exportToExcel(`${rover}${date}`)
     this.modals.successModal('Your file was successfully exported')
   }
 
-  changeFlag(){
-    this.roverPhotosArray = []  
+  changeFlag() {
+    this.roverPhotosArray = []
     this.displayOption == false
   }
 
-  updateMetatags(){
-    this.metaTags.updateMetatags('CosmosStuff - Apod',this.doc.createElement('link'),this.createMetaTagsArray());
+  updateMetatags() {
+    this.metaTags.updateMetatags('CosmosStuff - Apod', this.doc.createElement('link'), this.createMetaTagsArray());
   }
 
-  createMetaTagsArray(){
+  createMetaTagsArray() {
     let metaTags = [
-      {name:'keywords',content:'nasa, spaceX, starlink, space,cosmos, tech, asteroids, jamesweb'},
-      {name:'robots',content:'index, follow'},
-      {name:'author',content:'CosmosStuff'},
-      {name:'viewport',content:'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0'},
-      {name:'date',content:''},
-      {name:'description',content:`Have you ever thought about visiting the red planet? Did you know that with this tool you are now able to? See as if you were on Mars the most exclusive photos from the Curiosity, Opportunity, and Spirit.`},
+      { name: 'keywords', content: 'NASA, Mars exploration, Mars mission, Mars rovers, Curiosity Rover, Opportunity Rover, Spirit Rover, space technology, space exploration' },
+      { name: 'robots', content: 'index, follow' },
+      { name: 'author', content: 'CosmosStuff' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+      { name: 'date', content: this.dateTool.getCurrentDate() },
+      { name: 'description', content: `Unlock the wealth of information gathered by NASA's Mars rovers with our tool. We make the data collected by Curiosity, Opportunity, and Spirit more readily accessible to developers, educators, and citizen scientists. Explore the red planet with real-time photos and data, and discover the latest findings from NASA's mission to Mars.` }
     ]
     return metaTags;
   }

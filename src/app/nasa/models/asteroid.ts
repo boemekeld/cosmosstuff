@@ -21,4 +21,5 @@ export class asteroid{
     nasaLink?:string;
     name?:string;
     neoIf?:string;
+    imgUrl?:string;
 }

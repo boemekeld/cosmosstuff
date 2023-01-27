@@ -159,6 +159,12 @@ home style
 
 }
 
+.news-card:hover{
+    opacity: 0.7;
+    color: var(--soft-purple);
+    cursor: pointer;
+}
+
 .home-p,
 .home-title-card {
     color: var(--screaming-purple);

@@ -72,17 +72,15 @@
                     </tbody>
                 </table>
                 <div class="row justify-content-center">
-                    <div *ngFor="let asteroid of this.asteroidArray" class="col-sm-12 col-md-3  m-2">
-                        <div class="card mars-rover-card apod-card-detail">
-                            <img class="card-img-top" [src]="getImage(this.asteroid.estimatedDiameterMaxKm)" alt="Card image cap">
+                    <div *ngFor="let asteroid of this.asteroidArray" class="col-sm-12 col-md-3  m-2" >
+                        <div  (click)="openNasaDetails(asteroid.nasaLink)" class="card mars-rover-card apod-card-detail news-card">
+                            <img class="card-img-top" [src]="asteroid.imgUrl" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Name: {{this.asteroid.name}}</h5>
-                                <p>Official Nasa Documentation: 
-                                    <a [href]="this.asteroid.nasaLink">{{this.asteroid.nasaLink}}</a>
-                                </p>
+                                
                                 <ul class="ul-cards">
                                     <li>Diameter: {{this.asteroid.estimatedDiameterMaxKm}}</li>
-                                    <li>Rover Name: Distance from Earth: {{this.asteroid.kilometersDistance}}</li>
+                                    <li>Distance from Earth: {{this.asteroid.kilometersDistance}}</li>
                                     <li>Lunar distance from Earth: {{this.asteroid.lunarDistance}}</li>
                                 </ul>
                             </div>

@@ -7,6 +7,8 @@ import * as moment from 'moment';
 import { modals } from 'src/app/core/modals';
 import { DOCUMENT } from '@angular/common';
 import { metaTags } from '../../core/metaTags';
+import { dateTool } from '../../core/dateTool';
+
 
 
 @Component({
@@ -25,10 +27,12 @@ export class NeowsComponent implements OnInit {
     , private exportXlsx: exportToExcel
     ,private modal:modals,
     @Inject(DOCUMENT) private doc: any,
-    private metaTags:metaTags) { }
+    private metaTags:metaTags,
+    private dateTool:dateTool) { }
   isLoading: boolean = false;
   asteroid!: asteroid;
   asteroidArray: asteroid[] = [];
+  imageUrl:string = ''
 
   ngOnInit(): void {
     this.updateMetatags();
@@ -96,6 +100,8 @@ export class NeowsComponent implements OnInit {
         this.asteroid.kilometersDistance = array.close_approach_data[0].miss_distance.kilometers.toLocaleString('en-IN', { maximumFractionDigits: 2 }) + " KM";
         this.asteroid.lunarDistance = array.close_approach_data[0].miss_distance.lunar.toLocaleString('en-IN', { maximumFractionDigits: 2 }) + " Moon";
         this.asteroid.milesDistance = array.close_approach_data[0].miss_distance.miles.toLocaleString('en-IN', { maximumFractionDigits: 2 }) + " Moon";
+        this.asteroid.imgUrl = this.getImage(this.asteroid.estimatedDiameterMaxKm) 
+        debugger;
         //push asteroid to array
         this.asteroidArray.push(this.asteroid)
       }
@@ -121,32 +127,34 @@ export class NeowsComponent implements OnInit {
   }
 
   createMetaTagsArray(){
-    let metaTags = [
-      {name:'keywords',content:'nasa, spaceX, starlink, space,cosmos, tech, asteroids, jamesweb'},
-      {name:'robots',content:'index, follow'},
-      {name:'author',content:'CosmosStuff'},
-      {name:'viewport',content:'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0'},
-      {name:'date',content:''},
-      {name:'description',content:`Explore in detail the asteroids that have passed close to our planet and those that will pass.
-      Learn about length, distance and more in this amazing tool.`},
+    let metaTags = [{name:'keywords',content:'asteroids, space, NASA, SpaceX, Starlink, distance, length'},
+    {name:'robots',content:'index, follow'},
+    {name:'copyright',content:'CosmosStuff'},
+    {name:'date',content:this.dateTool.getCurrentDate()},
+    {name:'description',content:`Discover the asteroids closest to Earth with our tool. Retrieve a list of asteroids based on their upcoming approach dates and gain access to useful data such as asteroid diameter, distance from Earth, and the maximum approach date. Keep track of the celestial bodies near our planet and never miss an opportunity to observe them.`}
     ]
     return metaTags;
   }
   
   getImage(asteroidSize:any){
     debugger;
-    let url
-    let getPhotoPosition = Math.floor(Math.random() * 3);
+    asteroidSize = parseFloat(asteroidSize)
+    let getPhotoPosition = Math.floor(Math.random() * 9);
     if(asteroidSize < 1){
-      url = `../app/assets/asteroids/1.png`
+      this.imageUrl = `../../../assets/asteroids/${Math.floor(Math.random() * 3) + 1}.jpg`
     }
     if(asteroidSize > 1 && asteroidSize < 2){
-      url = `../app/assets/asteroids/2.png`
+      this.imageUrl = `../../../assets/asteroids/${Math.floor(Math.random() * (7 - 4 + 1)) + 4}.jpg`
     }
     if(asteroidSize > 2){
-      url = `../app/assets/asteroids/3.png`
+      this.imageUrl = `../../../assets/asteroids/${Math.floor(Math.random() * (10 - 7 + 1)) + 7}.jpg`
     }
-    return url;
+
+    return this.imageUrl;
+  }
+
+  openNasaDetails(url:string | undefined){
+    window.open(url)
   }
 
 
