@@ -7,7 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { NasaComponent } from './nasa/nasa.component';
 import { ApodNasaComponent } from './nasa/apod-nasa/apod-nasa.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NeowsComponent } from './nasa/neows/neows.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { credentials } from './services/credentials';
@@ -36,7 +36,12 @@ import { MorseCodeComponent } from './random-apis/morse-code/morse-code.componen
 import { morseCode } from './core/morseCode';
 import { SunriseSunsetComponent } from './random-apis/sunrise-sunset/sunrise-sunset.component';
 import { TableComponent } from './shared/table/table.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,13 +70,21 @@ import { TableComponent } from './shared/table/table.component';
     TableComponent,
   ],
   imports: [
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     FormsModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    
   ],
   providers: [
     credentials,
@@ -86,4 +99,6 @@ import { TableComponent } from './shared/table/table.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}

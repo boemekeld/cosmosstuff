@@ -1,3 +1,4 @@
+
 <div class="container-fluid home">
     <div class="row">
         <div class="d-md-flex col-12 justify-content-around">
@@ -16,9 +17,9 @@
                             alt="Card image cap">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title home-title-card">Nasa Data</h5>
-                        <p class="card-text home-p">This card displays real-time data from NASA databases, giving you the most up-to-date information on space weather, satellite tracking, and other space-related data. Stay informed and explore the vast expanse of our universe with NASA's live data streams.</p>
-                        <p class="card-text"><small class="text-muted">Daily Updated</small></p>
+                        <h5 class="card-title home-title-card">{{"Nasa Data" | translate}}</h5>
+                        <p class="card-text home-p">{{ "This card displays real-time data from NASA databases, giving you the most up-to-date information on space weather, satellite tracking, and other space-related data. Stay informed and explore the vast expanse of our universe with NASA's live data streams." | translate}}</p>
+                        <p class="card-text"><small class="text-muted">{{"Daily Updated" | translate}} </small></p>
                     </div>
                 </div>
 
@@ -36,9 +37,9 @@
                             alt="Card image cap">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title home-title-card">SpaceX Data</h5>
-                        <p class="card-text home-p">This card displays live data straight from SpaceX's databases, giving you the most up-to-date information on current and upcoming missions. From rocket launches to satellite deployments, stay informed with real-time updates from the forefront of space exploration.</p>
-                        <p class="card-text"><small class="text-muted">Daily Updated</small></p>
+                        <h5 class="card-title home-title-card">{{"SpaceX Data" | translate}}</h5>
+                        <p class="card-text home-p">{{"This card displays live data straight from SpaceX's databases, giving you the most up-to-date information on current and upcoming missions. From rocket launches to satellite deployments, stay informed with real-time updates from the forefront of space exploration." | translate }}</p>
+                        <p class="card-text"><small class="text-muted">{{"Daily Updated" | translate}}</small></p>
                     </div>
                 </div>
 
@@ -57,11 +58,11 @@
                             alt="Card image cap">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title home-title-card">Random Apis</h5>
+                        <h5 class="card-title home-title-card">{{"Random Apis"|translate}}</h5>
                         <p class="card-text home-p">
-                            This tool offers a diverse range of space-related data from various sources on the internet, curated by individuals passionate about space and science, rather than relying solely on big organizations like NASA or private companies like Starlink.
+                            {{"This tool offers a diverse range of space-related data from various sources on the internet, curated by individuals passionate about space and science, rather than relying solely on big organizations like NASA or private companies like Starlink."|translate}}
                         </p>
-                        <p class="card-text"><small class="text-muted">Daily Updated</small></p>
+                        <p class="card-text"><small class="text-muted">{{"Daily Updated" | translate}}</small></p>
                     </div>
                 </div>
 
@@ -73,10 +74,10 @@
                         class="card mt-3 mars-rover-card text-center home-card">
                         <img class="card-img-top" [src]="this.marsPhoto.img_src" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Random Mars Photo</h5>
+                            <h5 class="card-title">{{'Random Mars Photo'|translate}}</h5>
                             <ul class="ul-cards">
-                                <li>Date: {{randomDate}}</li>
-                                <li>Rover Name: Curiosity</li>
+                                <li>{{'Date'|translate}}: {{randomDate}}</li>
+                                <li>{{'Rover Name: Curiosity'|translate}}</li>
                             </ul>
                         </div>
                     </div>
@@ -89,14 +90,14 @@
                 <!--closest asteroids-->
                 <div [routerLink]="['nasa/neows']" *ngIf="this.asteroidArray.length > 0" class="col-12 mt-3 table-responsive home-card
                     ">
-                    <h5 class="text-center">Closest asteroids to earth yesterday</h5>
+                    <h5 class="text-center">{{'Closest asteroids to earth yesterday'|translate}}</h5>
                     <table id="excel-table" class="table neows-table text-center">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Kilometers Distance</th>
-                                <th scope="col">Lunar Distance</th>
+                                <th scope="col">{{'Name'|translate}}</th>
+                                <th scope="col">{{'Kilometers Distance'|translate}}</th>
+                                <th scope="col">{{'Lunar Distance'|translate}}</th>
                             </tr>
                         </thead>
                         <tbody>

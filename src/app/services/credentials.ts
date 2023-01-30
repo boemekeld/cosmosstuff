@@ -1,4 +1,4 @@
-export class credentials {
+export  class credentials {
     key: string = '7oCa6Pb04FodgOPT6YKZvlGQnh2SYcmKPlJcm9XC'
     url: string = ''
     getNasaCredentials(component: string,startDate?:string,endDate?:string,rover?:string) {

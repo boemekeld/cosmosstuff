@@ -95,6 +95,12 @@ nav style
     font-size: 200%;
 }
 
+.option-bg{
+    color: var(--screaming-purple);
+    background-color: var(--dark);
+    border: none;
+}
+
 @media screen and (max-width: 992px) {
     .label {
         font-size: 100%;
@@ -103,6 +109,7 @@ nav style
 
     .nav-submenu {
         flex-direction: column;
+        border: none;
     }
 }
 

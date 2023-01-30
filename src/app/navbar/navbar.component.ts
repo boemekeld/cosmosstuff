@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { lang } from 'moment';
+import { AppComponent } from '../app.component';
+import { SharedDataService } from '../services/shared-data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,12 +11,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  language:any
+  langForm = new FormGroup({
+    language: new FormControl('', Validators.required),
+  });
+  display: any[] = []
+  constructor(private router: Router, private appComponent: AppComponent,private sharedData:SharedDataService) { }
 
   ngOnInit(): void {
+    this.setDisplay();
+    this.listenToLanguage();
+    this.setLanguage();
   }
 
+  async setLanguage(){
+    this.language = await this.sharedData.getSharedLanguage();
+    this.langForm.controls['language'].setValue(this.language);  
+  }
+
+  setDisplay() {
+    this.display = [{ name: 'english', flag: 'en' }, { name: 'portuguese', flag: 'pt' }]
+  }
 
   myFunction() {
     var x: any;
@@ -39,5 +58,14 @@ export class NavbarComponent implements OnInit {
         this.router.navigate(['supportUs']);
         break;
     }
+  }
+
+  listenToLanguage(){
+    this.langForm.controls['language'].valueChanges.subscribe(val => {
+      this.changeLanguage(val)
+    });
+  }
+  changeLanguage(language: string) {
+    this.appComponent.changeLanguage(language);
   }
 }

@@ -137,7 +137,6 @@ export class NeowsComponent implements OnInit {
   }
   
   getImage(asteroidSize:any){
-    debugger;
     asteroidSize = parseFloat(asteroidSize)
     let getPhotoPosition = Math.floor(Math.random() * 9);
     if(asteroidSize < 1){
