@@ -9,18 +9,18 @@
 
             <form *ngIf="this.isLoading == false && this.roverPhotosArray.length == 0" [formGroup]="roversForm"
                 class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
-                <label>Date</label>
+                <label>{{"Date"|translate}}</label>
                 <input formControlName="date" placeholder="start date" type="date">
-                <label>Rover</label>
+                <label>{{"Rover"|translate}}</label>
                 <select formControlName="rover" *ngIf="this.rovers.length > 0" class="mars-select">
                     <option *ngFor="let obj of this.rovers" [value]="obj.name">{{obj.name}}</option>
                 </select>
-                <label>Display</label>
+                <label>{{"Display"|translate}}</label>
                 <select formControlName="display" *ngIf="this.display.length > 0" class="mars-select">
                     <option *ngFor="let obj of this.display" [value]="obj.name">{{obj.name}}</option>
                 </select>
                 
-                <button (click)="search()" class="p-2 mt-3">Search</button>
+                <button (click)="search()" class="p-2 mt-3">{{"Search"|translate}}</button>
             </form>
 
             <div *ngIf="this.isLoading == true" class="col-12 col-md-6 apod-content">
@@ -30,24 +30,24 @@
             <div *ngIf="this.isLoading == false && this.roverPhotosArray.length > 0 && this.displayOption == false"
                 class="d-flex flex-column justify-content-between col-12 col-md-8 apod-content text-center p-5">
                 <div class="mars-rover-card">
-                    <h5>Total Cards: {{this.roverPhotosArray.length}}</h5>
-                    <button (click)="changeFlag()">Back</button>
+                    <h5>{{"TotalCards"|translate}}: {{this.roverPhotosArray.length}}</h5>
+                    <button (click)="changeFlag()">{{"Back"|translate}}</button>
                 </div>
                 <div *ngFor="let card of this.roverPhotosArray;let i = index">
                     <div class="card mars-rover-card">
-                        <h5>Card:{{i+1}}</h5>
+                        <h5>{{"Card"|translate}}:{{i+1}}</h5>
                         <img class="card-img-top" [src]="card.imgSrc" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{card.roverName}}</h5>
                             <ul class="ul-cards">
-                                <li>Date: {{card.date}}</li>
-                                <li>Rover Name: {{card.roverName}}</li>
-                                <li>Camera Name: {{card.fullCameraName}}</li>
-                                <li>Launch Date: {{card.launchDate}}</li>
-                                <li>Landing Date: {{card.landingDate}}</li>
-                                <li>Sol: {{card.sol}}</li>
+                                <li>{{"Date"|translate}}: {{card.date}}</li>
+                                <li>{{"RoverName"|translate}}: {{card.roverName}}</li>
+                                <li>{{"CameraName"|translate}}: {{card.fullCameraName}}</li>
+                                <li>{{"LaunchDate"|translate}}: {{card.launchDate}}</li>
+                                <li>{{"LandingDate"|translate}}: {{card.landingDate}}</li>
+                                <li>{{"Sol"|translate}}: {{card.sol}}</li>
                             </ul>
-                            <button (click)="openInANewTab(card.imgSrc)">Open in a new tab</button>
+                            <button (click)="openInANewTab(card.imgSrc)">{{"OpenNewTab"|translate}}</button>
                         </div>
                     </div>
                 </div>
@@ -56,8 +56,8 @@
             <div *ngIf="this.isLoading == false && this.roverPhotosArray.length > 0 && this.displayOption == true"
                 class="d-flex flex-column justify-content-between col-12 apod-content text-center p-5 table-responsive">
                 <div class="d-flex flex-column col-12 col-md-3">
-                    <button (click)="changeFlag()">Back</button>
-                    <button (click)="exportToExcel()" class="mt-2">Export to Excel</button>
+                    <button (click)="changeFlag()">{{"Back"|translate}}</button>
+                    <button (click)="exportToExcel()" class="mt-2">{{"ExportToExcel"|translate}}</button>
                 </div>
                 <table id="excel-table" class="table neows-table">
                     <thead>

@@ -8,17 +8,17 @@
             <div *ngIf="this.historicalArr.length > 0"
                 class="d-flex flex-column  col-12 col-md-12 apod-content text-center p-5 table-responsive">
                 <div class="d-flex flex-column col-12 col-md-3">
-                    <button (click)="exportToExcel()" class="mt-2">Export to Excel</button>
+                    <button (click)="exportToExcel()" class="mt-2">{{"ExportToExcel"|translate}}</button>
                 </div>
                 <table id="excel-table" class="table neows-table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Date Utc</th>
-                            <th scope="col">Details</th>
-                            <th scope="col">Flight Number</th>
-                            <th scope="col">Article</th>
-                            <th scope="col">Wikipedia</th>
+                            <th scope="col">{{"DateUtc"|translate}}</th>
+                            <th scope="col">{{"Details"|translate}}</th>
+                            <th scope="col">{{"FlightNumber"|translate}}</th>
+                            <th scope="col">{{"Article"|translate}}</th>
+                            <th scope="col">{{"Wikipedia"|translate}}</th>
 
                         </tr>
                     </thead>

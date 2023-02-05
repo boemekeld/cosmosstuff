@@ -7,13 +7,13 @@
 
             <form *ngIf="this.launcheArr.length == 0 && this.isLoading == false" [formGroup]="launchesForm"
                 class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
-                <label>Limit</label>
+                <label>{{"Limit"|translate}}</label>
                 <input formControlName="limit" min="0" max="100" placeholder="Between 0 and 1000" type="number">
-                <label>Display</label>
+                <label>{{"Display"|translate}}</label>
                 <select formControlName="display" *ngIf="this.display.length > 0" class="mars-select">
                     <option *ngFor="let obj of this.display" [value]="obj.name">{{obj.name}}</option>
                 </select>
-                <button (click)="search()" class="p-2 mt-3">Search</button>
+                <button (click)="search()" class="p-2 mt-3">{{"Search"|translate}}</button>
             </form>
 
             <div *ngIf="this.isLoading == true" class="col-12 col-md-6 apod-content">
@@ -23,21 +23,21 @@
             <div *ngIf="this.isLoading == false && this.launcheArr.length > 0 && this.displayInput == false"
                 class="d-flex flex-column justify-content-between col-12 col-md-8 apod-content text-center p-5">
                 <div class="mars-rover-card">
-                    <h5>Total Cards: {{this.launcheArr.length}}</h5>
-                    <button (click)="changeFlag()">Back</button>
+                    <h5>{{"TotalCards"|translate}}: {{this.launcheArr.length}}</h5>
+                    <button (click)="changeFlag()">{{"Back"|translate}}</button>
                 </div>
                 <div *ngFor="let card of this.launcheArr;let i = index">
                     <div class="card mars-rover-card">
-                        <h5>Card:{{i+1}}</h5>
+                        <h5>{{"Card"|translate}}:{{i+1}}</h5>
                         <img class="card-img-top" [src]="card.pad?.location?.mapImage" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{card.name}}</h5>
                             <ul class="ul-cards">
-                                <li>Slug: {{card.slug}}</li>
-                                <li>Window Start: {{card.windowStart}}</li>
-                                <li>Window End: {{card.windowEnd}}</li>
+                                <li>{{"Slug"|translate}}: {{card.slug}}</li>
+                                <li>{{"WindowStart"|translate}}: {{card.windowStart}}</li>
+                                <li>{{"WindowEnd"|translate}}: {{card.windowEnd}}</li>
                             </ul>
-                            <button (click)="openInANewTab(card.pad?.location?.mapImage)">Open in a new tab</button>
+                            <button (click)="openInANewTab(card.pad?.location?.mapImage)">{{"NewTab"|translate}}</button>
                         </div>
                     </div>
                 </div>
@@ -46,8 +46,8 @@
             <div *ngIf="this.isLoading == false && this.launcheArr.length > 0 && this.displayInput == true"
                 class="d-flex flex-column justify-content-between col-12 col-md-8 apod-content p-5">
                 <div class="mars-rover-card">
-                    <h5>Total Cards: {{this.launcheArr.length}}</h5>
-                    <button (click)="changeFlag()">Back</button>
+                    <h5>{{"TotalCards"|translate}}: {{this.launcheArr.length}}</h5>
+                    <button (click)="changeFlag()">{{"Back"|translate}}</button>
                 </div>
                 <div *ngFor="let card of this.launcheArr;let i = index">
                     <div class="card mars-rover-card">
@@ -60,36 +60,36 @@
                         <div class="card-body row justify-content-between">
                             <h3 class="card-title text-center">{{card.name}}</h3>
                             <div class="col-12 col-md-4">
-                                <label>Location:</label>
+                                <label>{{"Location"|translate}}:</label>
                                 <ul class="ul-cards">
-                                    <li>Name: {{card?.pad?.name}}</li>
-                                    <li>Latitude: {{card?.pad?.latitude}}</li>
-                                    <li>Longitude: {{card?.pad?.longitude}}</li>
-                                    <li>Map Image: {{card?.pad?.mapImage}}</li>
-                                    <li>Map Url: {{card?.pad?.mapUrl}}</li>
-                                    <li>Total Launch: {{card?.pad?.totalLaunchCount}}</li>
-                                    <li>Wikipedia: {{card?.pad?.wikiUrl}}</li>
+                                    <li>{{"Name"|translate}}: {{card?.pad?.name}}</li>
+                                    <li>{{"Latitude"|translate}}: {{card?.pad?.latitude}}</li>
+                                    <li>{{"Longitude"|translate}}: {{card?.pad?.longitude}}</li>
+                                    <li>{{"MapImage"|translate}}: {{card?.pad?.mapImage}}</li>
+                                    <li>{{"MapUrl"|translate}}: {{card?.pad?.mapUrl}}</li>
+                                    <li>{{"TotalLaunch"|translate}}: {{card?.pad?.totalLaunchCount}}</li>
+                                    <li>{{"Wikipedia"|translate}}: {{card?.pad?.wikiUrl}}</li>
                                 </ul>
                             </div>
                             <div class="col-12 col-md-4">
-                                <h5>Launch Information:</h5>
+                                <h5>{{"LaunchInformation"|translate}}:</h5>
                                 <ul class="ul-cards">
-                                    <li>Slug: {{card.slug}}</li>
-                                    <li>Window Start: {{card.windowStart}}</li>
-                                    <li>Window End: {{card.windowEnd}}</li>
-                                    <li>Fail Reason: {{card.failReason == null ? 'False' : card.failReason}}</li>
-                                    <li>Hashtag: {{card.hashtag == null ? 'Null' : card.hashtag}}</li>
-                                    <li>Image: {{card.image == null ? 'Null' : card.image}}</li>
-                                    <li>Infographic: {{card.infoGraphic == null ? 'Null' : card.infoGraphic}}</li>
-                                    <li>Last Updated: {{card.lastUpdated}}</li>
+                                    <li>{{"Slug"|translate}}: {{card.slug}}</li>
+                                    <li>{{"WindowStart"|translate}}: {{card.windowStart}}</li>
+                                    <li>{{"WindowEnd"|translate}}: {{card.windowEnd}}</li>
+                                    <li>{{"FailReason"|translate}}: {{card.failReason == null ? 'False' : card.failReason}}</li>
+                                    <li>{{"Hashtag"|translate}}: {{card.hashtag == null ? 'Null' : card.hashtag}}</li>
+                                    <li>{{"Image"|translate}}: {{card.image == null ? 'Null' : card.image}}</li>
+                                    <li>{{"Infographic"|translate}}: {{card.infoGraphic == null ? 'Null' : card.infoGraphic}}</li>
+                                    <li>{{"LastUpdated"|translate}}: {{card.lastUpdated}}</li>
                                 </ul>
                             </div>
                             <div class="col-12 col-md-4">
-                                <label>Mission:</label>
+                                <label>{{"Mission"|translate}}:</label>
                                 <ul class="ul-cards">
-                                    <li>Description: {{card.mission?.description}}</li>
-                                    <li>Name: {{card.mission?.name}}</li>
-                                    <li>Launch Designator: {{card.mission?.launchDesignator}}</li>
+                                    <li>{{"Description"|translate}}: {{card.mission?.description}}</li>
+                                    <li>{{"Name"|translate}}: {{card.mission?.name}}</li>
+                                    <li>{{"LaunchDesignator"}}: {{card.mission?.launchDesignator}}</li>
                                 </ul>
                             </div>
                             <div class="col-12 col-md-4">

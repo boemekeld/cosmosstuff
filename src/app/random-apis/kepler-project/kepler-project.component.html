@@ -10,7 +10,7 @@
                 <input formControlName="minKelvin" min="0" max="1000"  placeholder="min kelvin (temperature)" type="number">
                 <input formControlName="maxKelvin" min="0" max="1000"  placeholder="max kelvin (temperature)" type="number">
                 <input formControlName="limitResults" min="0" max="1000"  placeholder="limit results (planets limit)" type="number">
-                <button (click)="search()" class="p-2 mt-3">Search</button>
+                <button (click)="search()" class="p-2 mt-3">{{"Search"|translate}}</button>
             </form>
 
             <div *ngIf="this.isLoading == true" class="col-12 col-md-6 apod-content">
@@ -19,9 +19,9 @@
 
             <div *ngIf="this.keplerArray.length > 0 && this.isLoading == false" class="col-12 apod-content table-responsive">
                 <div class="d-flex flex-column col-8 col-md-3 m-2">
-                    <button (click)="changeFlag()">Back</button>
+                    <button (click)="changeFlag()">{{"Back"|translate}}</button>
                     <button (click)="info()" class="mt-2">Info</button>
-                    <button (click)="exportToExcel()" class="mt-2">Export to Excel</button>
+                    <button (click)="exportToExcel()" class="mt-2">{{"ExportToExcel"|translate}}</button>
                 </div>
                 <table id="excel-table" class="table neows-table">
                     <thead>

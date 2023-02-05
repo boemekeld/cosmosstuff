@@ -8,11 +8,11 @@
 
             <form *ngIf="this.asteroidArray.length == 0 && this.isLoading == false" [formGroup]="newosForm"
                 class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
-                <label>Start Date</label>
+                <label>{{'StartDate'|translate}}</label>
                 <input formControlName="startDate" placeholder="start date" type="date">
-                <label>End Date</label>
+                <label>{{'EndDate'|translate}}</label>
                 <input formControlName="endDate" placeholder="end date" type="date">
-                <button (click)="search()" class="p-2 mt-3">Search</button>
+                <button (click)="search()" class="p-2 mt-3">{{'Pesquisar'|translate}}</button>
             </form>
 
             <div *ngIf="this.isLoading"
@@ -76,12 +76,12 @@
                         <div  (click)="openNasaDetails(asteroid.nasaLink)" class="card mars-rover-card apod-card-detail news-card">
                             <img class="card-img-top" [src]="asteroid.imgUrl" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title">Name: {{this.asteroid.name}}</h5>
+                                <h5 class="card-title">{{"Name"|translate}}: {{this.asteroid.name}}</h5>
                                 
                                 <ul class="ul-cards">
-                                    <li>Diameter: {{this.asteroid.estimatedDiameterMaxKm}}</li>
-                                    <li>Distance from Earth: {{this.asteroid.kilometersDistance}}</li>
-                                    <li>Lunar distance from Earth: {{this.asteroid.lunarDistance}}</li>
+                                    <li>{{"Diameter"|translate}}: {{this.asteroid.estimatedDiameterMaxKm}}</li>
+                                    <li>{{"DistanceFromEarth"|translate}}: {{this.asteroid.kilometersDistance}}</li>
+                                    <li>{{"LunarDistanceFromEarth"|translate}}: {{this.asteroid.lunarDistance}}</li>
                                 </ul>
                             </div>
                         </div>

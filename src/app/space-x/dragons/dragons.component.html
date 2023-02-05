@@ -7,51 +7,51 @@
             <div *ngIf="this.isLoading == false"
                 class="d-flex flex-column justify-content-between col-12 col-md-8 apod-content text-center p-5">
                 <div class="mars-rover-card">
-                    <h5>Total Cards: {{this.dragonArray.length}}</h5>
+                    <h5>{{"TotalCards"|translate}}: {{this.dragonArray.length}}</h5>
                 </div>
                 <div *ngFor="let dragon of this.dragonArray;let i = index">
                     <div class="card mars-rover-card">
-                        <h5>Card:{{i+1}}</h5>
+                        <h5>{{"Card"|translate}}:{{i+1}}</h5>
                         <div class="row d-flex justify-content-between">
                             <div *ngFor="let imgCard of dragon.flickrImages" class="col-6 col-md-3">
                                 <img class="card-img-top " [src]="imgCard" alt="Dragon Image">
                             </div>
                         </div>
                         <div class="card-body">
-                            <button (click)="openInANewTab(dragon.flickrImages)">Open in a new tab</button>
+                            <button (click)="openInANewTab(dragon.flickrImages)">{{"NewTab"|translate}}</button>
                             <h5 class="card-title">{{dragon.name}}</h5>
                             <ul class="ul-cards">
-                                <li>IsActive: {{dragon.active}}</li>
-                                <li>Crew Capacity: {{dragon.crewCapacity}}</li>
-                                <li>First Flight: {{dragon.firstFlight}}</li>
-                                <li>Type: {{dragon.type}}</li>
-                                <li>Wikipedia: {{dragon.wikipedia}}</li>
-                                <li> Year Orbit Duration: {{dragon.orbitDurationYr}}</li>
-                                <li> Side Wall Angle Degree: {{dragon.sideWallAngleDeg}}</li>
-                                <li> Diameter Meters: {{dragon.diameterMeters}}</li>
-                                <li> Diameter Feets: {{dragon.diameterFeet}}</li>
-                                <li> Heigh W Truck Meters: {{dragon.heightWTruckMeters}}</li>
-                                <li> Height W Truck Feet: {{dragon.heightWTruckFeet}}</li>
-                                <li> Heat Shield Material: {{dragon.heatShieldMaterial}}</li>
-                                <li> Heat Shield Size Meters: {{dragon.heatShieldSizeMeters}}</li>
-                                <li> Heat Shield Temperature Degrees: {{dragon.heatShieldTempDegress}}</li>
-                                <li> Heat Shield Development Partner: {{dragon.heatShieldDevPartner}}</li>
-                                <li> Launch Payload Mass Kg: {{dragon?.launchPayloadMass?.kg}}</li>
-                                <li> Launch Payload Mass Lb: {{dragon?.launchPayloadMass?.lb}}</li>
-                                <li> Launch Payload Lb: {{dragon.launchPayloadLb}}</li>
-                                <li> Launch Payload Vol Cubic Meters: {{dragon.launchPayloadVolCubicMeters}}</li>
-                                <li> Launch Payload Vol Cubic Feet: {{dragon.launchPayloadVolCubicFeet}}</li>
-                                <li> Return Payload Load MAss Kg: {{dragon.returnPayloadMassKg}}</li>
-                                <li> Return Payload Mass Lb: {{dragon.returnPayloadMassLb}}</li>
-                                <li> Return Payload Vol Cubic Meters: {{dragon.returnPayloadVolCubicMeters}}</li>
-                                <li> Return Payload Vol Cubic Feet: {{dragon.returbPayloadVolCubicFeet}}</li>
-                                <li> Trunk Cargo Solar Array: {{dragon.trunkCargoSolarArray}}</li>
-                                <li> Trunk Cargo Unpressurized Cargo: {{dragon.trunkCargoUnpressurizedCargo}}</li>
-                                <li> Trunk Volume Cubic Feet: {{dragon.trunkVolumeCubicFeet}}</li>
-                                <li> Trunk Volume Cubic Meters: {{dragon.trunkVolumeCubicMeters}}</li>
-                                <li> Pressurized Capsule Payload Volume Cubic Feet: {{dragon.pressurizedCapsulePayloadVolumeCubicFeet}}</li>
-                                <li> Pressurized Capsule Payload Volume Cubic Meters: {{dragon.pressurizedCapsulePayloadVolumeCubicMeters}}</li>
-                                <li>Description: {{dragon.description}}</li>
+                                <li>{{"IsActive"|translate}}: {{dragon.active}}</li>
+                                <li>{{"CrewCapacity"|translate}}: {{dragon.crewCapacity}}</li>
+                                <li>{{"FirstFlight"|translate}}: {{dragon.firstFlight}}</li>
+                                <li>{{"Type"|translate}}: {{dragon.type}}</li>
+                                <li>{{"Wikipedia"|translate}}: {{dragon.wikipedia}}</li>
+                                <li> {{"YearOrbitDuration"|translate}}: {{dragon.orbitDurationYr}}</li>
+                                <li> {{"SideWallAngleDegree"|translate}}: {{dragon.sideWallAngleDeg}}</li>
+                                <li> {{"DiameterMeters"|translate}}: {{dragon.diameterMeters}}</li>
+                                <li> {{"DiameterFeets"|translate}}: {{dragon.diameterFeet}}</li>
+                                <li> {{"HeighWTruckMeters"|translate}}: {{dragon.heightWTruckMeters}}</li>
+                                <li> {{"HeightWTruckFeet"|translate}}: {{dragon.heightWTruckFeet}}</li>
+                                <li> {{"HeatShieldMaterial"|translate}}: {{dragon.heatShieldMaterial}}</li>
+                                <li> {{"HeatShieldSizeMeters"|translate}}: {{dragon.heatShieldSizeMeters}}</li>
+                                <li> {{"HeatShieldTemperatureDegrees"|translate}}: {{dragon.heatShieldTempDegress}}</li>
+                                <li> {{"HeatShieldDevelopmentPartner"|translate}}: {{dragon.heatShieldDevPartner}}</li>
+                                <li> {{"LaunchPayloadMassKg"|translate}}: {{dragon?.launchPayloadMass?.kg}}</li>
+                                <li> {{"LaunchPayloadMassLb"|translate}}: {{dragon?.launchPayloadMass?.lb}}</li>
+                                <li> {{"LaunchPayloadLb"|translate}}: {{dragon.launchPayloadLb}}</li>
+                                <li> {{"LaunchPayloadVolCubicMeters"|translate}}: {{dragon.launchPayloadVolCubicMeters}}</li>
+                                <li> {{"LaunchPayloadVolCubicFeet"|translate}}: {{dragon.launchPayloadVolCubicFeet}}</li>
+                                <li> {{"ReturnPayloadLoadMAssKg"|translate}}: {{dragon.returnPayloadMassKg}}</li>
+                                <li> {{"ReturnPayloadMassLb"|translate}}: {{dragon.returnPayloadMassLb}}</li>
+                                <li> {{"ReturnPayloadVolCubicMeters"|translate}}: {{dragon.returnPayloadVolCubicMeters}}</li>
+                                <li> {{"ReturnPayloadVolCubicFeet"|translate}}: {{dragon.returbPayloadVolCubicFeet}}</li>
+                                <li> {{"TrunkCargoSolarArray"|translate}}: {{dragon.trunkCargoSolarArray}}</li>
+                                <li> {{"TrunkCargoUnpressurizedCargo"|translate}}: {{dragon.trunkCargoUnpressurizedCargo}}</li>
+                                <li> {{"TrunkVolumeCubicFeet"|translate}}: {{dragon.trunkVolumeCubicFeet}}</li>
+                                <li> {{"TrunkVolumeCubicMeters"|translate}}: {{dragon.trunkVolumeCubicMeters}}</li>
+                                <li> {{"PressurizedCapsulePayloadVolumeCubicFeet"|translate}}: {{dragon.pressurizedCapsulePayloadVolumeCubicFeet}}</li>
+                                <li> {{"PressurizedCapsulePayloadVolumeCubicMeters"|translate}}: {{dragon.pressurizedCapsulePayloadVolumeCubicMeters}}</li>
+                                <li>{{"Description"|translate}}: {{dragon.description}}</li>
                             </ul>
                         </div>
                     </div>
