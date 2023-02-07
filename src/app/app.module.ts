@@ -29,7 +29,6 @@ import { SettingsComponent } from './settings/settings.component';
 import { metaTags } from './core/metaTags';
 import { ContactComponent } from './contact/contact.component';
 import { dateTool } from './core/dateTool';
-import { SupportusComponent } from './supportus/supportus.component';
 import { JamesWebbComponent } from './random-apis/james-webb/james-webb.component';
 import { midiaController } from './core/midiaController';
 import { MorseCodeComponent } from './random-apis/morse-code/morse-code.component';
@@ -38,6 +37,8 @@ import { SunriseSunsetComponent } from './random-apis/sunrise-sunset/sunrise-sun
 import { TableComponent } from './shared/table/table.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SupportersComponent } from './supporters/supporters.component';
+import { supportersFactory } from './core/supportersFactory';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -63,11 +64,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     RocketsComponent,
     SettingsComponent,
     ContactComponent,
-    SupportusComponent,
     JamesWebbComponent,
     MorseCodeComponent,
     SunriseSunsetComponent,
     TableComponent,
+    SupportersComponent,
   ],
   imports: [
     TranslateModule.forRoot({
@@ -95,7 +96,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     metaTags,
     dateTool,
     midiaController,
-    morseCode
+    morseCode,
+    supportersFactory
   ],
   bootstrap: [AppComponent]
 })

@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
   }
 
   setDisplay() {
-    this.display = [{ name: 'english', flag: 'en' }, { name: 'portuguese', flag: 'pt' }]
+    this.display = [{ name: 'english', flag: 'en' }, { name: 'português', flag: 'pt' }]
   }
 
   myFunction() {
@@ -55,7 +55,7 @@ export class NavbarComponent implements OnInit {
         this.router.navigate(['contact']);
         break;
       case 4:
-        this.router.navigate(['supportUs']);
+        this.router.navigate(['supporters']);
         break;
     }
   }

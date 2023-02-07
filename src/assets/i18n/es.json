@@ -1,0 +1,24 @@
+
+{
+    "Good morning": "Buenos días",
+"settings": "ajustes",
+"contact": "contacto",
+"support us": "apóyanos",
+"Nasa Data": "Datos de la NASA",
+"This card displays real-time data from NASA databases, giving you the most up-to-date information on space weather, satellite tracking, and other space-related data. Stay informed and explore the vast expanse of our universe with NASA's live data streams.": "Esta tarjeta muestra datos en tiempo real de las bases de datos de la NASA, brindándote la información más actualizada sobre el clima espacial, el seguimiento de satélites y otros datos relacionados con el espacio. Mantente informado y explora la inmensa extensión de nuestro universo con los flujos de datos en vivo de la NASA.",
+"SpaceX Data": "Datos de SpaceX",
+"This card displays live data straight from SpaceX's databases, giving you the most up-to-date information on current and upcoming missions. From rocket launches to satellite deployments, stay informed with real-time updates from the forefront of space exploration.": "Esta tarjeta muestra datos en tiempo real directamente de las bases de datos de SpaceX, brindándote la información más actualizada sobre las misiones actuales y futuras. Desde lanzamientos de cohetes hasta implementaciones de satélites, mantente informado con actualizaciones en tiempo real desde el vanguardia de la exploración espacial.",
+"Daily Updated": "Actualizado diariamente",
+"Random Apis": "APIs aleatorias",
+"This tool offers a diverse range of space-related data from various sources on the internet, curated by individuals passionate about space and science, rather than relying solely on big organizations like NASA or private companies like Starlink.": "Esta herramienta ofrece una amplia gama de datos relacionados con el espacio de diversas fuentes en internet, seleccionados por personas apasionadas por el espacio y la ciencia, en lugar de depender únicamente de grandes organizaciones como la NASA o empresas privadas como Starlink.",
+"Random Mars Photo": "Foto aleatoria de Marte",
+"Date": "Fecha",
+"Rover Name: Curiosity": "Nombre del Rover: Curiosity",
+"Closest asteroids to earth yesterday": "Los asteroides más cercanos a la tierra ayer",
+"Name": "Nombre",
+"Kilometers Distance": "Distancia en kilómetros",
+"Lunar Distance": "Distancia lunar",
+"Created by Cosmosstuff. © 2023": "Creado por Cosmosstuff. © 2023",
+"Nasa Databases": "Bases de datos de la NASA",
+"Nasa-Description": "Nuestra herramienta de vanguardia trae las últimas descubrimientos y avances en la exploración espacial directamente a su sitio web. Al conectarse a las API de NASA, nuestra herramienta recupera datos de las bases de datos de NASA, brindando acceso a una amplia gama de información e imágenes. Ya sea que busques imágenes de satélite, información sobre planetas y estrellas o actualizaciones en tiempo real sobre misiones espaciales, nuestra herramienta te cubre. Con nuestra herramienta, puedes agregar fácilmente contenido valioso a tu sitio web y mantener a tu audiencia involucrada con las últimas actualizaciones de NASA. Es perfecta para investigadores, educadores y entusiastas del espacio. Puedes integrar fácilmente los datos e imágenes en tu sitio web, convirtiéndolo en un excelente recurso para estudiantes e investigadores. Nuestra herramienta también ofrece una interfaz amigable para el usuario que le permite buscar y filtrar fácilmente los datos según sus necesidades específicas. También le permite personalizar los datos e imágenes de acuerdo con el diseño de su sitio web, haciéndolo un ajuste perfecto para cualquier sitio web. Además, nuestra herramienta está construida teniendo en cuenta la seguridad y privacidad, asegurando que todos los datos se transmitan y almacenen de manera segura. Con nuestra herramienta, puedes estar seguro de que la información que compartes con tu audiencia es precisa y confiable. Con nuestra herramienta, tienes el poder de desbloquear el vasto conocimiento de la exploración espacial y compartirlo con el mundo. No te pierdas esta oportunidad de mejorar tu sitio web y cautivar a tu audiencia con la última información de NASA."
+}

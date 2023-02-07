@@ -12,13 +12,13 @@
 
             <form *ngIf="this.isLoading == false && this.jamesWebbPhotoArray.length == 0" [formGroup]="jamesWebbForm"
                 class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
-                <label>Page Number</label>
+                <label>{{"PageNumber"|translate}}</label>
                 <input formControlName="page" [min]="0" [max]="10000" placeholder="Use zero to get all pages (it may be as heavy as jupiter)" type="number">
-                <label>Display</label>
+                <label>{{"Display"|translate}}</label>
                 <select formControlName="display" *ngIf="this.display.length > 0" class="mars-select">
                     <option *ngFor="let obj of this.display" [value]="obj.value">{{obj.name}}</option>
                 </select>
-                <button (click)="search(null)" class="p-2 mt-3">Search</button>
+                <button (click)="search(null)" class="p-2 mt-3">{{"Search"|translate}}</button>
             </form>
 
             <!--table-->
@@ -26,22 +26,22 @@
                 && this.jamesWebbForm.controls['display'].value == 0"
                 class="d-flex flex-column justify-content-between col-12 apod-content text-center p-5 table-responsive">
                 <div class="d-flex flex-column col-12 col-md-3">
-                    <h5>Page: {{this.currentPage}}</h5>
-                    <button class="mt-2" (click)="changeFlag()">Back</button>
-                    <button class="mt-2" (click)="changePage('previous')">Previous Page</button>
-                    <button class="mt-2" (click)="changePage('next')">Next Page</button>
-                    <button (click)="exportToExcel()" class="mt-2">Export to Excel</button>
+                    <h5>{{"Page"|translate}}: {{this.currentPage}}</h5>
+                    <button class="mt-2" (click)="changeFlag()">{{"Back"|translate}}</button>
+                    <button class="mt-2" (click)="changePage('previous')">{{"PreviousPage"|translate}}</button>
+                    <button class="mt-2" (click)="changePage('next')">{{"NextPage"|translate}}</button>
+                    <button (click)="exportToExcel()" class="mt-2">{{"ExportToExcel"|translate}}</button>
                 </div>
                 <table id="excel-table" class="table neows-table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Program</th>
-                            <th scope="col">Mission</th>
-                            <th scope="col">Suffix</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">File Type</th>
-                            <th scope="col">Image</th>
+                            <th scope="col">{{"Program"|translate}}</th>
+                            <th scope="col">{{"Mission"|translate}}</th>
+                            <th scope="col">{{"Suffix"|translate}}</th>
+                            <th scope="col">{{"Description"|translate}}</th>
+                            <th scope="col">{{"FileType"|translate}}</th>
+                            <th scope="col">{{"Image"|translate}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,24 +62,24 @@
             <div *ngIf="this.isLoading == false && this.jamesWebbPhotoArray.length > 0 && this.jamesWebbForm.controls['display'].value == 1"
                 class="d-flex flex-column justify-content-between col-12 col-md-8 apod-content text-center p-5">
                 <div class="mars-rover-card d-flex flex-column">
-                    <h5>Page: {{this.currentPage}}</h5>
-                    <button class="mt-2" (click)="changeFlag()">Back</button>
-                    <button class="mt-2" (click)="changePage('previous')">Previous Page</button>
-                    <button class="mt-2" (click)="changePage('next')">Next Page</button>
+                    <h5>{{"Page"|translate}}: {{this.currentPage}}</h5>
+                    <button class="mt-2" (click)="changeFlag()">{{"Back"|translate}}</button>
+                    <button class="mt-2" (click)="changePage('previous')">{{"PreviousPage"|translate}}</button>
+                    <button class="mt-2" (click)="changePage('next')">{{"NextPage"|translate}}</button>
                 </div>
                 <div *ngFor="let obj of this.jamesWebbPhotoArray;let i = index">
                     <div class="card mars-rover-card">
-                        <h5>Card:{{i+1}}</h5>
+                        <h5>{{"Card"|translate}}:{{i+1}}</h5>
                         <img class="card-img-top" [src]="obj.image" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{obj.program}}</h5>
                             <ul class="ul-cards">
-                                <li>Mission: {{obj.mission}}</li>
-                                <li>Suffix: {{obj.sufix}}</li>
-                                <li>File Type: {{obj.fileType}}</li>
-                                <li>Description: {{obj.description}}</li>
+                                <li>{{"Mission"|translate}}: {{obj.mission}}</li>
+                                <li>{{"Suffix"|translate}}: {{obj.sufix}}</li>
+                                <li>{{"FileType"|translate}}: {{obj.fileType}}</li>
+                                <li>{{"Description"|translate}}: {{obj.description}}</li>
                             </ul>
-                            <button (click)="openInANewTab(obj.image)">Download</button>
+                            <button (click)="openInANewTab(obj.image)">{{"Download"|translate}}</button>
                         </div>
                     </div>
                 </div>

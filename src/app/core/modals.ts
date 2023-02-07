@@ -1,7 +1,13 @@
+import { OnInit } from "@angular/core";
 import Swal from "sweetalert2";
 
 export class modals {
     root = document.documentElement
+    /**
+     *
+     */
+    constructor() { }
+
 
     errorModal(message: string) {
         Swal.fire({

@@ -51,7 +51,7 @@
                 </div>
                 <div *ngFor="let card of this.launcheArr;let i = index">
                     <div class="card mars-rover-card">
-                        <h5>Card:{{i+1}}</h5>
+                        <h5>{{"Card"|translate}}:{{i+1}}</h5>
                         <img class="card-img-top" [src]="card.pad?.location?.mapImage" alt="Card image cap">
                         <div class="col-6 mt-2">
                             <button (click)="openInANewTab(card.pad?.location?.mapImage)">Open in a new tab</button>
@@ -93,44 +93,41 @@
                                 </ul>
                             </div>
                             <div class="col-12 col-md-4">
-                                <label>Provider:</label>
+                                <label>{{"Provider"|translate}}:</label>
                                 <ul class="ul-cards">
-                                    <li>Name: {{card.launchServiceProvider?.name}}</li>
-                                    <li>Type: {{card.launchServiceProvider?.type}}</li>
+                                    <li>{{"Name"|translate}}: {{card.launchServiceProvider?.name}}</li>
+                                    <li>{{"Type"|translate}}: {{card.launchServiceProvider?.type}}</li>
                                 </ul>
                             </div>
                             <div class="col-12 col-md-4">
-                                <label>Orbit:</label>
+                                <label>{{"Orbit"|translate}}:</label>
                                 <ul class="ul-cards">
-                                    <li>Description: {{card.mission?.orbit?.abbrev}}</li>
-                                    <li>Name: {{card.mission?.orbit?.name}}</li>
+                                    <li>{{"Description"|translate}}: {{card.mission?.orbit?.abbrev}}</li>
+                                    <li>{{"Name"|translate}}: {{card.mission?.orbit?.name}}</li>
                                 </ul>
                             </div>
 
                             <div class="col-12 col-md-4">
-                                <label>Rocket:</label>
+                                <label>{{"Rocket"|translate}}:</label>
                                 <ul class="ul-cards">
-                                    <li>Name: {{card?.rocket?.configuration?.name}}</li>
-                                    <li>Full Name: {{card?.rocket?.configuration?.fullName}}</li>
-                                    <li>Family: {{card?.rocket?.configuration?.family}}</li>
-                                    <li>Variant: {{card?.rocket?.configuration?.variant}}</li>
+                                    <li>{{"Name"|translate}}: {{card?.rocket?.configuration?.name}}</li>
+                                    <li>{{"FullName"|translate}}: {{card?.rocket?.configuration?.fullName}}</li>
+                                    <li>{{"Family"|translate}}: {{card?.rocket?.configuration?.family}}</li>
+                                    <li>{{"Variant"|translate}}: {{card?.rocket?.configuration?.variant}}</li>
                                 </ul>
                             </div>
                             <div class="col-12 col-md-4">
-                                <label>Status:</label>
+                                <label>{{"Status"|translate}}:</label>
                                 <ul class="ul-cards">
-                                    <li>Name: {{card?.status?.name}}</li>
-                                    <li>Abbrev: {{card?.status?.abbrev}}</li>
-                                    <li>Description: {{card?.status?.description}}</li>
+                                    <li>{{"Name"|translate}}: {{card?.status?.name}}</li>
+                                    <li>{{"Abbrev"|translate}}: {{card?.status?.abbrev}}</li>
+                                    <li>{{"Description"|translate}}: {{card?.status?.description}}</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </div>

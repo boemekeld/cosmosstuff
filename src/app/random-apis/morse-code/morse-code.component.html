@@ -8,24 +8,24 @@
 
             <form  *ngIf="morseCodeConverted == ''" [formGroup]="morseForm"
                 class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
-                <label>Text</label>
+                <label>{{"Text"|translate}}</label>
                 <input formControlName="text" placeholder="Type your text here" type="text">
-                <label>Display</label>
+                <label>{{"Display"|translate}}</label>
                 <select formControlName="option" class="mars-select">
                     <option *ngFor="let obj of this.options" [value]="obj.value">{{obj.name}}</option>
                 </select>
 
-                <button (click)="search()" class="p-2 mt-3">Search</button>
-                <button (click)="info()" class="p-2 mt-3">Info</button>
+                <button (click)="search()" class="p-2 mt-3">{{"Search"|translate}}</button>
+                <button (click)="info()" class="p-2 mt-3">{{"Info"|translate}}</button>
 
             </form>
 
             <div id="blink-form" *ngIf="morseCodeConverted != ''"
                 class="d-flex flex-column  col-12 col-md-6 apod-content text-center p-5">
-                <label>Your text:</label>
+                <label>{{"YourText"|translate}}:</label>
                 <p>{{morseCodeConverted}}</p>
-                <button (click)="copy()" class="p-2 mt-3">Copy</button>
-                <button (click)="clear()" class="p-2 mt-3">Back</button>
+                <button (click)="copy()" class="p-2 mt-3">{{"Copy"|translate}}</button>
+                <button (click)="clear()" class="p-2 mt-3">{{"Back"|translate}}</button>
                 
             </div>
 

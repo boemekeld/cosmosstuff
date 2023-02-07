@@ -5,11 +5,11 @@
     <div>
         <ul class=" nav-submenu">
             <li (click)="navigate(1)"  class="li-nav-submenu"> menu </li>
+            <li (click)="navigate(4)"  class="li-nav-submenu"> {{'ourSupporters' | translate}} </li>
             <li (click)="navigate(2)"  class="li-nav-submenu"> {{'settings' | translate}} </li>
             <li (click)="navigate(3)"  class="li-nav-submenu"> {{'contact' | translate}} </li>
-            <li (click)="navigate(4)"  class="li-nav-submenu"> {{'support us' | translate}} </li>
-            <li [formGroup]="langForm">
-            <select formControlName="language" class=" option-bg li-nav-submenu">
+            <li class="li-nav-submenu" [formGroup]="langForm">
+            <select formControlName="language" class="option-bg ">
                 <option  class="option-bg" *ngFor="let obj of this.display" [value]="obj.flag">
                     {{obj.name}}
                 </option>
