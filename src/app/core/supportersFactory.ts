@@ -22,7 +22,11 @@ export class supportersFactory implements OnInit{
             id:1,
             name:"Tiago Domezi",
             url:"https://www.instagram.com/tiagodomezi/",
-            description:""
+            photo:`../../assets/supporters/thiago.jpg`,
+            description: {
+                label:"Thiago-Description",
+                text:''
+            }
         }
         this.supporters.push(this.supporter);
         /**************************************THIAGO */

@@ -97,7 +97,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     dateTool,
     midiaController,
     morseCode,
-    supportersFactory
+    supportersFactory,
   ],
   bootstrap: [AppComponent]
 })

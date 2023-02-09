@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { lang } from 'moment';
 import { AppComponent } from '../app.component';
 import { SharedDataService } from '../services/shared-data.service';
+import { ActivatedRoute } from "@angular/router";
+import { SupportersComponent } from '../supporters/supporters.component';
 
 @Component({
   selector: 'app-navbar',
@@ -31,16 +33,6 @@ export class NavbarComponent implements OnInit {
 
   setDisplay() {
     this.display = [{ name: 'english', flag: 'en' }, { name: 'português', flag: 'pt' }]
-  }
-
-  myFunction() {
-    var x: any;
-    x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
   }
 
   navigate(option: number) {

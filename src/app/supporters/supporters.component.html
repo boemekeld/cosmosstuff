@@ -1,19 +1,54 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="d-md-flex justify-content-center mars-rovers min-vh-100">
-            <div class="col-12 col-md-6 jumbotron-nasa text-center">
-                <div class="jumbotron jumbotron-fluid jumbotron-nasa-card">
-                    <div class="container">
-                      <h2>{{"Supporters"|translate}}</h2>
-                      <p>{{ "Supporters-Description" | translate}}</p>
+        <div class="d-md-flex col-12 justify-content-around mars-rovers ">
+            <div class="col-12 col-md-4 mt-3">
+                <div class="card mars-rover-card card-nasa text-center justify-content-center"
+                    (click)="visitProfile('https://www.instagram.com/tiagodomezi/')" style="cursor: pointer;">
+                    <div class="justify-content-center">
+                        <img class="card-img-top mt-4" src="../../assets/supporters/thiago.jpg" alt="Card image cap"
+                            style="max-width: 250px;">
                     </div>
-                  </div>
-            </div>
-            <div class="col-12 col-md-6">
-                <div>
-                    
+                    <div class="card-body">
+                        <h5 class="card-title">Tiago Domezi</h5>
+                        <ul class="ul-cards">
+                            <li>{{"Description"|translate}}: {{"Thiago-Description"|translate}}</li>
+                        </ul>
+                        <button>{{"VisitProfile"|translate}}</button>
+                    </div>
                 </div>
             </div>
+
+            <div class="col-12 col-md-7 jumbotron-nasa text-center">
+                <div class="jumbotron jumbotron-fluid jumbotron-nasa-card">
+                    <div class="container">
+                        <h2>{{"Supporters"|translate}}</h2>
+                        <p>{{ "Supporters-Description" | translate}}</p>
+                    </div>
+                </div>
+                <div class="jumbotron jumbotron-fluid jumbotron-nasa-card mt-2 mb-2">
+                    <div class="container">
+                        <h2>{{"Why-Support"|translate}}</h2>
+                        <ol>
+                            <li>{{ "Why-Support-1" | translate}}</li>
+                            <li>{{ "Why-Support-2" | translate}}</li>
+                            <li>{{ "Why-Support-3" | translate}}</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="jumbotron jumbotron-fluid jumbotron-nasa-card mt-2 mb-3">
+                    <div class="container">
+                        <h2>{{"HowToSupport"|translate}}</h2>
+                        <ol>
+                            <li>{{ "HowToSupport-1" | translate}}</li>
+                            <li>{{ "HowToSupport-2" | translate}}</li>
+                            <li>{{ "HowToSupport-3" | translate}}</li>
+                        </ol>
+                        <p>{{ "HowToSupport-info" | translate}}</p>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
 </div>

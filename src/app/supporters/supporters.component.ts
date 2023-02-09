@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { supportersFactory } from '../core/supportersFactory';
 import { supporter } from './models/supporter';
+import { TranslateService } from "@ngx-translate/core";
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-supporters',
@@ -9,15 +11,20 @@ import { supporter } from './models/supporter';
 })
 export class SupportersComponent implements OnInit {
   supporters:supporter[] = [];  
-  constructor(private supporterFactory:supportersFactory) { }
+  subscription: Subscription | undefined;
+  message = 'Initial message';
+  constructor(private supporterFactory:supportersFactory,private translate: TranslateService) { }
 
   ngOnInit(): void {
-    this.getSupporters();
+    
   }
 
-  getSupporters(){
-    debugger;
-    this.supporters = this.supporterFactory.createSupporters();
+  ngOnDestroy() {
+    if(this.subscription){this.subscription.unsubscribe();}
+  }
+
+  visitProfile(url:any){
+    window.open(url)
   }
 
 }
