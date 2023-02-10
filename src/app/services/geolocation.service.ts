@@ -6,14 +6,13 @@ import { SharedDataService } from './shared-data.service';
   providedIn: 'root'
 })
 export class GeolocationService {
-
+  lusoCountries = ['PT','BR','AO','MZ','MO','GW','CV','ST']
   constructor(private http: HttpClient) { }
 
   async getLocationByIp() {
     return await new Promise((resolve, reject) => {
       this.http.get('https://ipapi.co/json/').subscribe((data: any) => {
-        debugger;
-        if (data.country == 'BR') {
+        if (this.lusoCountries.includes(data.country)) {
          resolve('pt');
         }
        resolve('en');

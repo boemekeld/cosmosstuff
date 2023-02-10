@@ -101,7 +101,6 @@ export class NeowsComponent implements OnInit {
         this.asteroid.lunarDistance = array.close_approach_data[0].miss_distance.lunar.toLocaleString('en-IN', { maximumFractionDigits: 2 }) + " Moon";
         this.asteroid.milesDistance = array.close_approach_data[0].miss_distance.miles.toLocaleString('en-IN', { maximumFractionDigits: 2 }) + " Moon";
         this.asteroid.imgUrl = this.getImage(this.asteroid.estimatedDiameterMaxKm) 
-        debugger;
         //push asteroid to array
         this.asteroidArray.push(this.asteroid)
       }
