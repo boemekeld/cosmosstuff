@@ -2,6 +2,7 @@
     <div class="row">
         <div class="d-md-flex col-12 justify-content-around mars-rovers ">
             <div class="col-12 col-md-4 mt-3">
+
                 <div class="card mars-rover-card card-nasa text-center justify-content-center"
                     (click)="visitProfile('https://www.instagram.com/tiagodomezi/')" style="cursor: pointer;">
                     <div class="justify-content-center">
@@ -12,6 +13,21 @@
                         <h5 class="card-title">Tiago Domezi</h5>
                         <ul class="ul-cards">
                             <li>{{"Description"|translate}}: {{"Thiago-Description"|translate}}</li>
+                        </ul>
+                        <button>{{"VisitProfile"|translate}}</button>
+                    </div>
+                </div>
+
+                <div class="card mars-rover-card card-nasa text-center justify-content-center"
+                    (click)="visitProfile('https://www.instagram.com/cosmos.secrets/')" style="cursor: pointer;">
+                    <div class="justify-content-center">
+                        <img class="card-img-top mt-4" src="../../assets/supporters/cosmosSecrets.jpg" alt="Card image cap"
+                            style="max-width: 250px;">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Cosmos Secrets</h5>
+                        <ul class="ul-cards">
+                            <li>{{"Description"|translate}}: {{"Cosmos-Secrets-Description"|translate}}</li>
                         </ul>
                         <button>{{"VisitProfile"|translate}}</button>
                     </div>
